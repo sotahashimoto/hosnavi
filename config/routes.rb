@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
 
   resources :members, only: [:show, :edit, :update]
+  resources :hospitals, only: [:show, :index]
 end

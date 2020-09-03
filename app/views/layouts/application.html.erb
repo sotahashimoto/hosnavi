@@ -12,8 +12,10 @@
   <body>
     <% if member_signed_in? %>
       <%= link_to "マイページ", member_path(current_member) %>
+      <%= link_to "病院一覧", hospitals_path %>
       <%= link_to "ログアウト", destroy_member_session_path,  method: :delete %>
     <% else %>
+      <%= link_to "病院一覧", hospitals_path %>
       <%= link_to "新規登録", new_member_registration_path %>
       <%= link_to "ログイン", new_member_session_path %>
     <% end %>
