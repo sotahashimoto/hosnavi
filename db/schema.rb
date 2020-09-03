@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_030304) do
+ActiveRecord::Schema.define(version: 2020_09_03_083347) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "hospital_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hospitals", force: :cascade do |t|
     t.string "name"
@@ -29,6 +44,9 @@ ActiveRecord::Schema.define(version: 2020_09_03_030304) do
     t.datetime "remember_created_at"
     t.string "name"
     t.boolean "admin_flg", default: false
+    t.string "image_id"
+    t.string "postcode"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true

@@ -1,0 +1,10 @@
+<% if current_member.already_favorited?(comment) %>
+  <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), method: :delete do %>
+    参考になったを取り消す
+  <% end %>
+<% else %>
+  <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), method: :post do %>
+    参考になった
+  <% end %>
+<% end %>
+<%= comment.favorites.count %>
