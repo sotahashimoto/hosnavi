@@ -7,6 +7,10 @@
       <td><%= comment.created_at.strftime("%Y年%m月投稿") %></td>
       <td><%= comment.member.name %>さんの口コミ</td>
       <td><%= comment.content %></td>
+      <td>
+        <%# いいね機能　部分テンプレート %>
+        <%= render partial: "favorite", locals: { comment: comment } %>
+      </td>
     </tr>
   <% end %>
 </table>

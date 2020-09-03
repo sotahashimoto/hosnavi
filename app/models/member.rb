@@ -5,4 +5,9 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comments
+  has_many :favorites
+
+  def already_favorited?(comment)
+    self.favorites.exists?(comment_id: comment.id)
+  end
 end
