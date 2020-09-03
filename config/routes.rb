@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   resources :members, only: [:show, :edit, :update]
   resources :hospitals, only: [:show, :index] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:show, :create]
   end
 end

@@ -1,0 +1,17 @@
+<h2>口コミ | <%= @hospital.name %></h2>
+<i class="far fa-comment-dots"></i>口コミ<%= @comments.count %>件
+
+<table>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.created_at.strftime("%Y年%m月投稿") %></td>
+      <td><%= comment.member.name %>さんの口コミ</td>
+      <td><%= comment.content %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with(model: [@hospital, @comment], local: true) do |f| %>
+  <%= f.text_area :content, placeholder: "口コミをここに" %>
+  <%= f.submit "投稿" %>
+<% end %>
