@@ -2,3 +2,14 @@
 <h3><%= @hospital.feature %></h3>
 <p><%= @hospital.postcode %></p>
 <p><%= @hospital.address %></p>
+
+
+<% @comments.each do |hospital| %>
+  <%= hospital.member.name %>
+  <%= hospital.content %>
+<% end %>
+
+<%= form_with(model: [@hospital, @comment], local: true) do |f| %>
+  <%= f.text_area :content, placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
