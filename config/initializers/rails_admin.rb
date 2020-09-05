@@ -5,6 +5,11 @@ RailsAdmin.config do |config|
   ## == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :member
+
+    # /adminで直飛びされた時にパスワードを求める
+    authenticate_or_request_with_http_basic('Site Message') do |username, password|
+      username == 'admin' && password == 'admin'
+    end
   end
   config.current_user_method(&:current_member)
 

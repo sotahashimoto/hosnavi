@@ -2,6 +2,9 @@
 <h3><%= @hospital.feature %></h3>
 <p><%= @hospital.postcode %></p>
 <p><%= @hospital.address %></p>
+<% @medicals.each do |medical| %>
+  診療科目<%= medical.medical_department.name %>
+<% end %>
 
 <%= link_to "口コミ", hospital_comment_path(@hospital) %>
 <%= @hospital.comments.count %>件
