@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_135610) do
+ActiveRecord::Schema.define(version: 2020_09_05_075643) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "member_id"
     t.integer "hospital_id"
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "consultation_times", force: :cascade do |t|
+    t.integer "hospital_id"
+    t.integer "start_hour"
+    t.integer "start_minute"
+    t.integer "finish_hour"
+    t.integer "finish_minute"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
