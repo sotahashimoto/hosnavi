@@ -6,12 +6,41 @@
   診療科目<%= medical.medical_department.name %>
 <% end %>
 
-<% @consultation_times.each do |consultation_time| %>
-  <%= consultation_time.start_hour %>時
-  <%= consultation_time.start_minute %>分〜
-  <%= consultation_time.finish_hour %>時
-  <%= consultation_time.finish_minute %>分
-<% end %>
+
+<table>
+  <tr>
+    <%# start時 分 finish時 分 %>
+    <th></th><th></th><th></th><th></th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+  </tr>
+
+  <% @consultation_times.each do |consultation_time| %>
+    <tr>
+      <td><%= consultation_time.start_hour %>：</td>
+      <% if consultation_time.start_minute.to_s.length == 1 %>
+        <td><%= consultation_time.start_minute %>0〜</td>
+      <% else %>
+        <td><%= consultation_time.start_minute %>〜</td>
+      <% end %>
+      <td><%= consultation_time.finish_hour %>：</td>
+      <% if consultation_time.finish_minute.to_s.length == 1 %>
+        <td><%= consultation_time.finish_minute %>0</td>
+      <% else %>
+        <td><%= consultation_time.finish_minute %></td>
+      <% end %>
+
+      <% ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"].each do |weekday| %>
+        <td><%= human_active_weekday(consultation_time.consultation_day.send("is_#{weekday}")) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to "口コミ", hospital_comment_path(@hospital) %>
 <%= @hospital.comments.count %>件
