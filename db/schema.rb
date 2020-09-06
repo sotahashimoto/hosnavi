@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_075643) do
+ActiveRecord::Schema.define(version: 2020_09_05_111619) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "member_id"
@@ -20,7 +20,20 @@ ActiveRecord::Schema.define(version: 2020_09_05_075643) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "consultation_days", force: :cascade do |t|
+    t.boolean "is_sunday", default: true
+    t.boolean "is_monday", default: true
+    t.boolean "is_tuesday", default: true
+    t.boolean "is_wednesday", default: true
+    t.boolean "is_thursday", default: true
+    t.boolean "is_friday", default: true
+    t.boolean "is_saturday", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "consultation_times", force: :cascade do |t|
+    t.integer "consultation_day_id"
     t.integer "hospital_id"
     t.integer "start_hour"
     t.integer "start_minute"
