@@ -2,10 +2,10 @@
 <h3><%= @hospital.feature %></h3>
 <p><%= @hospital.postcode %></p>
 <p><%= @hospital.address %></p>
-<% @medicals.each do |medical| %>
-  診療科目<%= medical.medical_department.name %>
+診療科目
+<% @medical_departments.each do |medical_department| %>
+  <%= medical_department.name %>
 <% end %>
-
 
 <table>
   <tr>

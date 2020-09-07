@@ -1,0 +1,9 @@
+<h1><%= @medical_department.name %>の病院<h1>
+
+<% @hospitals.each do |hospital| %>
+  <%= link_to hospital.name, hospital_path(hospital)  %>
+<% end %>
+
+<%# @medicals.each do |medical| %>
+  <%#= link_to medical.hospital.name, hospital_path(medical)  %>
+<%# end %>
