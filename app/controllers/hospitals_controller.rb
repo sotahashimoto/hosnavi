@@ -9,4 +9,9 @@ class HospitalsController < ApplicationController
     # @medicals = @hospital.medicals
     @consultation_times = @hospital.consultation_times
   end
+
+  def search
+    @hospitals = Hospital.search(params[:search])
+    render "index"
+  end
 end

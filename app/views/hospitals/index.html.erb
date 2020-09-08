@@ -1,5 +1,13 @@
 <h1>病院一覧</h1>
 
+<%# <% @hospitals.each do |hospital| %> %>
+<%= form_with(url: search_path, method: :get, local: true) do |f| %>
+  <%= f.text_field :search %>
+  <%# <%= f.check_box :search, {multiple: true, include_hidden: false}, hospital.name %> %>
+  <%= f.submit 'Search' %>
+<% end %>
+<%# <% end %> %>
+
 <% @hospitals.each do |hospital| %>
   <%= link_to hospital.name, hospital_path(hospital) %>
 <% end %>

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_09_05_111619) do
     t.string "postcode"
     t.string "address"
     t.text "feature"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

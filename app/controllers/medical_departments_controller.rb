@@ -4,4 +4,8 @@ class MedicalDepartmentsController < ApplicationController
     # @medicals = @medical_department.medicals
     @hospitals = @medical_department.hospitals
   end
+
+  def index
+    @medical_departments = MedicalDepartment.all
+  end
 end

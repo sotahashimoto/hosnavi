@@ -1,8 +1,17 @@
-<h1><%= @medical_department.name %>の病院<h1>
+<h1><%= @medical_department.name %>の病院</h1>
 
-<% @hospitals.each do |hospital| %>
-  <%= link_to hospital.name, hospital_path(hospital)  %>
-<% end %>
+<table>
+  <tr>
+    <th></th>
+  </tr>
+
+  <% @hospitals.each do |hospital| %>
+    <tr>
+      <td><%= link_to hospital.name, hospital_path(hospital) %></td>
+      <td><%= hospital.comments %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%# @medicals.each do |medical| %>
   <%#= link_to medical.hospital.name, hospital_path(medical)  %>

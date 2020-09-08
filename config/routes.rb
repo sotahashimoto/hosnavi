@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: 'home#top'
   get 'about', to: 'home#about'
 
-  resources :medical_departments, only: [:show]
+  get "search" => "hospitals#search"
+
+  resources :medical_departments, only: [:show, :index]
   resources :members, only: [:show, :edit, :update]
   resources :hospitals, only: [:show, :index] do
     resources :comments, only: [:show, :create] do

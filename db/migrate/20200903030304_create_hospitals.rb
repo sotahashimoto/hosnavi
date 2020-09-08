@@ -5,6 +5,7 @@ class CreateHospitals < ActiveRecord::Migration[5.2]
       t.string :postcode
       t.string :address
       t.text :feature
+      t.string :phone_number
       t.timestamps
     end
   end

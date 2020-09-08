@@ -1,0 +1,4 @@
+<h1>診療科目一覧</h1>
+<% @medical_departments.each do |medical_department| %>
+  <%= link_to medical_department.name, medical_department_path(medical_department) %>
+<% end %>
