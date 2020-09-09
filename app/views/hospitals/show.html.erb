@@ -3,7 +3,7 @@
 <p><%= @hospital.postcode %></p>
 <p><%= @hospital.address %></p>
 <p><%= @hospital.phone_number %></p>
-診療科目
+<span>診療科目</span>
 <% @medical_departments.each do |medical_department| %>
   <%= link_to medical_department.name, medical_department_path(medical_department) %>
 <% end %>
@@ -44,4 +44,4 @@
 </table>
 
 <%= link_to "口コミ", hospital_comment_path(@hospital) %>
-<%= @hospital.comments.count %>件
+<%= @hospital.comments.count %><span>件</span>

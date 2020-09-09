@@ -3,16 +3,52 @@
 <table>
   <tr>
     <th></th>
+    <th></th>
+    <th></th>
+    <th>診療受付時間</th>
+    <th>日</th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% @hospitals.each do |hospital| %>
     <tr>
       <td><%= link_to hospital.name, hospital_path(hospital) %></td>
-      <td><%= hospital.comments %></td>
+      <td><%= hospital.short_message %></td>
+
+      <td>
+        <% hospital.medical_departments.each do |medical_department| %>
+          <%= medical_department.name %>
+        <% end %>
+      </td>
+
+      <td>
+        <% hospital.consultation_times.each do |consultation_time| %>
+          <%= consultation_time.start_hour %>
+          <%= consultation_time.start_minute %>
+          <%= consultation_time.finish_hour %>
+          <%= consultation_time.finish_minute %>
+        <% end %>
+      </td>
+
+      <% hospital.consultation_days.each do |consultation_day| %>
+        <td><%= consultation_day.is_sunday %></td>
+        <td><%= consultation_day.is_monday %></td>
+        <td><%= consultation_day.is_tuesday %></td>
+        <td><%= consultation_day.is_wednesday %></td>
+        <td><%= consultation_day.is_thursday %></td>
+        <td><%= consultation_day.is_friday %></td>
+        <td><%= consultation_day.is_saturday %></td>
+      <% end %>
+
+      <td>口コミ<%= link_to hospital.comments.count, hospital_comment_path(hospital.id)%>件</td>
+      <td><%= hospital.phone_number %></td>
     </tr>
   <% end %>
 </table>
-
-<%# @medicals.each do |medical| %>
-  <%#= link_to medical.hospital.name, hospital_path(medical)  %>
-<%# end %>

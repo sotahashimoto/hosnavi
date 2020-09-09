@@ -54,7 +54,10 @@ ActiveRecord::Schema.define(version: 2020_09_05_111619) do
     t.string "name"
     t.string "postcode"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.text "feature"
+    t.text "short_message"
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
