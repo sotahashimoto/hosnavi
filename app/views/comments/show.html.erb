@@ -8,7 +8,7 @@
       <td><%= comment.member.name %>さんの口コミ</td>
       <td><%= comment.content %></td>
       <td>
-        <%# いいね機能　部分テンプレート %>
+        <%# いいね機能 部分テンプレート %>
         <%= render partial: "favorite", locals: { comment: comment } %>
       </td>
     </tr>

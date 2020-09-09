@@ -1,5 +1,71 @@
 <h1>病院一覧</h1>
 
+<%# ----------------------修正中------------- %>
+<%= form_with(url: search_path, method: :get, local: true) do |f| %>
+  <%= f.check_box :search, {multiple: true, include_hidden: false}, 'a',nil %>
+  <%= f.submit 'Search' %>
+<% end %>
+<%# ----------------------------------------------- %>
+
 <% @hospitals.each do |hospital| %>
-  <%= link_to hospital.name, hospital_path(hospital) %>
+  <table border="1">
+    <tr>
+      <td><%= link_to hospital.name, hospital_path(hospital) %></td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= hospital.postcode %>
+        <%= hospital.address %>
+      </td>
+    </tr>
+
+    <tr>
+      <td><%= hospital.phone_number %></td>
+    </tr>
+
+    <tr>
+      <td>
+        <% hospital.medical_departments.each do |medical_department| %>
+          <%= medical_department.name %><span>/</span>
+        <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <td><%= hospital.short_message %></td>
+    </tr>
+
+    <tr>
+      <td>
+        <span>口コミ</span><%= hospital.comments.count %><span>件</span>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <% hospital.consultation_times.each do |consultation_time| %>
+          <%= consultation_time.start_hour %>：
+          <% if consultation_time.start_minute.to_s.length == 1 %>
+            <%= consultation_time.start_minute %>0〜
+          <% else %>
+            <%= consultation_time.start_minute %>〜
+          <% end %>
+
+          <%= consultation_time.finish_hour %>：
+          <% if consultation_time.finish_minute.to_s.length == 1 %>
+            <%= consultation_time.finish_minute %>0
+          <% else %>
+            <%= consultation_time.finish_minute %>
+          <% end %>
+        <% end %>
+
+        <% ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"].each do |weekday| %>
+          <% hospital.consultation_days.each do |consultation_day| %>
+            <%= human_active_weekday(consultation_day.send("is_#{weekday}")) %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
 <% end %>

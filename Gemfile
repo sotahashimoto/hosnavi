@@ -65,4 +65,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
 
+ gem 'geocoder'
+
 gem 'pry-byebug'
+
+gem 'jquery-rails'
