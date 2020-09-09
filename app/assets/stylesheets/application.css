@@ -23,3 +23,13 @@ footer {
   background-color: #9ff5b5;
   height: 50px;
 }
+
+a {
+	text-decoration: none ;
+  transition: 1.0s ;
+  color: gray ;
+}
+
+a:hover {
+  color: skyblue ;
+}
