@@ -14,22 +14,109 @@
  *= require_self
  */
 
-header {
-  background-color: aquamarine;
-  height: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+ul,li {
+  list-style: none;
+}
+
+.wrapper {
+  padding-top: 70px;
+}
+
+.gnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index: 100; */
+  width: 100%;
+  background-color: #fff; /*wrapperの背景色*/
+  /*------------wrapperの下線表示------------*/
+  -webkit-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, .2);
+  /*----------------------------------------*/
+}
+
+/*--------------------------------
+ グローバルナビ
+---------------------------------*/
+.gnav-list {
+  display: flex; /*文字を横並びに*/
+  justify-content: center; /*文字を中央配置*/
+}
+
+.gnav-item {
+  font-size: 22px;
+  padding: 0 24px; /*マイページ←→病院一覧*/
+  letter-spacing: .05em; /*マ←→イ←→ペ←→ー←→ジ*/
+}
+
+.gnav-link {
+  position: relative;
+  display: inline-block; /*文字を上下中央配置*/
+  padding: 20px 0; /*wrapperの高さを文字から上下20pxにする*/
+  color: #333; /*文字色*/
+  text-decoration:none; /*link_toの下線を消す*/
+}
+
+/* hover時に表示される下線の設定 */
+.gnav-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px; /*太さ*/
+  content: "";
+  transition: .3s; /*時間*/
+  transform: translateX(-50%); /*下線の位置(-50%が左右中央)*/
+  background-color: #333; /*色*/
+}
+
+.gnav-link:hover:after {
+  width: 100%; /*長さ*/
+}
+/*-------------------------*/
+
+/*--------------------------------
+ header
+---------------------------------*/
+.header {
+  display: flex;  /*header中央揃え*/
+  align-items: center;
+  justify-content: center;
+  height: 86vh;
+  background-image: url("top.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+/*--------------------------------
+ footer
+---------------------------------*/
 footer {
-  background-color: #9ff5b5;
-  height: 50px;
+  text-align: center;
+  padding: 20px 0;
+  background-color: slategray;
 }
 
-a {
-	text-decoration: none ;
-  transition: 1.0s ;
-  color: gray ;
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
 }
 
-a:hover {
-  color: skyblue ;
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
 }

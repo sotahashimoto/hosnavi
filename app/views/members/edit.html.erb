@@ -1,6 +1,21 @@
 <h1>編集画面</h1>
 
-<%= form_for(@member) do |f| %>
+<%= form_with model: @member, local: true do |f| %>
   <%= f.text_field :name %>
+  <%= f.text_field :nickname %>
+  <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160" %>
+  <%= f.attachment_field :image, placeholder: "画像" %>
+
+  <script>
+    $(function(){
+      $("#member_image").on("change", function (e) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $(".image").attr("src", e.target.result);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+      });
+    });
+  </script>
   <%= f.submit %>
 <% end %>

@@ -7,6 +7,8 @@ class Member < ApplicationRecord
   has_many :comments
   has_many :favorites
 
+  attachment :image
+
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)
   end

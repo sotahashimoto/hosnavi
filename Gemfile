@@ -65,7 +65,14 @@ gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
 
- gem 'geocoder'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
+gem 'geocoder'
+gem "dotenv-rails"
 
 gem 'pry-byebug'
 

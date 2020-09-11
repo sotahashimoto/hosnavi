@@ -1,8 +1,14 @@
 <h1>病院一覧</h1>
 
-<%# ----------------------修正中------------- %>
 <%= form_with(url: search_path, method: :get, local: true) do |f| %>
-  <%= f.check_box :search, {multiple: true, include_hidden: false}, 'a',nil %>
+  <%= f.collection_select :search, Hospital.all, :address, :name, :prompt =>"病院を選択してください。" %>
+  <%= f.submit 'Search' %>
+<% end %>
+
+
+<%# ----------------------修正中-------------------- %>
+<%= form_with(url: search_path, method: :get, local: true) do |f| %>
+  <%= f.check_box :search, {multiple: true, include_hidden: false}, '内科',nil %>
   <%= f.submit 'Search' %>
 <% end %>
 <%# ----------------------------------------------- %>
@@ -69,3 +75,5 @@
     </tr>
   </table>
 <% end %>
+
+<%= paginate @hospitals %>
