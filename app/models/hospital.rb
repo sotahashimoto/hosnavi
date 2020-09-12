@@ -9,7 +9,7 @@ class Hospital < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def self.search_name_address(search)
-    Hospital.where(['name LIKE ? OR address LIKE ?', "%#{search}%", "%#{search}%"])
+    MedicalDepartment.where(['name LIKE ?', "%#{search}%"])
   end
 
   def self.search_address(search)

@@ -1,10 +1,9 @@
 <h1>病院一覧</h1>
 
 <%= form_with(url: search_path, method: :get, local: true) do |f| %>
-  <%= f.collection_select :search, Hospital.all, :address, :name, :prompt =>"病院を選択してください。" %>
+  <%= f.collection_select :search, MedicalDepartment.all, :name, :name, :prompt =>"病院を選択してください。" %>
   <%= f.submit 'Search' %>
 <% end %>
-
 
 <%# ----------------------修正中-------------------- %>
 <%= form_with(url: search_path, method: :get, local: true) do |f| %>

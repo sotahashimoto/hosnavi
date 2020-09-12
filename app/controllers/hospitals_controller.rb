@@ -15,7 +15,7 @@ class HospitalsController < ApplicationController
 
   def search
     # @hospitals = Hospital.search_name_address(params[:search])
-    @hospitals = Hospital.search_name_address(params[:search]).page(params[:page]).per(5)
+    @hospitals = MedicalDepartment.search_name_address(params[:search]).page(params[:page]).per(5)
     render "index"
   end
 end
