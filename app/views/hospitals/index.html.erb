@@ -50,6 +50,21 @@
 
     <tr>
       <td>
+        <% if current_member.already_hospital_favorited?(hospital) %>
+          <%= link_to hospital_hospital_favorites_path(hospital), method: :delete do %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to hospital_hospital_favorites_path(hospital), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+        <%= hospital.hospital_favorites.count %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         <% hospital.consultation_times.each do |consultation_time| %>
           <%= consultation_time.start_hour %>：
           <% if consultation_time.start_minute.to_s.length == 1 %>
