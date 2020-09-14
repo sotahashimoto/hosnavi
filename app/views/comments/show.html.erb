@@ -5,10 +5,11 @@
   <% @comments.each do |comment| %>
     <tr>
       <td><%= comment.created_at.strftime("%Y年%m月投稿") %></td>
-      <td><%= comment.member.name %>さんの口コミ</td>
+      <td><%= attachment_image_tag comment.member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+      <td><%= comment.member.nickname %>さんの口コミ</td>
       <td><%= comment.content %></td>
-      <td>
-        <%# いいね機能 部分テンプレート %>
+      <%# いいね機能 非同期 %>
+      <td class=<%= "like-" + comment.id.to_s %>>
         <%= render partial: "favorite", locals: { comment: comment } %>
       </td>
     </tr>

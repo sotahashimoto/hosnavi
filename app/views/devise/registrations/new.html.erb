@@ -1,4 +1,5 @@
-<h2>Sign up</h2>
+<h2>会員登録</h2>
+<p>下記の内容をご入力の上、お進みください。</p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -6,6 +7,11 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
   </div>
 
   <div class="field">
@@ -27,8 +33,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('.sign_up'),class: "btn btn-success" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <h4 class="glay-label">
+    既に登録済みの方はこちら
+  <%= render "devise/shared/links" %>
+  </h4>
+</div>

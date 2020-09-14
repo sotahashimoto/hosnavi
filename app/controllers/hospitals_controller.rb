@@ -1,10 +1,6 @@
 class HospitalsController < ApplicationController
   def index
-    if params[:search].present?
-      @hospitals = Hospital.search_address(params[:search])
-    else
-      @hospitals = Hospital.all
-    end
+    @hospitals = Hospital.all.page(params[:page]).per(5)
   end
 
   def show
@@ -14,7 +10,7 @@ class HospitalsController < ApplicationController
   end
 
   def search
-    @hospitals = Hospital.search_name(params[:search])
+    @hospitals = Hospital.search(params).page(params[:page]).per(5)
     render "index"
   end
 end

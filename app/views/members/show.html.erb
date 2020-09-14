@@ -1,5 +1,7 @@
 <h1>ユーザー詳細</h1>
 
+<%= attachment_image_tag @member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
 <%= @member.name %>
+<%= @member.nickname %>
 <%= @member.email %>
 <%= link_to "ユーザー編集", edit_member_path(current_member) %>

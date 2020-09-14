@@ -45,3 +45,45 @@
 
 <%= link_to "口コミ", hospital_comment_path(@hospital) %>
 <%= @hospital.comments.count %><span>件</span>
+
+
+
+
+<script type="text/javascript">
+  function initMap() {
+
+    var test ={lat: <%= @hospital.latitude %>, lng: <%= @hospital.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @hospital.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+
+<style type="text/css">
+  #map { height: 200px;
+         width: 100%;}
+</style>
+
+<div id="map"></div>
