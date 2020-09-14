@@ -8,15 +8,30 @@ class Hospital < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  def self.search_name_address(search)
-    MedicalDepartment.where(['name LIKE ?', "%#{search}%"])
-  end
+  def self.search(search_params)
+    hospitals = Hospital.all
+    result = hospitals
+    if search_params[:search_address].present?
+      result = result.where(['address LIKE ?', "%#{search_params[:search_address]}%"])
+    end
+    if search_params[:search_name_address].present?
+      result = result.where(['name LIKE ? OR address LIKE ?', "%#{search_params[:search_name_address]}%", "%#{search_params[:search_name_address]}%"])
+    end
 
-  def self.search_address(search)
-    Hospital.where(['address LIKE ?', "%#{search}%"])
-  end
+    if search_params[:search_medical_department].present?
+      medical_departments = []
+      search_params[:search_medical_department].each do |department|
+        medical_departments += MedicalDepartment.search(department).pluck(:id)
+      end
+      medicals = Medical.where(medical_department_id: medical_departments)
+      result = result.where(id: medicals.pluck(:hospital_id))
+    end
 
-  # def self.search_medical_deaprtment(search)
-    # Hospital.medical_deaprtments.where(['name LIKE ?', "%#{search}%"])
-  # end
+    if search_params[:search_link_medical_department].present?
+      medical_departments = MedicalDepartment.search("%#{search_params[:search_link_medical_department]}%").pluck(:id)
+      medicals = Medical.where(medical_department_id: medical_departments)
+      result = result.where(id: medicals.pluck(:hospital_id))
+    end
+    return result #別にいらない
+  end
 end

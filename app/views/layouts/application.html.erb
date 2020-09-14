@@ -20,7 +20,9 @@
             <li class="gnav-item"><%= link_to "LOGO", root_path, {class: "gnav-link"} %></li>
             <li class="gnav-item">
               <%= form_with(url: search_path, method: :get, local: true, class: "gnav-link") do |f| %>
-                <%= f.text_field :search, {placeholder: "エリア・病院名"} %>
+                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
+                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
                 <%= f.submit '検索' %>
               <% end %>
             </li>
@@ -31,7 +33,9 @@
             <li class="gnav-item"><%= link_to "LOGO", root_path, {class: "gnav-link"} %></li>
             <li class="gnav-item">
               <%= form_with(url: search_path, method: :get, local: true, class: "gnav-link") do |f| %>
-                <%= f.text_field :search, {placeholder: "エリア・病院名"} %>
+                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
+                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
                 <%= f.submit '検索' %>
               <% end %>
             </li>
