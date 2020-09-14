@@ -8,6 +8,17 @@
   <%= link_to medical_department.name, medical_department_path(medical_department) %>
 <% end %>
 
+<% if current_member.already_hospital_favorited?(@hospital) %>
+  <%= link_to hospital_hospital_favorites_path(@hospital), method: :delete do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to hospital_hospital_favorites_path(@hospital), method: :post do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+<%= @hospital.hospital_favorites.count %>
+
 <table>
   <tr>
     <%# start時 分 finish時 分 %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :medical_departments, only: [:show, :index]
   resources :members, only: [:show, :edit, :update]
   resources :hospitals, only: [:show, :index] do
+    resource :hospital_favorites, only: [:create, :destroy]
     resources :comments, only: [:show, :create] do
       resource :favorites, only: [:create, :destroy]
     end
