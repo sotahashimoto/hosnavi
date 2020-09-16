@@ -1,0 +1,84 @@
+<header class="header"></header>
+
+
+<% ['内科', '消化器科', '循環器科', '呼吸器科',
+    '外科' ,'整形外科', '形成外科', '脳神経外科',
+    '小児科', '産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科',
+    'リハビリテーション科', '放射線科', '精神科', '麻酔科'
+   ].each do |medical_department| %>
+  <%= link_to "#{medical_department}", search_path(search_link_medical_department: "#{medical_department}") %>
+<% end %>
+
+<table>
+  <tr>
+    <th>北海道・東北</th>
+    <td>
+      <% ["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>関東</th>
+    <td>
+      <% ["茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>甲信越・北陸</th>
+    <td>
+      <% ["新潟", "富山", "石川", "福井", "山梨", "長野"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>東海</th>
+    <td>
+      <% ["岐阜", "静岡", "愛知", "三重"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>近畿</th>
+    <td>
+      <% ["滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>中国</th>
+    <td>
+      <% ["鳥取", "島根", "岡山", "広島", "山口"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>四国</th>
+    <td>
+      <% ["徳島", "香川", "愛媛", "高知"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>九州・沖縄</th>
+    <td>
+      <% ["福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"].each do |area| %>
+        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
+      <% end %>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,100 @@
+<h1><%= @hospital.name %></h1>
+<h3><%= @hospital.feature %></h3>
+<p><%= @hospital.postcode %></p>
+<p><%= @hospital.address %></p>
+<p><%= @hospital.phone_number %></p>
+<span>診療科目</span>
+<% @medical_departments.each do |medical_department| %>
+  <%= link_to medical_department.name, medical_department_path(medical_department) %>
+<% end %>
+
+<% if current_member.already_hospital_favorited?(@hospital) %>
+  <%= link_to hospital_hospital_favorites_path(@hospital), method: :delete do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to hospital_hospital_favorites_path(@hospital), method: :post do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+<%= @hospital.hospital_favorites.count %>
+
+<table>
+  <tr>
+    <%# start時 分 finish時 分 %>
+    <th></th><th></th><th></th><th></th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
+    <th>日</th>
+  </tr>
+
+  <% @consultation_times.each do |consultation_time| %>
+    <tr>
+      <td><%= consultation_time.start_hour %>：</td>
+      <% if consultation_time.start_minute.to_s.length == 1 %>
+        <td><%= consultation_time.start_minute %>0〜</td>
+      <% else %>
+        <td><%= consultation_time.start_minute %>〜</td>
+      <% end %>
+      <td><%= consultation_time.finish_hour %>：</td>
+      <% if consultation_time.finish_minute.to_s.length == 1 %>
+        <td><%= consultation_time.finish_minute %>0</td>
+      <% else %>
+        <td><%= consultation_time.finish_minute %></td>
+      <% end %>
+
+      <% ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"].each do |weekday| %>
+        <td><%= human_active_weekday(consultation_time.consultation_day.send("is_#{weekday}")) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "口コミ", hospital_comment_path(@hospital) %>
+<%= @hospital.comments.count %><span>件</span>
+
+
+
+
+<script type="text/javascript">
+  function initMap() {
+
+    var test ={lat: <%= @hospital.latitude %>, lng: <%= @hospital.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @hospital.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+
+<style type="text/css">
+  #map { height: 200px;
+         width: 100%;}
+</style>
+
+<div id="map"></div>

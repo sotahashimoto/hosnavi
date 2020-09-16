@@ -5,11 +5,68 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/8f8aa2dd98.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <header>
+      <nav class="hnav">
+        <ul class="hnav-list">
+          <% if member_signed_in? %>
+
+          <div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+          
+            <li class="hnav-item-logo"><%= link_to "LOGO", root_path, {class: "hnav-link"} %></li>
+
+</div>
+<div class="col-xs-10">
+
+
+
+            <li class="hnav-item">
+              <%= form_with(url: search_path, method: :get, local: true, class: "hnav-link") do |f| %>
+                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
+                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
+                <%= f.submit '検索' %>
+              <% end %>
+            </li>
+            <li class="hnav-item"><%= link_to "マイページ", member_path(current_member), {class: "hnav-link"} %></li>
+            <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+            <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path,  {method: :delete, class: "hnav-link"} %></li>
+          
+          
+          </div>
+          
+          
+          <% else %>
+            <li class="hnav-item"><%= link_to "LOGO", root_path, {class: "hnav-link"} %></li>
+            <li class="hnav-item">
+              <%= form_with(url: search_path, method: :get, local: true, class: "hnav-link") do |f| %>
+                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
+                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
+                <%= f.submit '検索' %>
+              <% end %>
+            </li>
+            <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+            <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
+            <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link"} %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
     <%= yield %>
+
+    <footer>
+    <p>ふったー</p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<h1>ユーザー詳細</h1>
+
+<%= attachment_image_tag current_member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
+<%= current_member.name %>
+<%= current_member.nickname %>
+<%= current_member.email %>
+<%= link_to "ユーザー編集", edit_member_path(current_member) %>
+
+<span>お気に入り病院</span>
+<% current_member.hospital_favorites.each do |member| %>
+  <%= member.hospital.name %>
+<% end %>
