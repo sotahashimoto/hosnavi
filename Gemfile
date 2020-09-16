@@ -71,6 +71,8 @@ gem 'devise-i18n-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 
@@ -80,3 +82,8 @@ gem "dotenv-rails"
 gem 'pry-byebug'
 
 gem 'jquery-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
