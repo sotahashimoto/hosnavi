@@ -20,14 +20,67 @@
   box-sizing: border-box;
 }
 
-ul,li {
-  list-style: none;
+/*----------header----------*/
+.logo {
+  margin-left: 100px;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
-.col-xs-2 {
-  background-color: red;
+.hnav-list {
+  text-align: right;
+  margin-right: 100px;
 }
 
-.col-xs-10 {
-  background-color: blue;
+.hnav-item {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.hnav-search {
+  padding-right: 80px;
+}
+
+.hnav-link {
+  color: black;
+}
+
+.hnav-link:hover,
+.hnav-link-logout:hover {
+  text-decoration: none;
+}
+
+.hnav-link:hover {
+  color: black;
+}
+
+.hnav-link-login_out:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.hnav-link-login_out {
+  background: #FF6666; /*背景色*/
+  color: white;
+  padding: 0.5em;/*文字周りの余白*/
+  border-radius: 2em;/*角の丸み*/
+}
+/* ---------- */
+
+footer {
+  height: 100px;
+  text-align: center;
+}
+
+.footer-font {
+  padding-top: 20px;
+}
+
+.footer-fontawesome {
+  color: #FF6666;
+  font-size: 30px;
+  padding: 0 15px 10px 15px;
 }

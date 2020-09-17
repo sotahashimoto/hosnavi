@@ -1,84 +1,158 @@
-<header class="header"></header>
+<div class="container">
+  <div class="row">
+    <div class="home-top">
+      <div class="home-top-font1">これからの医療をここから</div>
+      <div class="home-top-font2">より良い医療をもっと身近に、もっと気軽に</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="home-md">
+      <div class="col-md-6 home-md-img">
+      </div>
+      <div class="col-md-6 home-md-font">
+      <div class="home-box">
+        <p class="home-titele">診療科目から病院を探す</p>
+        </div>
+        <table>
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "内科", search_path(search_link_medical_department: "内科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">風邪・発熱・扁桃腺炎・インフルエンザ・腹痛・下痢など</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "小児科", search_path(search_link_medical_department: "小児科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">風邪・発熱・扁桃腺炎・インフルエンザ・おたふくかぜなど</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "皮膚科", search_path(search_link_medical_department: "皮膚科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">アトピー性皮膚炎・かぶれ・蕁麻疹・やけどなど</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "婦人科", search_path(search_link_medical_department: "婦人科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">子宮筋腫・子宮内膜症・性器脱・子宮頸がんなど</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "眼科", search_path(search_link_medical_department: "眼科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">白内障・緑内障・加齢黄斑変性・ドライアイなど</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "耳鼻咽喉科", search_path(search_link_medical_department: "耳鼻咽喉科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">慢性中耳炎・真珠腫性中耳炎・耳硬化症・咽頭炎など</td>
+          </tr>
+
+          <tr>
+            <th class="home-md-th">
+              <%= link_to "整形外科", search_path(search_link_medical_department: "整形外科"), {class: "home-md-link"} %>
+            </th>
+            <td class="home-md-td">骨折・打撲・捻挫・骨粗鬆症・末梢神経障害など</td>
+          </tr>
+        </table>
+        <%= link_to "すべての診療科目を見る", medical_departments_path, {class: "home-md-all_link"} %>
+      </div>
+    </div>
+  </div>
 
 
-<% ['内科', '消化器科', '循環器科', '呼吸器科',
-    '外科' ,'整形外科', '形成外科', '脳神経外科',
-    '小児科', '産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科',
-    'リハビリテーション科', '放射線科', '精神科', '麻酔科'
-   ].each do |medical_department| %>
-  <%= link_to "#{medical_department}", search_path(search_link_medical_department: "#{medical_department}") %>
-<% end %>
+  <div class="row">
+    <div class="home-area">
+      <div class="col-md-6 area-font">
+        <div class="home-box">
+          <p class="home-titele">都道府県から病院を探す</p>
+        </div>
+        <table>
+          <tr>
+            <th class="home-area-th">北海道・東北</th>
+            <td class="home-area-td">
+              <% ["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-<table>
-  <tr>
-    <th>北海道・東北</th>
-    <td>
-      <% ["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">関東</th>
+            <td class="home-area-td">
+              <% ["茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>関東</th>
-    <td>
-      <% ["茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">甲信越・北陸</th>
+            <td class="home-area-td">
+              <% ["新潟", "富山", "石川", "福井", "山梨", "長野"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>甲信越・北陸</th>
-    <td>
-      <% ["新潟", "富山", "石川", "福井", "山梨", "長野"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">東海</th>
+            <td class="home-area-td">
+              <% ["岐阜", "静岡", "愛知", "三重"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>東海</th>
-    <td>
-      <% ["岐阜", "静岡", "愛知", "三重"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">近畿</th>
+            <td class="home-area-td">
+              <% ["滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>近畿</th>
-    <td>
-      <% ["滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">中国</th>
+            <td class="home-area-td">
+              <% ["鳥取", "島根", "岡山", "広島", "山口"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>中国</th>
-    <td>
-      <% ["鳥取", "島根", "岡山", "広島", "山口"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr>
+            <th class="home-area-th">四国</th>
+            <td class="home-area-td">
+              <% ["徳島", "香川", "愛媛", "高知"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
 
-  <tr>
-    <th>四国</th>
-    <td>
-      <% ["徳島", "香川", "愛媛", "高知"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
+          <tr class="aaa">
+            <th class="home-area-th">九州・沖縄</th>
+            <td class="home-area-td">
+              <% ["福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"].each do |area| %>
+                <%= link_to "#{area}", search_path(search_address: "#{area}"), {class: "home-area-link"} %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-  <tr>
-    <th>九州・沖縄</th>
-    <td>
-      <% ["福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"].each do |area| %>
-        <%= link_to "#{area}", search_path(search_address: "#{area}") %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+      <div class="col-md-6 area-img">
+      </div>
+    </div>
+  </div>
+</div>
