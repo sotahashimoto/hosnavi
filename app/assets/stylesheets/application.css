@@ -48,21 +48,18 @@
   color: black;
 }
 
-.hnav-link:hover,
+.hnav-link:hover{text-decoration: none;}
+
+.hnav-link:hover {color: black;}
+
+.hnav-link-login:hover,
 .hnav-link-logout:hover {
-  text-decoration: none;
-}
-
-.hnav-link:hover {
-  color: black;
-}
-
-.hnav-link-login_out:hover {
   color: white;
   text-decoration: none;
 }
 
-.hnav-link-login_out {
+.hnav-link-login,
+.hnav-link-logout {
   background: #FF6666; /*背景色*/
   color: white;
   padding: 0.5em;/*文字周りの余白*/
