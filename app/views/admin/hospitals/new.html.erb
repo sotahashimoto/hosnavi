@@ -1,0 +1,16 @@
+<%= form_with model: @hospital, url: admin_hospitals_path, local: true do |f| %>
+  <%= f.text_field :name, placeholder: "病院名" %>
+  <%= f.text_field :postcode, placeholder: "郵便番号" %>
+  <%= f.text_field :address, placeholder: "住所" %>
+  <%= f.telephone_field :phone_number, placeholder: "電話番号" %>
+  <%= f.text_area :feature, placeholder: "特徴" %>
+  <%= f.text_area :short_message, placeholder: "一言メッセージ" %>
+  <%= f.attachment_field :image, placeholder: "画像" %>
+
+  <%= f.fields_for :medicals do |medical| %>
+    <%= medical.label :診療科目 %>
+    <%= medical.collection_select :medical_department_id, MedicalDepartment.all, :id, :name, :prompt => true %>
+  <% end %>
+
+  <%= f.submit "投稿" %>
+<% end %>

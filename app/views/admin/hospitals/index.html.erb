@@ -1,0 +1,16 @@
+<%= link_to "病院を新規投稿する", new_admin_hospital_path %>
+
+<table>
+  <tr></tr>
+  <% @hospitals.each do |hospital| %>
+    <tr>
+      <td><%= attachment_image_tag hospital, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+      <td><%= link_to hospital.name, admin_hospital_path(hospital) %></td>
+      <td><%= hospital.postcode %></td>
+      <td><%= hospital.address %></td>
+      <td><%= hospital.phone_number %></td>
+      <td><%= hospital.feature %></td>
+      <td><%= hospital.short_message %></td>
+    </tr>
+  <% end %>
+</table>

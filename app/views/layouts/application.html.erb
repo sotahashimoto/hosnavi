@@ -34,7 +34,24 @@
                     <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "マイページ", member_path(current_member), {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
-                    <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path,  {method: :delete, class: "hnav-link-logout"} %></li>
+                    <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+          <% elsif admin_signed_in? %>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="logo"><%= link_to "管理者", root_path, {class: "hnav-link"} %></div>
+              </div>
+              <div class="col-md-10">
+                <nav class="hnav">
+                  <ul class="hnav-list">
+                    <li class="hnav-item"><%= link_to "診療科目一覧", admin_medical_departments_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", admin_hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "ログアウト", destroy_admin_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
                   </ul>
                 </nav>
               </div>
@@ -60,6 +77,7 @@
                     <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link-login"} %></li>
+                    <li class="hnav-item"><%= link_to "管ログ", new_admin_session_path, {class: "hnav-link-login"} %></li>
                   </ul>
                 </nav>
               </div>

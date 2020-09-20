@@ -1,0 +1,16 @@
+<table>
+<tr>
+<td><%= attachment_image_tag @hospital, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+<td><%= @hospital.name %></td>
+<td><%= @hospital.postcode %></td>
+<td><%= @hospital.address %></td>
+<td><%= @hospital.phone_number %></td>
+<td><%= @hospital.feature %></td>
+<td><%= @hospital.short_message %></td>
+<td><%= link_to "編集する", edit_admin_hospital_path(@hospital) %></td>
+</tr>
+</table>
+
+<% @medical_departments.each do |md| %>
+<%= md.name %>
+<% end %>

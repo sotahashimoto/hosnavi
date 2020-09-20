@@ -1,0 +1,13 @@
+<table>
+  <tr></tr>
+  <% @medical_departments.each do |md| %>
+    <tr>
+      <td><%= link_to md.name, edit_admin_medical_department_path(md) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with model: @medical_department, url: admin_medical_departments_path, local: true do |f| %>
+  <%= f.text_field :name, placeholder: "診療科目名" %>
+  <%= f.submit "投稿" %>
+<% end %>

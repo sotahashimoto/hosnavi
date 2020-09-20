@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_034211) do
+ActiveRecord::Schema.define(version: 2020_09_18_141506) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "member_id"
@@ -61,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_034211) do
     t.string "name"
     t.string "postcode"
     t.string "address"
+    t.string "image_id"
     t.float "latitude"
     t.float "longitude"
     t.text "feature"
