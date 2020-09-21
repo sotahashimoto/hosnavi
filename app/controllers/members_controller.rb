@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   def show
+    @events = current_member.events
   end
 
   def edit

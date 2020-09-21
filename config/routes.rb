@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :medical_departments, only: [:show, :index]
-  resources :members, only: [:show, :edit, :update]
+  resources :members, only: [:show, :edit, :update] do
+    resources :events
+  end
   resources :hospitals, only: [:show, :index] do
     resource :hospital_favorites, only: [:create, :destroy]
     resources :comments, only: [:show, :create] do

@@ -80,6 +80,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 
+gem 'simple_calendar', '~> 2.0'
+
 gem 'cocoon'
 
 gem 'geocoder'

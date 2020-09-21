@@ -15,3 +15,13 @@
   <%= member.hospital.name %><br>
 <% end %>
 </div>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title %>
+    </div>
+  <% end %>
+<% end %>

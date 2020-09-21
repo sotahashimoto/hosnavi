@@ -1,0 +1,15 @@
+<%= link_to "予約日", new_member_event_path %>
+
+      <% @events.each do |event| %>
+      <%= event.title %>
+      <% end %>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title %>
+    </div>
+  <% end %>
+<% end %>
