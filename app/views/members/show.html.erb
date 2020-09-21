@@ -1,12 +1,17 @@
-<h1>ユーザー詳細</h1>
+<div class="container">
+  <div class="row">
+  <div class="col-md-6 hospital-i-index-img">
 
 <%= attachment_image_tag current_member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
 <%= current_member.name %>
 <%= current_member.nickname %>
 <%= current_member.email %>
 <%= link_to "ユーザー編集", edit_member_path(current_member) %>
+</div>
 
-<span>お気に入り病院</span>
+  <div class="col-md-6 hospital-i-index-img">
+<p>お気に入り病院</p>
 <% current_member.hospital_favorites.each do |member| %>
-  <%= member.hospital.name %>
+  <%= member.hospital.name %><br>
 <% end %>
+</div>

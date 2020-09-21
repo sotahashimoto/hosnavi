@@ -20,6 +20,18 @@
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.fas-fa-heart {
+  color: #FF6666;
+}
 /*----------header----------*/
 .logo {
   margin-left: 100px;

@@ -1,0 +1,5 @@
+<%= f.fields_for :medicals do |medical| %>
+  <div class="links">
+    <%= link_to_add_association '診療科目を追加', f, :medicals, class: 'btn btn-primary' %>
+  </div>
+<% end %>

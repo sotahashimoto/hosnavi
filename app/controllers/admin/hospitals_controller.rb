@@ -1,7 +1,7 @@
 class Admin::HospitalsController < ApplicationController
   def new
     @hospital = Hospital.new
-    2.times { @hospital.medicals.build }
+    1.times { @hospital.medicals.build }
   end
 
   def index
