@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_062143) do
     t.float "longitude"
     t.text "feature"
     t.text "short_message"
+    t.text "notices"
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

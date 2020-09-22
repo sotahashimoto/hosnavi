@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  before_action :authenticate_member!, only: [:showw, :edit]
+
   def show
     @events = current_member.events
   end

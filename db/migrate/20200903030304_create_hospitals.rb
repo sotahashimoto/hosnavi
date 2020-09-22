@@ -9,6 +9,7 @@ class CreateHospitals < ActiveRecord::Migration[5.2]
       t.float :longitude
       t.text :feature
       t.text :short_message
+      t.text :notices
       t.string :phone_number
       t.timestamps
     end

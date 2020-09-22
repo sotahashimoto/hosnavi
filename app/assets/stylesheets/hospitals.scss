@@ -23,7 +23,7 @@
 
 .hospital-i-index-hospital_name::before,
 .hospital-i-index-hospital_name::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   display: inline-block;
@@ -32,8 +32,12 @@
   background-color: black;
 }
 
-.hospital-i-index-hospital_name::before {left: 60px;}
-.hospital-i-index-hospital_name::after {right: 60px;}
+.hospital-i-index-hospital_name::before {
+  left: 60px;
+}
+.hospital-i-index-hospital_name::after {
+  right: 60px;
+}
 
 .hospital-i-index-address {
   margin: 20px 0 0 20px;
@@ -55,7 +59,7 @@
 }
 
 .hospital-i-index-comment-favorite {
-  margin-top: 22px;
+  margin-top: 30px;
   font-size: 20px;
 }
 
@@ -68,28 +72,45 @@
   margin-left: 220px;
 }
 
+.hospital-i-index-notices {
+  margin-top: 30px;
+}
+
+.hospital-i-index-notices-font {
+  text-align: center;
+  font-size: 20px;
+}
+
 .hospital-i-index-consultation {
   margin: 20px auto;
   font-size: 20px;
   text-align: center;
 }
 
-.hospital-i-th-consultation_time {text-align: center;}
+.hospital-i-th-consultation_time {
+  text-align: center;
+}
 
-.hospital-i-th-consultation_day {text-align: center;}
+.hospital-i-th-consultation_day {
+  text-align: center;
+}
 
 .hospital-i-td-consultation_time,
 .hospital-i-td-consultation_day {
   text-align: center;
 }
 
-.hospital-s-table-consultation {margin-top: 10px;}
+.hospital-s-table-consultation {
+  margin-top: 10px;
+}
 
-.hospital-s-row-map {margin-top: 10px;}
+.hospital-s-row-map {
+  margin-top: 10px;
+}
 
 .hospital-i-th-consultation_sunday {
   text-align: center;
-  background-color: #FF6666;
+  background-color: #ff6666;
   color: white;
 }
 

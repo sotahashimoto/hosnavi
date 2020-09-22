@@ -39,6 +39,7 @@
         </span>
 
         <span class ="hospital-i-index-favorite">
+        <% if member_signed_in? %>
           <% if current_member.already_hospital_favorited?(@hospital) %>
             <%= link_to hospital_hospital_favorites_path(@hospital), method: :delete do %>
               <i class="fas fa-heart fas-fa-heart"></i> いいね
@@ -48,8 +49,15 @@
               <i class="far fa-heart"></i> いいね
             <% end %>
           <% end %>
+        <% else%>
+        いいね
+        <% end %>
           <%= @hospital.hospital_favorites.count %>件
         </span>
+      </div>
+      <div class="hospital-i-index-notices">
+        <p class="hospital-i-index-notices-font">特記事項</p>
+        <%= @hospital.notices %>
       </div>
     </div>
 

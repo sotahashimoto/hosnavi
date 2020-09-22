@@ -1,8 +1,10 @@
-<%= link_to "予約日", new_member_event_path %>
+<%= link_to "診察予約日を登録する", new_member_event_path %>
 
-      <% @events.each do |event| %>
-      <%= event.title %>
-      <% end %>
+<% @events.each do |event| %>
+  <%= event.start_time %>
+  <%= event.title %>
+
+<% end %>
 
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
