@@ -6,6 +6,10 @@ class Hospital < ApplicationRecord
   has_many :consultation_times
   has_many :consultation_days, through: :consultation_times
 
+  attachment :image
+
+  accepts_nested_attributes_for :medicals
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 

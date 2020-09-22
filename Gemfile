@@ -68,7 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'cancancan'
-gem 'rails_admin'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -80,6 +79,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+
+gem 'simple_calendar', '~> 2.0'
+
+gem 'cocoon'
 
 gem 'geocoder'
 gem "dotenv-rails"

@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -20,6 +21,18 @@
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.fas-fa-heart {
+  color: #ff6666;
+}
 /*----------header----------*/
 .logo {
   margin-left: 100px;
@@ -48,8 +61,7 @@
   color: black;
 }
 
-.hnav-link:hover,
-.hnav-link-logout:hover {
+.hnav-link:hover {
   text-decoration: none;
 }
 
@@ -57,16 +69,18 @@
   color: black;
 }
 
-.hnav-link-login_out:hover {
+.hnav-link-login:hover,
+.hnav-link-logout:hover {
   color: white;
   text-decoration: none;
 }
 
-.hnav-link-login_out {
-  background: #FF6666; /*背景色*/
+.hnav-link-login,
+.hnav-link-logout {
+  background: #ff6666; /*背景色*/
   color: white;
-  padding: 0.5em;/*文字周りの余白*/
-  border-radius: 2em;/*角の丸み*/
+  padding: 0.5em; /*文字周りの余白*/
+  border-radius: 2em; /*角の丸み*/
 }
 /* ---------- */
 
@@ -80,7 +94,7 @@ footer {
 }
 
 .footer-fontawesome {
-  color: #FF6666;
+  color: #ff6666;
   font-size: 30px;
   padding: 0 15px 10px 15px;
 }

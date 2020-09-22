@@ -1,3 +1,19 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-s-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.comment-s-word_of_mouth {
+  color: rgb(197, 194, 194);
+}
+
+// .comment-s-table-form {
+//   border: 1px solid;
+//   border-radius: 8px; /* 半径が8pxの角丸 */
+//   border-color: black;
+// }

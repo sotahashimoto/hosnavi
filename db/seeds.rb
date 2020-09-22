@@ -56,6 +56,7 @@ Hospital.create!(
                 地域医療支援病院、大阪府がん診療連携拠点病院、基幹型臨床研修指定病院等に指定されている。',
       phone_number: '072-988-1409',
       short_message: '瓢箪山駅から近く駐車場もあります',
+      notices: 'ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
     },
     {
       name: '八尾徳洲会総合病院',
@@ -66,6 +67,7 @@ Hospital.create!(
       feature: '八尾徳洲会総合病院は、大阪府八尾市にある民間病院である。徳洲会の病院としては全国で4番目の病院である。',
       phone_number: '072-993-8501',
       short_message: '八尾にある大きい病院です',
+      notices: 'あああああああdfks大fdjsfkじゃdsfkjさdfljkdさjfkdjfl；jdfかjdksファjdkじゃkdlf；j；fkjdsl；ファ'
     },
     {
       name: '石切生喜病院',

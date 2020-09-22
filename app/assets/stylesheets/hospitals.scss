@@ -4,12 +4,12 @@
 
 .hospital-i-index-img {
   height: 400px;
-  background-image: image-url("home-medical_department.jpg");
+  margin-bottom: 15px;
 }
 
 .hospital-i-index-font {
   height: 400px;
-  // background-color: honeydew;
+  margin-bottom: 15px;
 }
 
 .hospital-i-index-hospital_name {
@@ -23,7 +23,7 @@
 
 .hospital-i-index-hospital_name::before,
 .hospital-i-index-hospital_name::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   display: inline-block;
@@ -32,11 +32,15 @@
   background-color: black;
 }
 
-.hospital-i-index-hospital_name::before {left: 60px;}
-.hospital-i-index-hospital_name::after {right: 60px;}
+.hospital-i-index-hospital_name::before {
+  left: 60px;
+}
+.hospital-i-index-hospital_name::after {
+  right: 60px;
+}
 
 .hospital-i-index-address {
-  margin: 5px 0 0 20px;
+  margin: 20px 0 0 20px;
   font-size: 20px;
 }
 .hospital-i-index-phone_number {
@@ -54,25 +58,81 @@
   font-size: 20px;
 }
 
+.hospital-i-index-comment-favorite {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
 .hospital-i-index-comment {
   margin: 22px 0 0 20px;
   font-size: 20px;
 }
 
-table{
-  width: 100%;
-  border-spacing: 0;
+.hospital-i-index-favorite {
+  margin-left: 220px;
 }
 
-table th{
-  border-bottom: solid 2px #fb5144;
-  padding: 10px 0;
+.hospital-i-index-notices {
+  margin-top: 30px;
+}
+
+.hospital-i-index-notices-font {
+  text-align: center;
+  font-size: 20px;
+}
+
+.hospital-i-index-consultation {
+  margin: 20px auto;
+  font-size: 20px;
   text-align: center;
 }
 
-table td{
-  border-bottom: solid 2px #ddd;
+.hospital-i-th-consultation_time {
   text-align: center;
-  padding: 10px 0;
-  font-size: 15px;
+}
+
+.hospital-i-th-consultation_day {
+  text-align: center;
+}
+
+.hospital-i-td-consultation_time,
+.hospital-i-td-consultation_day {
+  text-align: center;
+}
+
+.hospital-s-table-consultation {
+  margin-top: 10px;
+}
+
+.hospital-s-row-map {
+  margin-top: 10px;
+}
+
+.hospital-i-th-consultation_sunday {
+  text-align: center;
+  background-color: #ff6666;
+  color: white;
+}
+
+.hospital-i-th-consultation_saturday {
+  text-align: center;
+  background-color: #9cd0f0;
+  color: white;
+}
+
+// ----------------------------------------------------
+// hospital-show
+// ----------------------------------------------------
+.hospital-s-address {
+  margin: 20px 0 0 20px;
+  font-size: 20px;
+}
+.hospital-s-phone_number {
+  margin: 5px 0 0 20px;
+  font-size: 20px;
+}
+
+.hospital-s-medical_department-name {
+  margin: 5px 0 0 20px;
+  font-size: 20px;
 }

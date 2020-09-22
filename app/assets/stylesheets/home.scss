@@ -15,9 +15,13 @@
   background-image: image-url("home-medical_department.jpg");
 }
 
-.home-md-font {height: 300px;}
+.home-md-font {
+  height: 300px;
+}
 
-.home-box {margin: 0 50px;}
+.home-box {
+  margin: 0 50px;
+}
 
 .home-titele {
   position: relative;
@@ -28,7 +32,7 @@
 
 .home-titele::before,
 .home-titele::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   display: inline-block;
@@ -37,17 +41,28 @@
   background-color: black;
 }
 
-.home-titele::before {left: 0;}
-.home-titele::after {right: 0;}
+.home-titele::before {
+  left: 0;
+}
+.home-titele::after {
+  right: 0;
+}
 
-.home-md-th {padding: 0 0 12px 55px;}
-.home-md-td {padding: 0 0 12px 30px;}
+.home-md-th {
+  padding: 0 0 12px 55px;
+}
+.home-md-td {
+  padding: 0 0 12px 30px;
+}
 
-.home-md-all_link {padding: 0 0 0 400px;}
+.home-md-all_link {
+  margin: 0 0 0 400px;
+}
 
-.home-md-link:hover {
- color: black;
- text-decoration: none;
+.home-md-link:hover,
+.home-md-all_link:hover {
+  color: black;
+  text-decoration: none;
 }
 
 // ----------------------------------------------------
@@ -59,14 +74,16 @@
 }
 
 .home-area-th {
-  padding: 0 0 12px 55px
+  padding: 0 0 12px 55px;
 }
 
 .home-area-td {
   padding: 0 0 12px 30px;
 }
 
-.area-font {height: 300px;}
+.area-font {
+  height: 300px;
+}
 
 .area-img {
   height: 300px;
@@ -74,41 +91,52 @@
 }
 
 .home-area-link:hover {
-    color: black;
-    text-decoration: none;
-}
-// ----------------------------------------------------
-// 
-// ----------------------------------------------------
-
-
-
-
-
-
-
-
-
-// ----------------------
-a {
   color: black;
+  text-decoration: none;
 }
+// ----------------------------------------------------
+// home-about
+// ----------------------------------------------------
+.about-img1 {
+  height: 300px;
+  background-image: image-url("about1.jpg");
+  background-position: center;
+}
+
+.about-img2 {
+  height: 300px;
+  background-image: image-url("about2.jpg");
+}
+
+.about-img3 {
+  height: 300px;
+  background-image: image-url("home-medical_department.jpg");
+}
+
+.about-font-question {
+  font-size: 30px;
+}
+
+.about-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
 // -----------------------------
 .home-top {
   height: 600px;
   background-image: url("home-top.jpg");
-  background-size : cover;
-  background-repeat : no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: top;
   color: white;
   font-size: 25px;
 }
 
 .home-top-font1 {
-  padding: 100px 100px 0px 60px;
+  padding: 100px 100px 0px 550px;
 }
 
 .home-top-font2 {
-  padding: 0px 100px 0px 60px;
+  padding: 0px 100px 0px 550px;
 }
-

@@ -1,12 +1,64 @@
-<h1>ユーザー詳細</h1>
+<div class="container member-s-container">
+  <div class="row">
+    <div class="col-md-6 hospital-i-index-img">
+      <div class="member-s-div-image">
+        <div class=""><%= attachment_image_tag current_member, :image, format: 'jpeg', size: "150x150", fallback: "no_image.jpg", class: 'member-s-image' %></div>
+        <div class=""><%= current_member.nickname %></div>
+      </div>
+      <table class="member-s-table">
+        <tr>
+          <th>名前</th>
+          <td><%= current_member.name %></td>
+        </tr>
+        <tr>
+          <th>email</th>
+          <td><%= current_member.email %></td>
+        </tr>
+      </table>
 
-<%= attachment_image_tag current_member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
-<%= current_member.name %>
-<%= current_member.nickname %>
-<%= current_member.email %>
-<%= link_to "ユーザー編集", edit_member_path(current_member) %>
+      <table class="member-s-table-eventfield">
+        <%= form_with model: @events, url: member_events_path(current_member),local:true do |f| %>
+        <tr>
+          <th>日付</th>
+          <td><%= f.date_field :start_time %></td>
+        </tr>
 
-<span>お気に入り病院</span>
-<% current_member.hospital_favorites.each do |member| %>
-  <%= member.hospital.name %>
-<% end %>
+        <tr>
+          <th>タイトル</th>
+          <td><%= f.text_field :title %></td>
+        </tr>
+
+        <tr>
+          <th>メモ</th>
+          <td>
+            <%= f.text_area :content %>
+            <%= f.submit "登録" %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+
+      <div class="member-s-link-event-user">
+        <%= link_to member_events_path(current_member), class: "member-s-link-event" do %>
+          イベント<span class="member-s-link-events">一覧</span>へ
+        <% end %>
+        <%= link_to edit_member_path(current_member), class: "member-s-link-user" do %>
+          ユーザー<span class="member-s-link-users">編集</span>へ
+        <% end %>
+      </div>
+      <div class="member-s-link-favorite">お気に入り病院<%= link_to current_member.hospital_favorites.count, edit_member_path(current_member) %>件</div>
+    </div>
+
+    <div class="col-md-6 hospital-i-index-img">
+      <%= month_calendar events: @events do |date, events| %>
+        <%= date.day %>
+
+        <% events.each do |event| %>
+          <div>
+            <%= link_to event.title %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

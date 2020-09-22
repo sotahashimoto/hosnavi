@@ -1,3 +1,64 @@
 // Place all the styles related to the members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.member-s-container {
+  height: 600px;
+}
+
+.member-s-div-image {
+  text-align: center;
+}
+
+// 画像を円にする
+.member-s-image {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+}
+
+.member-s-table {
+  margin: 30px auto;
+}
+
+.member-s-table-eventfield {
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.member-s-table-eventfield th {
+  padding-right: 20px;
+}
+
+.member-s-link-event-user {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.member-s-link-event {
+  padding-right: 20px;
+}
+
+.member-s-link-event:hover {
+  padding-right: 20px;
+  color: #ff6666;
+}
+
+.member-s-link-events {
+  color: #ff6666;
+}
+
+.member-s-link-user:hover {
+  color: #9cd0f0;
+}
+
+.member-s-link-users {
+  color: #9cd0f0;
+}
+
+.member-s-link-favorite {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
