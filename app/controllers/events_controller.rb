@@ -1,23 +1,35 @@
 class EventsController < ApplicationController
-  def new
-    @events = current_member.events
-  end
-
-  def show
-    @events = current_member.events
-  end
 
   def index
-    @events = current_member.events
+    @events = current_member.events.all
+  end
+
+  def edit
+    @event = Event.find(params[:id])
   end
 
   def create
-    p @event = current_member.events.new(event_memo)
+    @event = current_member.events.new(event_memo)
     if @event.save
-      redirect_to member_path(current_member)
+      redirect_to member_path(current_member), notice:"予定を登録しました"
     else
       redirect_to member_path(current_member)
     end
+  end
+
+  def update
+    event = Event.find(params[:id])
+    if event.update(event_memo)
+      redirect_to member_path, notice:"予定を変更しました"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+    redirect_to member_path, notice:"予定を削除しました"
   end
 
   private

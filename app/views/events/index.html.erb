@@ -1,17 +1,44 @@
-<%= link_to "診察予約日を登録する", new_member_event_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>予定一覧</h1>
 
-<% @events.each do |event| %>
-  <%= event.start_time %>
-  <%= event.title %>
+        <% @events.each do |event| %>
+      <table class="event-i-table">
+          <tr>
+            <th>タイトル</th>
+            <td><%= event.title %></td>
+          </tr>
+          <tr>
+            <th>メモ</th>
+            <td><%= event.content %></td>
+          </tr>
 
-<% end %>
+          <tr>
+            <th><%= event.start_time %></th>
+            <td>
+              <%= link_to edit_member_event_path(event.member_id, event) do %>
+                <i class="fas fa-pencil-alt"></i>
+              <% end %>
+              <%= link_to member_event_path(event.member_id, event), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+      </table>
+        <% end %>
 
-<%= month_calendar events: @events do |date, events| %>
-  <%= date.day %>
-
-  <% events.each do |event| %>
-    <div>
-      <%= link_to event.title %>
     </div>
-  <% end %>
-<% end %>
+
+    <div class="col-md-6">
+      <%= month_calendar events: @events do |date, events| %>
+        <%= date.day %>
+        <% events.each do |event| %>
+          <div>
+            <%= link_to event.title, edit_member_event_path(event.member_id, event) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

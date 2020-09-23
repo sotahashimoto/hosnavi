@@ -62,3 +62,20 @@
   text-align: center;
   margin-top: 30px;
 }
+
+.member-s-table-p {
+  text-align: center;
+  font-size: 20px;
+}
+
+.member-e-img {
+  height: 500px;
+  background-image: image-url("member_edit.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+// エラーメッセージ
+.notice {
+  color: #9cd0f0;
+}

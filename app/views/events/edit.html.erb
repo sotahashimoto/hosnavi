@@ -1,0 +1,19 @@
+<%= form_with model: @event, url:member_event_path, local: true do |f| %>
+  <table>
+    <tr>
+      <th>予約日</th>
+      <td><%= f.date_field :start_time %><td>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+      <td><%= f.text_field :title %><td>
+    </tr>
+    <tr>
+      <th>メモ</th>
+      <td><%= f.text_area :content %><td>
+    </tr>
+  </table>
+<%= f.submit "予定変更"%>
+<% end %>
+
+<%= link_to '予定削除', member_event_path(@event.member_id, @event), method: :delete %>

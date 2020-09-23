@@ -1,6 +1,7 @@
 class HospitalsController < ApplicationController
   def index
     @hospitals = Hospital.all.page(params[:page]).per(5)
+    @medical_departments = MedicalDepartment.all
   end
 
   def show

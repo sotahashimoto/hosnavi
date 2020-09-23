@@ -1,0 +1,16 @@
+<span class ="hospital-i-index-favorite">
+    <% if member_signed_in? %>
+      <% if current_member.already_hospital_favorited?(hospital) %>
+        <%= link_to hospital_hospital_favorites_path(hospital), method: :delete, remote: true do %>
+          <i class="fas fa-heart fas-fa-heart"></i> いいね
+        <% end %>
+      <% else %>
+        <%= link_to hospital_hospital_favorites_path(hospital), method: :post, remote: true do %>
+          <i class="far fa-heart"></i> いいね
+        <% end %>
+      <% end %>
+    <% else %>
+      いいね
+    <% end %>
+    <%= hospital.hospital_favorites.count %>件
+    </span>

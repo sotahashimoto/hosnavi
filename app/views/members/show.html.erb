@@ -1,4 +1,10 @@
 <div class="container member-s-container">
+  <% if flash[:notice] %>
+    <p class="alert alert-success">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+
   <div class="row">
     <div class="col-md-6 hospital-i-index-img">
       <div class="member-s-div-image">
@@ -18,6 +24,7 @@
 
       <table class="member-s-table-eventfield">
         <%= form_with model: @events, url: member_events_path(current_member),local:true do |f| %>
+        <p class="member-s-table-p">診療予約日登録</p>
         <tr>
           <th>日付</th>
           <td><%= f.date_field :start_time %></td>
@@ -40,7 +47,7 @@
 
       <div class="member-s-link-event-user">
         <%= link_to member_events_path(current_member), class: "member-s-link-event" do %>
-          イベント<span class="member-s-link-events">一覧</span>へ
+          診療予約<span class="member-s-link-events">一覧</span>へ
         <% end %>
         <%= link_to edit_member_path(current_member), class: "member-s-link-user" do %>
           ユーザー<span class="member-s-link-users">編集</span>へ
@@ -55,7 +62,7 @@
 
         <% events.each do |event| %>
           <div>
-            <%= link_to event.title %>
+            <%= link_to event.title, edit_member_event_path(event.member_id, event) %>
           </div>
         <% end %>
       <% end %>
