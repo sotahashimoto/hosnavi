@@ -1,0 +1,1 @@
+$(".like-" + <%= @favorite.hospital_id %>).html("<%= j(render partial: 'hospitals/favorite', locals: {hospital: @favorite.hospital}) %>");
