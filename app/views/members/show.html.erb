@@ -22,38 +22,54 @@
         </tr>
       </table>
 
-      <table class="member-s-table-eventfield">
+
         <%= form_with model: @events, url: member_events_path(current_member),local:true do |f| %>
-        <p class="member-s-table-p">診療予約日登録</p>
-        <tr>
-          <th>日付</th>
-          <td><%= f.date_field :start_time %></td>
-        </tr>
 
-        <tr>
-          <th>タイトル</th>
-          <td><%= f.text_field :title %></td>
-        </tr>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              日付
+              <%= f.date_field :start_time, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6 member-s-link-event-user">
+            <%= link_to member_events_path(current_member), class: "member-s-link-event" do %>
+              診療予約<span class="member-s-link-events">一覧</span>へ
+            <% end %>
+          </div>
+        </div>
 
-        <tr>
-          <th>メモ</th>
-          <td>
-            <%= f.text_area :content %>
-            <%= f.submit "登録" %>
-          </td>
-        </tr>
-        <% end %>
-      </table>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              タイトル
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6 member-s-link-event-user">
+            <%= link_to edit_member_path(current_member), class: "member-s-link-user" do %>
+              ユーザー<span class="member-s-link-users">編集</span>へ
+            <% end %>
+          </div>
+        </div>
 
-      <div class="member-s-link-event-user">
-        <%= link_to member_events_path(current_member), class: "member-s-link-event" do %>
-          診療予約<span class="member-s-link-events">一覧</span>へ
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              メモ
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="member-s-link-favorite">
+              お気に入り病院<%= link_to current_member.hospital_favorites.count, hospital_hospital_favorites_path(@hospital) %>件
+            </div>
+          </div>
+        </div>
+        <div class="submit">
+          <%= f.submit "登録" %>
+        </div>
         <% end %>
-        <%= link_to edit_member_path(current_member), class: "member-s-link-user" do %>
-          ユーザー<span class="member-s-link-users">編集</span>へ
-        <% end %>
-      </div>
-      <div class="member-s-link-favorite">お気に入り病院<%= link_to current_member.hospital_favorites.count, edit_member_path(current_member) %>件</div>
     </div>
 
     <div class="col-md-6 hospital-i-index-img">

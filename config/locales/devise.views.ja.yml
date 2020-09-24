@@ -7,7 +7,7 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
-        remember_me: "ログインを記憶"
+        remember_me: "次回からメールアドレスまたはパスワードの入力を省略"
         name: "氏名"
         nickname: "ニックネーム"
         postcode: "郵便番号"
@@ -27,7 +27,7 @@ ja:
         last_sign_in_ip: 最終ログインIPアドレス
         locked_at: ロック時刻
         remember_created_at: ログイン記憶時刻
-        remember_me: ログインを記憶する
+        remember_me: 次回からメールアドレスまたはパスワードの入力を省略
         reset_password_sent_at: パスワードリセット送信時刻
         reset_password_token: パスワードリセット用トークン
         sign_in_count: ログイン回数
