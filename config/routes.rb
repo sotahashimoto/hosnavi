@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :events, only: [:edit, :index, :create, :update, :destroy]
   end
   resources :hospitals, only: [:show, :index] do
-    resource :hospital_favorites, only: [:create, :destroy]
+    resources :hospital_favorites, only: [:index, :create, :destroy]
     resources :comments, only: [:show, :create] do
       resource :favorites, only: [:create, :destroy]
     end

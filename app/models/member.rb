@@ -7,6 +7,7 @@ class Member < ApplicationRecord
   has_many :comments
   has_many :favorites
   has_many :hospital_favorites
+  has_many :hospitals, through: :hospital_favorites
   has_many :events
 
   attachment :image

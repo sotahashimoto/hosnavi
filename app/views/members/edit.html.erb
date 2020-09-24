@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 member-e-form">
-      <h1>編集画面</h1>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 member-e-form">
+      <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160", class: 'member-s-image' %>
       <%= form_with model: @member, local: true do |f| %>
-        <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160" %>
-        <table>
-        <tr><th>ユーザー名</th><td><%= f.text_field :nickname %></td></tr>
-        <tr><td colspan="2"><%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %></td></tr>
-        </table>
+
+            <div class="member-e-form-member-name form-group">
+              ユーザー名<%= f.text_field :nickname ,class: "form-control" %>
+            </div>
+            <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
+
         <script>
           $(function(){
             $("#member_image").on("change", function (e) {
@@ -19,11 +22,11 @@
             });
           });
         </script>
-        <%= f.submit "変更"%>
+        <%= f.submit "登録情報変更",class: "member-edit-submit btn btn-success" %>
       <% end %>
     </div>
 
-    <div class="col-md-6 member-e-img">
+    <div class="col-md-4">
     </div>
   </div>
 </div>

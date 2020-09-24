@@ -57,6 +57,14 @@
   color: #9cd0f0;
 }
 
+.member-s-link-hospital:hover {
+  color: #89eebc;
+}
+
+.member-s-link-hospitals {
+  color: #89eebc;
+}
+
 .member-s-link-favorite {
   font-size: 20px;
   text-align: center;
@@ -73,6 +81,23 @@
   background-image: image-url("member_edit.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.member-e-form {
+  text-align: center;
+}
+
+.submit {
+  margin-left: 110px;
+}
+
+.member-e-form-member-name {
+  margin-top: 20px;
+}
+
+.member-edit-submit {
+  width: 360px;
+  margin-top: 10px;
 }
 
 // エラーメッセージ

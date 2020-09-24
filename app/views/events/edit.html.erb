@@ -1,19 +1,30 @@
-<%= form_with model: @event, url:member_event_path, local: true do |f| %>
-  <table>
-    <tr>
-      <th>予約日</th>
-      <td><%= f.date_field :start_time %><td>
-    </tr>
-    <tr>
-      <th>タイトル</th>
-      <td><%= f.text_field :title %><td>
-    </tr>
-    <tr>
-      <th>メモ</th>
-      <td><%= f.text_area :content %><td>
-    </tr>
-  </table>
-<%= f.submit "予定変更"%>
-<% end %>
-
-<%= link_to '予定削除', member_event_path(@event.member_id, @event), method: :delete %>
+<div class="container">
+  <div class="row event-e-row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <%= form_with model: @event, url:member_event_path, local: true do |f| %>
+        <div class="form-group">
+          予約日
+          <%= f.date_field :start_time, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          タイトル
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          メモ
+          <%= f.text_area :content, class: "form-control" %>
+        </div>
+        <div class="event-e-div-submit">
+        <%= f.submit "予定変更" %>
+        <%= link_to member_event_path(@event.member_id, @event), method: :delete, class: "event-e-link-member_event_p" do %>
+        予定削除<i class="far fa-trash-alt"></i>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
