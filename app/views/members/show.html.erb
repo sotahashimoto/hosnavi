@@ -62,7 +62,11 @@
           </div>
           <div class="col-xs-6">
             <div class="member-s-link-favorite">
-              お気に入り病院<%= link_to current_member.hospital_favorites.count, hospital_hospital_favorites_path(@hospital) %>件
+              <%= link_to hospital_hospital_favorites_path(@hospital) do %>
+                <div class="member-s-link-hospital">
+                  お気に入り<span class="member-s-link-hospitals">病院</span><%= current_member.hospital_favorites.count %>件
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

@@ -3,8 +3,7 @@ class MembersController < ApplicationController
 
   def show
     @events = current_member.events
-    p "^^^^^^^^^^^^^^^^"
-    p @hospital = current_member.hospital_favorites
+    @hospital = current_member.hospital_favorites
 
   end
 

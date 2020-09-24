@@ -1,17 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 member-e-form">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 member-e-form">
+      <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160", class: 'member-s-image' %>
       <%= form_with model: @member, local: true do |f| %>
-        <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160", class: 'member-s-image' %>
 
-        <div class="row">
-          <div class="col-md-6 member-e-form">
-            <div class="form-group">
+            <div class="member-e-form-member-name form-group">
               ユーザー名<%= f.text_field :nickname ,class: "form-control" %>
             </div>
-          </div>
-        </div>
-        <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
+            <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
 
         <script>
           $(function(){
@@ -24,11 +22,11 @@
             });
           });
         </script>
-        <%= f.submit "登録情報変更"%>
+        <%= f.submit "登録情報変更",class: "member-edit-submit btn btn-success" %>
       <% end %>
     </div>
 
-    <div class="col-md-6 member-e-img">
+    <div class="col-md-4">
     </div>
   </div>
 </div>
