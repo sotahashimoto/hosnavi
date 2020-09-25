@@ -44,6 +44,16 @@ Member.create!(
   ]
 )
 
+Admin.create!(
+  [
+    {
+      email: 'admin@1.com',
+      password: 'aaaaaa',
+      password_confirmation: 'aaaaaa',
+    }
+  ]
+)
+
 Hospital.create!(
   [
     {

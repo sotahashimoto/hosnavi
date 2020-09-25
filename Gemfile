@@ -87,6 +87,8 @@ gem 'cocoon'
 gem 'geocoder'
 gem "dotenv-rails"
 
+gem 'geokit-rails'
+
 gem 'pry-byebug'
 
 gem 'jquery-rails'
