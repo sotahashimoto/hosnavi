@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :medical_departments, only: [:show, :index, :create, :edit, :update, :destroy]
+    resources :consultation_days, only: [:index, :create, :update, :destroy]
   end
 
   resources :medical_departments, only: [:show, :index]

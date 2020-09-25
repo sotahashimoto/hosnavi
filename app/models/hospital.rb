@@ -10,6 +10,7 @@ class Hospital < ApplicationRecord
   attachment :image
 
   accepts_nested_attributes_for :medicals
+  accepts_nested_attributes_for :consultation_times
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
