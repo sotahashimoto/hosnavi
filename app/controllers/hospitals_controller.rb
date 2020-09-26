@@ -10,15 +10,10 @@ class HospitalsController < ApplicationController
     @consultation_times = @hospital.consultation_times
   end
 
-  def search
-    latitude = params[:latitude]
-    longitude = params[:longitude]
-    # within = Geokitのメソッド(2km以内の病院を検索)
-    @places = Hospital.all.within(2, origin: [latitude, longitude])
-  end
 
-  # def search
-  #   @hospitals = Hospital.search(params).page(params[:page]).per(5)
-  #   render "index"
-  # end
+
+  def search
+    @hospitals = Hospital.search(params).page(params[:page]).per(5)
+    render "index"
+  end
 end

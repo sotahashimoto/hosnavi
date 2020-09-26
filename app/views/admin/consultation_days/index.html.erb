@@ -1,0 +1,20 @@
+<% @consultation_days.each do |consultation_day| %>
+  <%= consultation_day.is_sunday %>
+  <%= consultation_day.is_monday %>
+  <%= consultation_day.is_tuesday %>
+  <%= consultation_day.is_wednesday %>
+  <%= consultation_day.is_thursday %>
+  <%= consultation_day.is_friday %>
+  <%= consultation_day.is_saturday %><br>
+<% end %>
+
+<%= form_with(model: @consultation_day, url: admin_consultation_days_path, local: true) do |f| %>
+    <%= f.select :is_sunday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_monday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_tuesday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_wednesday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_thursday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_friday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.select :is_saturday, [["休診", 0], ["診察日", 1]] %>
+    <%= f.submit "投稿" %>
+  <% end %>

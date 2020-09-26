@@ -2,6 +2,7 @@ class Admin::HospitalsController < ApplicationController
   def new
     @hospital = Hospital.new
     1.times { @hospital.medicals.build }
+    1.times { @hospital.consultation_times.build }
   end
 
   def index
@@ -27,14 +28,15 @@ class Admin::HospitalsController < ApplicationController
   end
 
   def create
-    p "^^^^^^^^^^^^^^^^^^^^^^"
-    p hospital = Hospital.new(hospital_params)
+    hospital = Hospital.new(hospital_params)
     hospital.save
   	redirect_to admin_hospitals_path
   end
 
   private
   def hospital_params
-    params.require(:hospital).permit(:name, :image, :postcode, :address, :phone_number, :feature, :short_message, medicals_attributes: [:medical_department_id])
+    params.require(:hospital).permit(:name, :image, :postcode, :address, :phone_number, :feature, :short_message, :notices,
+                                      medicals_attributes: [:medical_department_id],
+                                      consultation_times_attributes: [:consultation_day_id, :start_hour, :start_minute, :finish_hour, :finish_minute])
   end
 end

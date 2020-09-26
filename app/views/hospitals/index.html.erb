@@ -1,18 +1,85 @@
+<script>
+    var button = document.getElementById("practice-oneclick");
+    // 現在地を取得する関数
+    button.onclick = function () {
+        //相互フォローなら
+        <% if mutually_follow?(@member.id) %>
+
+        // Geolocationが使用可能かチェック
+        var dfd = $.Deferred();
+        if (!window.navigator.geolocation) dfd.reject();
+
+        // 現在地の取得
+        window.navigator.geolocation.getCurrentPosition(
+            // Success
+            function (position) {
+              alert('現在地から近いコートが複数個、候補として出ますので該当のテニスコートを確認の上、決定ボタンをクリックしてください')
+                dfd.resolve(position);
+                console.log(position.coords.latitude);
+                console.log("おけ");
+                var params = getParameter();
+                params['latitude'] = position.coords.latitude;
+                params['longitude'] = position.coords.longitude;
+                var url = location.pathname.split('/');
+                params['id'] = url[2];
+                window.location.href = setParameter(params);
+            },
+            // Error
+            function (error) {
+                alert('ご使用中のブラウザは現在地検索に対応されておりません。')
+                console.log("だめ");
+                dfd.reject();
+            },
+            // Options
+            {
+                enableHighAccuracy: true, //位置情報の精度を高く
+                timeout: 10000, //10秒でタイムアウト
+                maximumAge: 600000 //10分間有効
+            }
+        );
+        return dfd.promise();
+        <% else %>
+          var error = document.getElementById('error');
+          error.innerHTML = "この機能を利用するには相互フォローしている必要があります。";
+          error.className = "error active";
+          $('#practice-oneclick').addClass('disable');
+          setTimeout(function(){
+              error.innerHTML = "";
+              error.className = "error";
+              console.log(button);
+          }, 3000);
+        <% end %>
+    };
+<% end %>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
-  <div class="row">
-    <table>
-      <tr>
-        <%= form_with(url: search_path, method: :get, local: true) do |f| %>
+  <div class="row hospital-i-form">
+    <%= form_with(url: search_path, method: :get, local: true) do |f| %>
+      <table>
+        <tr>
           <td>
             <% ['内科', '消化器科', '循環器科', '呼吸器科', '小児科'].each do |medical_department| %>
-              <%= f.label :"#{medical_department}" %>
               <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
             <% end %>
           </td>
           <td>
             <% ['外科' ,'整形外科', '形成外科', '脳神経外科'].each do |medical_department| %>
-              <%= f.label :"#{medical_department}" %>
               <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
             <% end %>
           </td>
         </tr>
@@ -20,21 +87,21 @@
         <tr>
           <td>
             <% ['産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科'].each do |medical_department| %>
-              <%= f.label :"#{medical_department}" %>
               <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
             <% end %>
           </td>
           <td>
-          <% ['リハビリテーション科', '放射線科', '精神科', '麻酔科'].each do |medical_department| %>
-        <%= f.label :"#{medical_department}" %>
-        <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
-      <% end %>
-
-
-
-
-      <%= f.hidden_field :search_address,:value=> params[:search_address] %>
-      <%= f.submit 'Search' %>
+            <% ['リハビリテーション科', '放射線科', '精神科', '麻酔科'].each do |medical_department| %>
+              <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
+            <% end %>
+          </td>
+          <td>
+            <%= f.hidden_field :search_address,:value=> params[:search_address] %>
+            <%= f.submit 'Search' %>
+          </td>
+        </tr>
       </table>
     <% end %>
   </div>
@@ -127,6 +194,7 @@
 <% end %>
 </div>
 </div>
+  <div class="row hospital-i-paginate">
+    <%= paginate @hospitals %>
+  </div>
 </div>
-
-<%= paginate @hospitals %>
