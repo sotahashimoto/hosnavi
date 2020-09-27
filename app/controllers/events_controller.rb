@@ -13,13 +13,15 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to member_path(current_member), notice:"予定を登録しました"
     else
-      redirect_to member_path(current_member)
+      @events = current_member.events
+      @hospital = current_member.hospital_favorites
+      render "members/show"
     end
   end
 
   def update
-    event = Event.find(params[:id])
-    if event.update(event_memo)
+    @event = Event.find(params[:id])
+    if @event.update(event_memo)
       redirect_to member_path, notice:"予定を変更しました"
     else
       render 'edit'

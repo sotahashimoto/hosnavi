@@ -12,6 +12,8 @@ class Member < ApplicationRecord
 
   attachment :image
 
+  validates :nickname, presence: true
+
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)
   end

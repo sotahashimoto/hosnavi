@@ -23,7 +23,18 @@
       </table>
 
 
-        <%= form_with model: @events, url: member_events_path(current_member),local:true do |f| %>
+        <%= form_with model: @event, url: member_events_path(current_member),local:true do |f| %>
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @event.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 
         <div class="row">
           <div class="col-xs-6">
@@ -82,7 +93,7 @@
 
         <% events.each do |event| %>
           <div>
-            <%= link_to event.title, edit_member_event_path(event.member_id, event) %>
+            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event) %>
           </div>
         <% end %>
       <% end %>
