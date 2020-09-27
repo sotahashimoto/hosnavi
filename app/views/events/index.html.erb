@@ -18,11 +18,11 @@
             <th><%= event.start_time %></th>
             <td>
             <span class="span-fa-pencil-alt">
-              <%= link_to edit_member_event_path(event.member_id, event) do %>
+              <%= link_to edit_member_event_path(event.member_id, event), class: "link_to_color_black" do %>
                 <i class="fas fa-pencil-alt"></i>
               <% end %>
               </span>
-              <%= link_to member_event_path(event.member_id, event), method: :delete do %>
+              <%= link_to member_event_path(event.member_id, event), method: :delete, class: "link_to_color_black" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </td>
@@ -37,7 +37,7 @@
         <%= date.day %>
         <% events.each do |event| %>
           <div>
-            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event) %>
+            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event), class: "link_to_color_black" %>
           </div>
         <% end %>
       <% end %>
