@@ -21,7 +21,8 @@
   box-sizing: border-box;
 }
 
-a {
+a,
+.link_to {
   color: black;
 }
 
