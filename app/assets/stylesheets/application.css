@@ -25,7 +25,7 @@ a.link_to_color_black {
   color: black;
 }
 
-a.link_to_color_black {
+a.link_to_color_black:hover {
   color: black;
   text-decoration: none;
 }
