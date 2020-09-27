@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col-xs-6 member-s-link-event-user">
-            <%= link_to member_events_path(current_member), class: "member-s-link-event" do %>
+            <%= link_to member_events_path(current_member), class: "member-s-link-event link_to_color_black" do %>
               診療予約<span class="member-s-link-events">一覧</span>へ
             <% end %>
           </div>
@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="col-xs-6 member-s-link-event-user">
-            <%= link_to edit_member_path(current_member), class: "member-s-link-user" do %>
+            <%= link_to edit_member_path(current_member), class: "member-s-link-user link_to_color_black" do %>
               ユーザー<span class="member-s-link-users">編集</span>へ
             <% end %>
           </div>
@@ -73,7 +73,7 @@
           </div>
           <div class="col-xs-6">
             <div class="member-s-link-favorite">
-              <%= link_to hospital_hospital_favorites_path(@hospital) do %>
+              <%= link_to hospital_hospital_favorites_path(@hospital), class: "link_to_color_black" do %>
                 <div class="member-s-link-hospital">
                   お気に入り<span class="member-s-link-hospitals">病院</span><%= current_member.hospital_favorites.count %>件
                 </div>
@@ -93,7 +93,7 @@
 
         <% events.each do |event| %>
           <div>
-            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event) %>
+            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event), {class: "link_to_color_black"} %>
           </div>
         <% end %>
       <% end %>
