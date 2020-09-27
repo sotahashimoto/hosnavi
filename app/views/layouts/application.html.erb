@@ -70,7 +70,9 @@
                     <li class="hnav-item">
                       <%= form_with(url: search_path, method: :get, local: true, class: "hnav-search") do |f| %>
                         <%= f.hidden_field :search_address,:value=> params[:search_address]%>
-                        <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
+                        <% params[:search_medical_department]&.each do |v| %>
+                          <%= f.hidden_field "search_medical_department[]",:value=> v %>
+                        <% end %>
                         <%= f.text_field :search_name_address, {class: "sbox4",placeholder: "エリア・病院名"} %>
                         <%= f.submit '検索' %>
                       <% end %>
