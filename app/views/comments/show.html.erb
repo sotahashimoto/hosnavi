@@ -19,8 +19,8 @@
 <% end %>
     </div>
 
-   <div class="col-md-6">
-   
+   <div class="col-md-9">
+
 <table class="comment-s-table-form">
   <% @comments.each do |comment| %>
     <tr>
@@ -28,10 +28,14 @@
         <%= attachment_image_tag comment.member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg", class: "comment-s-image" %>
       </td>
       <td>
-        <%= comment.member.nickname %><span class="comment-s-word_of_mouth">さんの口コミ</span>
+        <span class="comment-s-nickname-word_of_mouth">
+          <%= comment.member.nickname %><span class="comment-s-word_of_mouth">さんの口コミ</span>
+        </span>
       </td>
       <td>
-        <%= comment.created_at.strftime("%Y年%m月投稿") %>
+        <span class="comment_created_at_strftime">
+          <%= comment.created_at.strftime("%Y年%m月投稿") %>
+        </span>
       </td>
       <%# いいね機能 非同期 %>
       <td class=<%= "like-" + comment.id.to_s %>>
@@ -47,6 +51,4 @@
 </table>
 </div>
 
-<div class="col-md-3">
-</div>
 </div></div>

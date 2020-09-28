@@ -10,10 +10,13 @@
 
 .comment-s-word_of_mouth {
   color: rgb(197, 194, 194);
+  margin-right: 20px;
 }
 
-// .comment-s-table-form {
-//   border: 1px solid;
-//   border-radius: 8px; /* 半径が8pxの角丸 */
-//   border-color: black;
-// }
+.comment-s-nickname-word_of_mouth {
+  margin: 0 10px 0 10px;
+}
+
+.comment_created_at_strftime {
+  margin: 0 10px 0 10px;
+}
