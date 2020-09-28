@@ -1,6 +1,10 @@
 class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :name, presence: true
+  validates :nickname, presence: true
+  validates :nickname, length: { maximum: 15 }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -11,9 +15,6 @@ class Member < ApplicationRecord
   has_many :events
 
   attachment :image
-
-  validates :nickname, presence: true
-  validates :nickname, length: { maximum: 15 }
 
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)

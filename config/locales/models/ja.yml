@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+    attributes:
+      event:
+        title: イベント名
+        start_time: 受診日
+      member:
+        nicknama: ユーザー名
