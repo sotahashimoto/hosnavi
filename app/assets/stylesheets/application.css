@@ -30,8 +30,28 @@ a.link_to_color_black:hover {
   text-decoration: none;
 }
 
+a.link_to_color_red,
+a.link_to_color_blue {
+  color: black;
+  text-decoration: none;
+}
+
+a.link_to_color_red:hover {
+  color: #ff6666;
+  text-decoration: none;
+}
+
+a.link_to_color_blue:hover {
+  color: #9cd0f0;
+  text-decoration: none;
+}
+
 .fas-fa-heart {
   color: #ff6666;
+}
+
+.fas.fa-lightbulb {
+  color: #dee945;
 }
 /*----------header----------*/
 .logo {

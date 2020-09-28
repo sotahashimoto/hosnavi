@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to member_path(current_member), notice:"予定を登録しました"
     else
-      @events = current_member.events
+      @events = Event.all
       @hospital = current_member.hospital_favorites
       render "members/show"
     end

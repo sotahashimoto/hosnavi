@@ -13,6 +13,7 @@ class Member < ApplicationRecord
   attachment :image
 
   validates :nickname, presence: true
+  validates :nickname, length: { maximum: 15 }
 
   def already_favorited?(comment)
     self.favorites.exists?(comment_id: comment.id)

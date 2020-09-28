@@ -15,7 +15,7 @@
           </tr>
 
           <tr>
-            <th><%= event.start_time %></th>
+            <th class="event_start_time"><%= event.start_time %></th>
             <td>
             <span class="span-fa-pencil-alt">
               <%= link_to edit_member_event_path(event.member_id, event), class: "link_to_color_black" do %>
@@ -44,3 +44,4 @@
     </div>
   </div>
 </div>
+
