@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_member!, only: [:index, :edit]
 
   def index
     @events = current_member.events.all
