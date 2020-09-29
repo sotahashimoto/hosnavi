@@ -10,7 +10,7 @@ Member.create!(
   [
     {
       image: File.open("./app/assets/images/member1.jpg"),
-      name: '管理者',
+      name: '田中聡太',
       nickname: 'ペンギン',
       email: '1@1.com',
       password: 'aaaaaa',
@@ -21,7 +21,7 @@ Member.create!(
     },
     {
       image: File.open("./app/assets/images/member2.jpg"),
-      name: '橋本聡太',
+      name: '橋本秀行',
       nickname: 'ライオン',
       email: '2@2.com',
       password: 'aaaaaa',
@@ -54,6 +54,17 @@ Admin.create!(
   ]
 )
 
+Event.create!(
+  [
+    {
+      member_id: '1',
+      start_time: '2020-09-29',
+      title: '若草第一病院受診9時〜',
+      content: '内科(佐藤先生)を受診',
+    }
+  ]
+)
+
 Comment.create!(
   [
     {
@@ -81,8 +92,7 @@ Hospital.create!(
       name: '若草第一病院',
       address: '大阪府東大阪市若草町1-6',
       postcode: '579-8056',
-      feature: '若草第一病院は、大阪府東大阪市にある医療機関。社会医療法人若弘会が運営する病院である。
-                地域医療支援病院、大阪府がん診療連携拠点病院、基幹型臨床研修指定病院等に指定されている。',
+      feature: '若草第一病院は、大阪府東大阪市にある医療機関。社会医療法人若弘会が運営する病院である。地域医療支援病院、大阪府がん診療連携拠点病院、基幹型臨床研修指定病院等に指定されている。',
       phone_number: '072-988-1409',
       short_message: '瓢箪山駅から近く駐車場もあります',
       notices: '当院は病診連携のもと、紹介予約を基本としております。急患につきましてはお電話にてお問い合わせください。外来診療担当表は都合により変更する場合がございますので必ずご確認のうえご来院ください。'
@@ -110,7 +120,7 @@ Hospital.create!(
     {
       image: File.open("./app/assets/images/toukyou.jpg"),
       name: '東京病院',
-      address: '東京都清瀬市竹丘3丁目1-1',
+      address: '東京都清瀬市竹丘3-1-1',
       postcode: '204-8585',
       feature: '東京都の北多摩地区、清瀬市の南西部に位置する。昭和14年創立当時の武蔵野の雑木林を今も残す自然環境にあり、病院構内には花と緑が多く、療養には最適の環境です。周囲の公私十余の病院とともにいわゆる病院街を形成しています。',
       phone_number: '042-491-2111',
@@ -118,14 +128,14 @@ Hospital.create!(
       notices: '再来の方：午前の診療8時00分～11時00分、午後の診療12時30分～14時00分紹介状をお持ちでない方は【初診時選定療養費　5,500円（税込）】を頂いております。紹介状をお持ちの方につきましては、特定療養費はいただいておりません'
     },
     {
-      image: File.open("./app/assets/images/toukyou.jpg"),
-      name: '東京大学医学部付属病院',
-      address: '東京都清瀬市竹丘3丁目1-1',
-      postcode: '204-8585',
-      feature: '東京都の北多摩地区、清瀬市の南西部に位置する。昭和14年創立当時の武蔵野の雑木林を今も残す自然環境にあり、病院構内には花と緑が多く、療養には最適の環境です。周囲の公私十余の病院とともにいわゆる病院街を形成しています。',
-      phone_number: '042-491-2111',
-      short_message: '感染予防のため、総合内科・呼吸器内科の当番外来の初診の患者さんの受付は、当面の間、午前11時までとさせていただきます。',
-      notices: '再来の方：午前の診療8時00分～11時00分、午後の診療12時30分～14時00分紹介状をお持ちでない方は【初診時選定療養費　5,500円（税込）】を頂いております。紹介状をお持ちの方につきましては、特定療養費はいただいておりません'
+      image: File.open("./app/assets/images/oomorisekizyuusi.jpg"),
+      name: '大森赤十字病院',
+      address: '東京都大田区中央4-30-1',
+      postcode: '143-8527',
+      feature: '大森赤十字病院は、東京都大田区中央にある医療機関。日本赤十字社東京都支部が設置する病院である。武蔵野赤十字病院に次いで、東京都支部2ヶ所目の病院として、1953年7月に開設された。',
+      phone_number: '03-3776-0004',
+      short_message: '大森赤十字病院は、東京都大田区にある病院です。',
+      notices: '8:30～11:00　原則紹介制、一部診療科予約制　診療は9:00開始　科により異なる　創立記念日(5/1)休診 臨時休診あり'
     },
     {
       image: File.open("./app/assets/images/tane.jpg"),
@@ -237,6 +247,42 @@ Medical.create!(
     {hospital_id: '3', medical_department_id: '16', },
     {hospital_id: '3', medical_department_id: '17', },
     {hospital_id: '3', medical_department_id: '19', },
+
+    {hospital_id: '4', medical_department_id: '1', },
+    {hospital_id: '4', medical_department_id: '2', },
+    {hospital_id: '4', medical_department_id: '3', },
+    {hospital_id: '4', medical_department_id: '4', },
+    {hospital_id: '4', medical_department_id: '5', },
+    {hospital_id: '4', medical_department_id: '6', },
+    {hospital_id: '4', medical_department_id: '7', },
+    {hospital_id: '4', medical_department_id: '8', },
+    {hospital_id: '4', medical_department_id: '10', },
+    {hospital_id: '4', medical_department_id: '11', },
+    {hospital_id: '4', medical_department_id: '12', },
+    {hospital_id: '4', medical_department_id: '13', },
+    {hospital_id: '4', medical_department_id: '14', },
+    {hospital_id: '4', medical_department_id: '15', },
+    {hospital_id: '4', medical_department_id: '16', },
+    {hospital_id: '4', medical_department_id: '17', },
+    {hospital_id: '4', medical_department_id: '19', },
+
+    {hospital_id: '5', medical_department_id: '1', },
+    {hospital_id: '5', medical_department_id: '2', },
+    {hospital_id: '5', medical_department_id: '3', },
+    {hospital_id: '5', medical_department_id: '4', },
+    {hospital_id: '5', medical_department_id: '5', },
+    {hospital_id: '5', medical_department_id: '6', },
+    {hospital_id: '5', medical_department_id: '7', },
+    {hospital_id: '5', medical_department_id: '8', },
+    {hospital_id: '5', medical_department_id: '10', },
+    {hospital_id: '5', medical_department_id: '11', },
+    {hospital_id: '5', medical_department_id: '12', },
+    {hospital_id: '5', medical_department_id: '13', },
+    {hospital_id: '5', medical_department_id: '14', },
+    {hospital_id: '5', medical_department_id: '15', },
+    {hospital_id: '5', medical_department_id: '16', },
+    {hospital_id: '5', medical_department_id: '17', },
+    {hospital_id: '5', medical_department_id: '19', },
 
     {hospital_id: '6', medical_department_id: '1', },
     {hospital_id: '6', medical_department_id: '2', },
@@ -367,6 +413,14 @@ ConsultationTime.create!(
       start_hour: '8',
       start_minute: '30',
       finish_hour: '14',
+      finish_minute: '0',
+    },
+    {
+      consultation_day_id: '2',
+      hospital_id: '5',
+      start_hour: '8',
+      start_minute: '30',
+      finish_hour: '11',
       finish_minute: '0',
     },
     {
