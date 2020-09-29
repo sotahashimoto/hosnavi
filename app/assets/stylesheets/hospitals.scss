@@ -21,17 +21,6 @@
   text-align: center;
 }
 
-.hospital-i-index-hospital_name::before,
-.hospital-i-index-hospital_name::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  display: inline-block;
-  width: 45px;
-  height: 1px;
-  background-color: black;
-}
-
 .hospital-i-index-hospital_name::before {
   left: 60px;
 }
@@ -50,6 +39,10 @@
 
 .hospital-i-index-medical_department-name {
   margin: 5px 0 0 20px;
+  font-size: 15px;
+}
+
+.fa-file-medical {
   font-size: 20px;
 }
 

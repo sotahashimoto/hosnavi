@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <h1><%= @hospital.name %></h1>
       <h3><%= @hospital.short_message %></h3>
-      <h3><%= @hospital.feature %></h3>
+      <p><%= @hospital.feature %></p>
     </div>
   </div>
 
@@ -123,7 +123,7 @@
       <% end %>
       </td>
 
-      <% ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"].each do |weekday| %>
+      <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
         <td class="hospital-i-td-consultation_day"><%= human_active_weekday(consultation_time.consultation_day.send("is_#{weekday}")) %></td>
       <% end %>
     </tr>
