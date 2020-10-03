@@ -61,10 +61,10 @@
 
           <% else %>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-1">
                 <div class="logo"><%= link_to "Hosnavi", root_path, {class: "hnav-link"} %></div>
               </div>
-              <div class="col-md-10">
+              <div class="col-md-11">
                 <nav class="hnav">
                   <ul class="hnav-list">
                     <li class="hnav-item">
@@ -81,6 +81,7 @@
                     <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link-login"} %></li>
+                    <li class="hnav-item"><%= link_to 'ゲストログイン', homes_guest_sign_in_path, { method: :post, class: "hnav-link"} %></li>
                   </ul>
                 </nav>
               </div>
