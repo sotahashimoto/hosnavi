@@ -1,3 +1,22 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-s-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.comment-s-word_of_mouth {
+  color: rgb(197, 194, 194);
+  margin-right: 20px;
+}
+
+.comment-s-nickname-word_of_mouth {
+  margin: 0 10px 0 10px;
+}
+
+.comment_created_at_strftime {
+  margin: 0 10px 0 10px;
+}

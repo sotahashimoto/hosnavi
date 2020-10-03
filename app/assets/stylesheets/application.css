@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -20,14 +21,110 @@
   box-sizing: border-box;
 }
 
-ul,li {
-  list-style: none;
+a.link_to_color_black {
+  color: black;
 }
 
-.col-xs-2 {
-  background-color: red;
+a.link_to_color_black:hover {
+  color: black;
+  text-decoration: none;
 }
 
-.col-xs-10 {
-  background-color: blue;
+a.link_to_color_red,
+a.link_to_color_blue {
+  color: black;
+  text-decoration: none;
+}
+
+a.link_to_color_red:hover {
+  color: #ff6666;
+  text-decoration: none;
+}
+
+a.link_to_color_blue:hover {
+  color: #9cd0f0;
+  text-decoration: none;
+}
+
+.fas-fa-heart {
+  color: #ff6666;
+}
+
+.fas.fa-lightbulb {
+  color: #dee945;
+}
+/*----------header----------*/
+.logo {
+  margin-left: 100px;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.hnav-list {
+  text-align: right;
+  margin-right: 100px;
+}
+
+.hnav-item {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.hnav-search {
+  padding-right: 80px;
+}
+
+.hnav-link {
+  color: black;
+}
+
+.hnav-link:hover {
+  text-decoration: none;
+}
+
+.hnav-link:hover {
+  color: black;
+}
+
+.hnav-link-login:hover,
+.hnav-link-logout:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.hnav-link-login,
+.hnav-link-logout {
+  background: #ff6666; /*背景色*/
+  color: white;
+  padding: 0.5em; /*文字周りの余白*/
+  border-radius: 2em; /*角の丸み*/
+}
+/* ---------- */
+
+footer {
+  height: 100px;
+  text-align: center;
+}
+
+.footer-font {
+  padding-top: 20px;
+}
+
+.footer-fontawesome {
+  color: #ff6666;
+  font-size: 30px;
+  padding: 0 15px 10px 15px;
+}
+
+.login-submit,
+.signup-submit {
+  width: 360px;
+}
+
+.signup,
+.login {
+  text-align: center;
 }

@@ -1,10 +1,14 @@
-<% if current_member.already_favorited?(comment) %>
-  <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), method: :delete, remote: true do %>
-    参考になったを取り消す
+<% if member_signed_in? %>
+  <% if current_member.already_favorited?(comment) %>
+    <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), class: "link_to_color_black", method: :delete, remote: true do %>
+      参考になった<i class="fas fa-lightbulb"></i>
+    <% end %>
+  <% else %>
+    <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), class: "link_to_color_black", method: :post, remote: true do %>
+      参考になった<i class="far fa-lightbulb"></i>
+    <% end %>
   <% end %>
 <% else %>
-  <%= link_to hospital_comment_favorites_path(comment.hospital_id, comment), method: :post, remote: true do %>
-    参考になった
-  <% end %>
+  参考になった数
 <% end %>
-<%= comment.favorites.count %>
+<%= comment.favorites.count %>件

@@ -1,12 +1,102 @@
-<h1>ユーザー詳細</h1>
+<div class="container member-s-container">
+  <% if flash[:notice] %>
+    <p class="alert alert-success">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
 
-<%= attachment_image_tag current_member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
-<%= current_member.name %>
-<%= current_member.nickname %>
-<%= current_member.email %>
-<%= link_to "ユーザー編集", edit_member_path(current_member) %>
+  <div class="row">
+    <div class="col-md-6 hospital-i-index-img">
+      <div class="member-s-div-image">
+        <div class=""><%= attachment_image_tag current_member, :image, format: 'jpeg', size: "150x150", fallback: "no_image.jpg", class: 'member-s-image' %></div>
+        <div class=""><%= current_member.nickname %></div>
+      </div>
+      <table class="member-s-table">
+        <tr>
+          <th>名前</th>
+          <td><%= current_member.name %></td>
+        </tr>
+        <tr>
+          <th>email</th>
+          <td><%= current_member.email %></td>
+        </tr>
+      </table>
 
-<span>お気に入り病院</span>
-<% current_member.hospital_favorites.each do |member| %>
-  <%= member.hospital.name %>
-<% end %>
+
+        <%= form_with model: @event, url: member_events_path(current_member),local:true do |f| %>
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @event.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              日付
+              <%= f.date_field :start_time, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6 member-s-link-event-user">
+            <%= link_to member_events_path(current_member), class: "member-s-link-event link_to_color_red" do %>
+              診療予約<span class="member-s-link-events">一覧</span>へ
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              タイトル
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6 member-s-link-event-user">
+            <%= link_to edit_member_path(current_member), class: "member-s-link-user link_to_color_blue" do %>
+              ユーザー<span class="member-s-link-users">編集</span>へ
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              メモ
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="member-s-link-favorite">
+              <%= link_to hospital_hospital_favorites_path(@hospital), class: "link_to_color_black" do %>
+                <div class="member-s-link-hospital">
+                  お気に入り<span class="member-s-link-hospitals">病院</span><%= current_member.hospital_favorites.count %>件
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="submit">
+          <%= f.submit "登録" %>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="col-md-6 hospital-i-index-img">
+      <%= month_calendar events: @events do |date, events| %>
+        <%= date.day %>
+
+        <% events.each do |event| %>
+          <div>
+            <%= link_to event.title.truncate(4), edit_member_event_path(event.member_id, event), {class: "link_to_color_black"} %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

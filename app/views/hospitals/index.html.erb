@@ -1,94 +1,128 @@
-<h1>病院一覧</h1>
+<div class="container">
+  <div class="row hospital-i-form">
+    <%= form_with(url: search_path, method: :get, local: true) do |f| %>
+      <table>
+        <tr>
+          <td>
+            <% ['内科', '消化器科', '循環器科', '呼吸器科', '小児科'].each do |medical_department| %>
+              <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
+            <% end %>
+          </td>
+          <td>
+            <% ['外科' ,'整形外科', '形成外科', '脳神経外科'].each do |medical_department| %>
+              <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
+            <% end %>
+          </td>
+        </tr>
 
-<%= form_with(url: search_path, method: :get, local: true) do |f| %>
-  <% ['内科', '消化器科', '循環器科', '呼吸器科','外科' ,'整形外科', '形成外科', '脳神経外科','小児科', '産婦人科',
-      '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科','リハビリテーション科', '放射線科', '精神科', '麻酔科'
-     ].each do |medical_department| %>
+        <tr>
+          <td>
+            <% ['産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科'].each do |medical_department| %>
+              <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
+            <% end %>
+          </td>
+          <td>
+            <% ['リハビリテーション科', '放射線科', '精神科', '麻酔科'].each do |medical_department| %>
+              <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
+              <%= f.label :"#{medical_department}" %>
+            <% end %>
+          </td>
+          <td>
+            <%= f.hidden_field :search_address,:value=> params[:search_address] %>
+            <%= f.submit 'Search' %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
 
-    <%= f.label :"#{medical_department}" %>
-    <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
-  <% end %>
-  <%= f.hidden_field :search_address,:value=> params[:search_address]%>
-  <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
-  <%= f.submit 'Search' %>
-<% end %>
+  <div class="row">
+    <div class="hospital-i-index">
+      <% @hospitals.each do |hospital| %>
+        <div class="col-md-6 hospital-i-index-img">
+          <%= attachment_image_tag hospital, :image, format: 'jpeg', size: "550x400", fallback: "no_image.jpg" %>
+        </div>
+        <div class="col-md-6 hospital-i-index-font">
+          <%= link_to hospital.name, hospital_path(hospital), {class: "hospital-i-index-hospital_name"} %>
+          <p class ="hospital-i-index-address">
+            <i class="fas fa-map-marked-alt"></i>
+            <%= hospital.postcode %>
+            <%= hospital.address %><br>
+          </p>
+          <p class ="hospital-i-index-phone_number">
+            <i class="fas fa-phone"></i>
+            <%= hospital.phone_number %><br>
+          </p>
+          <p class ="hospital-i-index-medical_department-name">
+            <i class="fas fa-file-medical"></i>
+            <% hospital.medical_departments.each do |medical_department| %>
+              <%= medical_department.name %><span>/</span>
+            <% end %><br>
+          </p>
+          <p class ="hospital-i-index-short_message">
+            <%= hospital.short_message %>
+          </p>
 
-<% @hospitals.each do |hospital| %>
-  <table border="1">
-    <tr>
-      <td><%= link_to hospital.name, hospital_path(hospital) %></td>
-    </tr>
+          <div class="hospital-i-index-comment-favorite">
+            <span class ="hospital-i-index-comment">
+              <%= link_to hospital_comment_path(hospital, hospital.comments) do %>
+                <i class="fas fa-comment"></i> 口コミ
+                <%= hospital.comments.count %>件
+              <% end %>
+            </span>
 
-    <tr>
-      <td>
-        <%= hospital.postcode %>
-        <%= hospital.address %>
-      </td>
-    </tr>
+            <%# いいね機能 非同期 %>
+            <span class=<%= "like-" + hospital.id.to_s %>>
+              <%= render partial: "favorite", locals: { hospital: hospital } %>
+            </span>
+          </div>
 
-    <tr>
-      <td><%= hospital.phone_number %></td>
-    </tr>
+          <table class="table table-bordered hospital-i-index-consultation">
+            <tr>
+              <th class="hospital-i-th-consultation_time">診療時間</th>
+              <th class="hospital-i-th-consultation_day">月</th>
+              <th class="hospital-i-th-consultation_day">火</th>
+              <th class="hospital-i-th-consultation_day">水</th>
+              <th class="hospital-i-th-consultation_day">木</th>
+              <th class="hospital-i-th-consultation_day">金</th>
+              <th class="hospital-i-th-consultation_saturday">土</th>
+              <th class="hospital-i-th-consultation_sunday">日</th>
+            </tr>
 
-    <tr>
-      <td>
-        <% hospital.medical_departments.each do |medical_department| %>
-          <%= medical_department.name %><span>/</span>
-        <% end %>
-      </td>
-    </tr>
+            <tr>
+              <td>
+                <% hospital.consultation_times.each do |consultation_time| %>
+                  <%= consultation_time.start_hour %> :
+                  <% if consultation_time.start_minute.to_s.length == 1 %>
+                    <%= consultation_time.start_minute %>0 〜
+                  <% else %>
+                    <%= consultation_time.start_minute %> 〜
+                  <% end %>
 
-    <tr>
-      <td><%= hospital.short_message %></td>
-    </tr>
+                  <%= consultation_time.finish_hour %> :
+                  <% if consultation_time.finish_minute.to_s.length == 1 %>
+                    <%= consultation_time.finish_minute %>0
+                  <% else %>
+                    <%= consultation_time.finish_minute %>
+                  <% end %>
+                <% end %>
+              </td>
 
-    <tr>
-      <td>
-        <span>口コミ</span><%= hospital.comments.count %><span>件</span>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <% if current_member.already_hospital_favorited?(hospital) %>
-          <%= link_to hospital_hospital_favorites_path(hospital), method: :delete do %>
-          <i class="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to hospital_hospital_favorites_path(hospital), method: :post do %>
-            <i class="far fa-heart"></i>
-          <% end %>
-        <% end %>
-        <%= hospital.hospital_favorites.count %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <% hospital.consultation_times.each do |consultation_time| %>
-          <%= consultation_time.start_hour %>：
-          <% if consultation_time.start_minute.to_s.length == 1 %>
-            <%= consultation_time.start_minute %>0〜
-          <% else %>
-            <%= consultation_time.start_minute %>〜
-          <% end %>
-
-          <%= consultation_time.finish_hour %>：
-          <% if consultation_time.finish_minute.to_s.length == 1 %>
-            <%= consultation_time.finish_minute %>0
-          <% else %>
-            <%= consultation_time.finish_minute %>
-          <% end %>
-        <% end %>
-
-        <% ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"].each do |weekday| %>
-          <% hospital.consultation_days.each do |consultation_day| %>
-            <%= human_active_weekday(consultation_day.send("is_#{weekday}")) %>
-          <% end %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-<% end %>
-
-<%= paginate @hospitals %>
+              <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
+                <% hospital.consultation_days.each do |consultation_day| %>
+                  <td><%= human_active_weekday(consultation_day.send("is_#{weekday}")) %></td>
+                <% end %>
+              <% end %>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row hospital-i-paginate">
+    <%= paginate @hospitals %>
+  </div>
+</div>

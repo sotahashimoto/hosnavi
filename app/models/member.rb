@@ -1,12 +1,18 @@
 class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :name, presence: true
+  validates :nickname, presence: true
+  validates :nickname, length: { maximum: 15 }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :comments
   has_many :favorites
   has_many :hospital_favorites
+  has_many :hospitals, through: :hospital_favorites
+  has_many :events
 
   attachment :image
 

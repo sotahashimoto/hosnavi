@@ -1,3 +1,42 @@
-<h1>Home#about</h1>
-<p>aboutページです。</p>
-<p>ホスnaviは全国の病院が検索できるアプリケーションです</p>
+<div class="container">
+  <div class="row about-title">
+    <h1>ー 全国の病院をホスnaviで検索できます ー</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row about1">
+    <div class="col-md-6 about-img1"></div>
+    <div class="col-md-6 about-font">
+      <p class="about-font-question">近所にどんな病院があるか分からない？</p>
+      <p class="about-font-question1">
+        ホスnaviなら地域毎、診療科目別に病院を検索することができます。
+        「都道府県」「診療科目」「何でも検索」と、カテゴリごとに分けられます。
+        皆様にあった病院をお知らせするのがポイントです。
+      </p>
+    </div>
+  </div>
+
+    <div class="row about2">
+    <div class="col-md-6 about-font">
+      <p class="about-font-question">評判の良い病院はどこ？</p>
+      <p class="about-font-question2">
+        ホスnaviなら来院した患者さんのコメント、いいね数を見る事が出来るので患者さんに合った病院を見つける事ができます。
+      </p>
+    </div>
+    <div class="col-md-6 about-img2"></div>
+  </div>
+
+  <div class="row about3">
+    <div class="col-md-6 about-img3"></div>
+    <div class="col-md-6 about-font3">
+      ホスnaviは、あなたの医療をサポートします
+    </div>
+      <div class="about-link_to_font3">
+      <%= link_to hospitals_path do %>
+        病院検索を始める
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

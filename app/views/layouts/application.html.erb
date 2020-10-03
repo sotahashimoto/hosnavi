@@ -14,59 +14,90 @@
 
   <body>
     <header>
-      <nav class="hnav">
-        <ul class="hnav-list">
+        <div class="container-fluid">
           <% if member_signed_in? %>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="logo"><%= link_to "Hosnavi", root_path, {class: "hnav-link"} %></div>
+              </div>
+              <div class="col-md-10">
+                <nav class="hnav">
+                  <ul class="hnav-list">
+                    <li class="hnav-item">
+                      <%= form_with(url: search_path, method: :get, local: true, class: "hnav-search") do |f| %>
+                        <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                        <% params[:search_medical_department]&.each do |v| %>
+                          <%= f.hidden_field "search_medical_department[]",:value=> v %>
+                        <% end %>
+                        <%= f.text_field :search_name_address, {class: "sbox4",placeholder: "エリア・病院名"} %>
+                        <%= f.submit '検索' %>
+                      <% end %>
+                    </li>
+                    <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "マイページ", member_path(current_member), {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
 
-          <div class="container">
-				<div class="row">
-					<div class="col-xs-2">
-          
-            <li class="hnav-item-logo"><%= link_to "LOGO", root_path, {class: "hnav-link"} %></li>
+          <% elsif admin_signed_in? %>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="logo"><%= link_to "管理者", root_path, {class: "hnav-link"} %></div>
+              </div>
+              <div class="col-md-10">
+                <nav class="hnav">
+                  <ul class="hnav-list">
+                    <li class="hnav-item"><%= link_to "診療科目一覧", admin_medical_departments_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", admin_hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "ログアウト", destroy_admin_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
 
-</div>
-<div class="col-xs-10">
-
-
-
-            <li class="hnav-item">
-              <%= form_with(url: search_path, method: :get, local: true, class: "hnav-link") do |f| %>
-                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
-                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
-                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
-                <%= f.submit '検索' %>
-              <% end %>
-            </li>
-            <li class="hnav-item"><%= link_to "マイページ", member_path(current_member), {class: "hnav-link"} %></li>
-            <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
-            <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path,  {method: :delete, class: "hnav-link"} %></li>
-          
-          
-          </div>
-          
-          
           <% else %>
-            <li class="hnav-item"><%= link_to "LOGO", root_path, {class: "hnav-link"} %></li>
-            <li class="hnav-item">
-              <%= form_with(url: search_path, method: :get, local: true, class: "hnav-link") do |f| %>
-                <%= f.hidden_field :search_address,:value=> params[:search_address]%>
-                <%= f.hidden_field :search_medical_department,:value=> params[:search_medical_department]%>
-                <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
-                <%= f.submit '検索' %>
-              <% end %>
-            </li>
-            <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
-            <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
-            <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link"} %></li>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="logo"><%= link_to "Hosnavi", root_path, {class: "hnav-link"} %></div>
+              </div>
+              <div class="col-md-10">
+                <nav class="hnav">
+                  <ul class="hnav-list">
+                    <li class="hnav-item">
+                      <%= form_with(url: search_path, method: :get, local: true, class: "hnav-search") do |f| %>
+                        <%= f.hidden_field :search_address,:value=> params[:search_address]%>
+                        <% params[:search_medical_department]&.each do |v| %>
+                          <%= f.hidden_field "search_medical_department[]",:value=> v %>
+                        <% end %>
+                        <%= f.text_field :search_name_address, {class: "sbox4",placeholder: "エリア・病院名"} %>
+                        <%= f.submit '検索' %>
+                      <% end %>
+                    </li>
+                    <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
+                    <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link-login"} %></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
           <% end %>
-        </ul>
-      </nav>
+        </div>
     </header>
 
     <%= yield %>
 
     <footer>
-    <p>ふったー</p>
+      <div class="footer-font">
+        <i class="fab fa-twitter footer-fontawesome"></i>
+        <i class="fab fa-facebook-f footer-fontawesome"></i>
+        <i class="fab fa-instagram footer-fontawesome"></i>
+        <p>Copyright © Infratop Inc. All Rights Reserved.</p>
+      </div>
     </footer>
   </body>
 </html>

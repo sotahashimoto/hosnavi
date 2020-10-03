@@ -1,10 +1,16 @@
 class Hospital < ApplicationRecord
   has_many :comments
-  has_many :medicals
   has_many :hospital_favorites
+  has_many :members, through: :hospital_favorites
+  has_many :medicals
   has_many :medical_departments, through: :medicals
   has_many :consultation_times
   has_many :consultation_days, through: :consultation_times
+
+  attachment :image
+
+  accepts_nested_attributes_for :medicals
+  accepts_nested_attributes_for :consultation_times
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

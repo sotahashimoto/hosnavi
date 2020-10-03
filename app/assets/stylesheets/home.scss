@@ -1,3 +1,168 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ----------------------------------------------------
+// home-top-md
+// ----------------------------------------------------
+.home-md {
+  height: 300px;
+  margin-top: 10px;
+}
+
+.home-md-img {
+  height: 300px;
+  background-image: image-url("home-medical_department.jpg");
+}
+
+.home-md-font {
+  height: 300px;
+}
+
+.home-box {
+  margin: 0 50px;
+}
+
+.home-titele {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+  font-size: 30px;
+}
+
+.home-titele::before,
+.home-titele::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+.home-titele::before {
+  left: 0;
+}
+.home-titele::after {
+  right: 0;
+}
+
+.home-md-th {
+  padding: 0 0 12px 55px;
+}
+.home-md-td {
+  padding: 0 0 12px 30px;
+}
+
+.home-md-all_link {
+  margin: 0 0 0 400px;
+}
+
+.home-md-link:hover,
+.home-md-all_link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+// ----------------------------------------------------
+// home-top-area
+// ----------------------------------------------------
+.home-area {
+  height: 300px;
+  margin-top: 10px;
+}
+
+.home-area-th {
+  padding: 0 0 12px 55px;
+}
+
+.home-area-td {
+  padding: 0 0 12px 30px;
+}
+
+.area-font {
+  height: 300px;
+}
+
+.area-img {
+  height: 300px;
+  background-image: image-url("home-area.jpg");
+}
+
+.home-area-link:hover {
+  color: black;
+  text-decoration: none;
+}
+// ----------------------------------------------------
+// home-about
+// ----------------------------------------------------
+.about2 {
+  margin: 10px 0 10px 0;
+}
+
+.about-img1 {
+  height: 300px;
+  background-image: image-url("about1.jpg");
+  background-position: center;
+}
+
+.about-img2 {
+  height: 300px;
+  background-image: image-url("about2.jpg");
+}
+
+.about-img3 {
+  height: 300px;
+  background-image: image-url("about3.jpg");
+  background-position: center;
+}
+
+.about-font-question {
+  font-size: 30px;
+}
+
+.about-font-question1 {
+  font-size: 20px;
+  padding-top: 40px;
+}
+
+.about-font-question2 {
+  font-size: 20px;
+  padding-top: 40px;
+}
+
+.about-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-font3 {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.about-link_to_font3 {
+  font-size: 25px;
+  text-align: center;
+}
+
+// -----------------------------
+.home-top {
+  height: 600px;
+  background-image: image-url("home-top.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  color: white;
+  font-size: 25px;
+}
+
+.home-top-font1 {
+  padding: 100px 100px 0px 550px;
+}
+
+.home-top-font2 {
+  padding: 0px 100px 0px 550px;
+}
