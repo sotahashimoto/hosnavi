@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def show
     @event = Event.new
-    @events = Event.all
+    @events = current_member.events.all
     @hospital = current_member.hospital_favorites
   end
 

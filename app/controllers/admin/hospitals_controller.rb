@@ -6,7 +6,7 @@ class Admin::HospitalsController < ApplicationController
   end
 
   def index
-   @hospitals = Hospital.all
+    @hospitals = Hospital.all
   end
 
   def show

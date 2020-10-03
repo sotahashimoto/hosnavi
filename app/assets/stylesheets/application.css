@@ -53,6 +53,7 @@ a.link_to_color_blue:hover {
 .fas.fa-lightbulb {
   color: #dee945;
 }
+
 /*----------header----------*/
 .logo {
   margin-left: 100px;
@@ -74,7 +75,7 @@ a.link_to_color_blue:hover {
 }
 
 .hnav-search {
-  padding-right: 80px;
+  /* padding-right: 80px; */
 }
 
 .hnav-link {
@@ -97,11 +98,15 @@ a.link_to_color_blue:hover {
 
 .hnav-link-login,
 .hnav-link-logout {
-  background: #ff6666; /*背景色*/
+  background: #ff6666;
+  /*背景色*/
   color: white;
-  padding: 0.5em; /*文字周りの余白*/
-  border-radius: 2em; /*角の丸み*/
+  padding: 0.5em;
+  /*文字周りの余白*/
+  border-radius: 2em;
+  /*角の丸み*/
 }
+
 /* ---------- */
 
 footer {
