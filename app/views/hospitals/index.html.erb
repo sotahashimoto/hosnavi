@@ -60,74 +60,74 @@
           </p>
 
           <p class ="hospital-i-index-medical_department-name">
-          <i class="fas fa-file-medical"></i>
-          <% hospital.medical_departments.each do |medical_department| %>
-            <%= medical_department.name %><span>/</span>
-          <% end %><br>
+            <i class="fas fa-file-medical"></i>
+            <% hospital.medical_departments.each do |medical_department| %>
+              <%= medical_department.name %><span>/</span>
+            <% end %><br>
           </p>
 
           <p class ="hospital-i-index-short_message">
             <%= hospital.short_message.truncate(20) %>
           </p>
 
-        <div class="hospital-i-index-comment-favorite">
-          <span class ="hospital-i-index-comment link_to_color_black">
-            <%= link_to hospital_comment_path(hospital, hospital.comments), {class: "link_to_color_black"} do %>
-            <i class="fas fa-comment link_to_color_black"></i> 口コミ
-            <%= hospital.comments.count %>件
-            <% end %>
-          </span>
-
-          <%# いいね機能 非同期 %>
-          <span class=<%= "like-" + hospital.id.to_s %>>
-            <%= render partial: "favorite", locals: { hospital: hospital } %>
-          </span>
-        </div>
-
-        <table class="table table-bordered hospital-i-index-consultation">
-          <tr>
-            <th class="hospital-i-th-consultation_time">診療時間</th>
-            <th class="hospital-i-th-consultation_day">月</th>
-            <th class="hospital-i-th-consultation_day">火</th>
-            <th class="hospital-i-th-consultation_day">水</th>
-            <th class="hospital-i-th-consultation_day">木</th>
-            <th class="hospital-i-th-consultation_day">金</th>
-            <th class="hospital-i-th-consultation_saturday">土</th>
-            <th class="hospital-i-th-consultation_sunday">日</th>
-          </tr>
-
-        <% hospital.consultation_times.each do |consultation_time| %>
-          <tr>
-            <td>
-              <%= consultation_time.start_hour %> :
-              <% if consultation_time.start_minute.to_s.length == 1 %>
-                <%= consultation_time.start_minute %>0 〜
-              <% else %>
-                <%= consultation_time.start_minute %> 〜
+          <div class="hospital-i-index-comment-favorite">
+            <span class ="hospital-i-index-comment link_to_color_black">
+              <%= link_to hospital_comment_path(hospital, hospital.comments), {class: "link_to_color_black"} do %>
+                <i class="fas fa-comment link_to_color_black"></i> 口コミ
+                <%= hospital.comments.count %>件
               <% end %>
+            </span>
 
-              <%= consultation_time.finish_hour %> :
-              <% if consultation_time.finish_minute.to_s.length == 1 %>
-                <%= consultation_time.finish_minute %>0
-              <% else %>
-                <%= consultation_time.finish_minute %>
-              <% end %>
+            <%# いいね機能 非同期 %>
+            <span class=<%= "like-" + hospital.id.to_s %>>
+              <%= render partial: "favorite", locals: { hospital: hospital } %>
+            </span>
+          </div>
 
-              <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
-                <% hospital.consultation_days.each do |consultation_day| %>
-                  <td><%= human_active_weekday(consultation_day.send("is_#{weekday}")) %></td>
+          <table class="table table-bordered hospital-i-index-consultation">
+            <tr>
+              <th class="hospital-i-th-consultation_time">診療時間</th>
+              <th class="hospital-i-th-consultation_day">月</th>
+              <th class="hospital-i-th-consultation_day">火</th>
+              <th class="hospital-i-th-consultation_day">水</th>
+              <th class="hospital-i-th-consultation_day">木</th>
+              <th class="hospital-i-th-consultation_day">金</th>
+              <th class="hospital-i-th-consultation_saturday">土</th>
+              <th class="hospital-i-th-consultation_sunday">日</th>
+            </tr>
+
+            <% hospital.consultation_times.each do |consultation_time| %>
+              <tr>
+                <td>
+                  <%= consultation_time.start_hour %> :
+                  <% if consultation_time.start_minute.to_s.length == 1 %>
+                    <%= consultation_time.start_minute %>0 〜
+                  <% else %>
+                    <%= consultation_time.start_minute %> 〜
+                  <% end %>
+
+                  <%= consultation_time.finish_hour %> :
+                  <% if consultation_time.finish_minute.to_s.length == 1 %>
+                    <%= consultation_time.finish_minute %>0
+                  <% else %>
+                    <%= consultation_time.finish_minute %>
+                  <% end %>
+
+                  <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
+                    <% hospital.consultation_days.each do |consultation_day| %>
+                      <td><%= human_active_weekday(consultation_day.send("is_#{weekday}")) %></td>
+                      <% break%>
+                    <% end %>
+                  <% end %>
                   <% break%>
-                <% end %>
-              <% end %>
-              <% break%>
-            </td>
-          </tr>
-        <% end %>
-    </table>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
   <div class="row hospital-i-paginate">
     <%= paginate @hospitals %>
   </div>
