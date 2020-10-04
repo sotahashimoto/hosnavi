@@ -10,9 +10,7 @@ class CommentsController < ApplicationController
     @comment = current_member.comments.new(comment_params)
     @comment.hospital_id = @hospital.id
     if @comment.save
-      redirect_back(fallback_location: root_path)
     else
-      redirect_back(fallback_location: root_path)
       flash[:danger] = '空白で投稿はできません'
     end
   end

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :members
 
+  devise_scope :member do
+    post 'members/guest_sign_in', to: 'members/sessions#new_guest'
+  end
+
+  post '/homes/guest_sign_in', to: 'home#new_guest'
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',

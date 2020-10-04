@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row hospital-i-form">
+  <div class="hospital-i-form">
     <%= form_with(url: search_path, method: :get, local: true) do |f| %>
       <table>
         <tr>
@@ -19,7 +19,7 @@
 
         <tr>
           <td>
-            <% ['産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科'].each do |medical_department| %>
+            <% ['婦人科', '産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科'].each do |medical_department| %>
               <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
               <%= f.label :"#{medical_department}" %>
             <% end %>
@@ -32,7 +32,8 @@
           </td>
           <td>
             <%= f.hidden_field :search_address,:value=> params[:search_address] %>
-            <%= f.submit 'Search' %>
+            <%= f.hidden_field :search_name_address,:value=> params[:search_name_address] %>
+            <%= f.submit '検索' %>
           </td>
         </tr>
       </table>
@@ -46,7 +47,8 @@
           <%= attachment_image_tag hospital, :image, format: 'jpeg', size: "550x400", fallback: "no_image.jpg" %>
         </div>
         <div class="col-md-6 hospital-i-index-font">
-          <%= link_to hospital.name, hospital_path(hospital), {class: "hospital-i-index-hospital_name"} %>
+          <%= link_to hospital.name, hospital_path(hospital), {class: "hospital-i-index-hospital_name link_to_color_black"} %>
+
           <p class ="hospital-i-index-address">
             <i class="fas fa-map-marked-alt"></i>
             <%= hospital.postcode %>
@@ -56,20 +58,22 @@
             <i class="fas fa-phone"></i>
             <%= hospital.phone_number %><br>
           </p>
+
           <p class ="hospital-i-index-medical_department-name">
             <i class="fas fa-file-medical"></i>
             <% hospital.medical_departments.each do |medical_department| %>
               <%= medical_department.name %><span>/</span>
             <% end %><br>
           </p>
+
           <p class ="hospital-i-index-short_message">
-            <%= hospital.short_message %>
+            <%= hospital.short_message.truncate(20) %>
           </p>
 
           <div class="hospital-i-index-comment-favorite">
-            <span class ="hospital-i-index-comment">
-              <%= link_to hospital_comment_path(hospital, hospital.comments) do %>
-                <i class="fas fa-comment"></i> 口コミ
+            <span class ="hospital-i-index-comment link_to_color_black">
+              <%= link_to hospital_comment_path(hospital, hospital.comments), {class: "link_to_color_black"} do %>
+                <i class="fas fa-comment link_to_color_black"></i> 口コミ
                 <%= hospital.comments.count %>件
               <% end %>
             </span>
@@ -92,9 +96,9 @@
               <th class="hospital-i-th-consultation_sunday">日</th>
             </tr>
 
-            <tr>
-              <td>
-                <% hospital.consultation_times.each do |consultation_time| %>
+            <% hospital.consultation_times.each do |consultation_time| %>
+              <tr>
+                <td>
                   <%= consultation_time.start_hour %> :
                   <% if consultation_time.start_minute.to_s.length == 1 %>
                     <%= consultation_time.start_minute %>0 〜
@@ -108,15 +112,17 @@
                   <% else %>
                     <%= consultation_time.finish_minute %>
                   <% end %>
-                <% end %>
-              </td>
 
-              <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
-                <% hospital.consultation_days.each do |consultation_day| %>
-                  <td><%= human_active_weekday(consultation_day.send("is_#{weekday}")) %></td>
-                <% end %>
-              <% end %>
-            </tr>
+                  <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
+                    <% hospital.consultation_days.each do |consultation_day| %>
+                      <td><%= human_active_weekday(consultation_day.send("is_#{weekday}")) %></td>
+                      <% break%>
+                    <% end %>
+                  <% end %>
+                  <% break%>
+                </td>
+              </tr>
+            <% end %>
           </table>
         </div>
       <% end %>
