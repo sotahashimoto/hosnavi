@@ -44,15 +44,14 @@
 
           <% elsif admin_signed_in? %>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <div class="logo"><%= link_to "管理者", root_path, {class: "hnav-link"} %></div>
               </div>
-              <div class="col-md-10">
+              <div class="col-md-9">
                 <nav class="hnav">
                   <ul class="hnav-list">
                     <li class="hnav-item"><%= link_to "診療科目一覧", admin_medical_departments_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "病院一覧", admin_hospitals_path, {class: "hnav-link"} %></li>
-                    <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
                     <li class="hnav-item"><%= link_to "ログアウト", destroy_admin_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
                   </ul>
                 </nav>

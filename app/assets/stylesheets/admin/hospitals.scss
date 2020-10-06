@@ -1,3 +1,37 @@
 // Place all the styles related to the admin::hospitals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_hospital_consultation_dayAdd {
+  text-align: right;
+}
+
+.admin_hospitalAdd {
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.admin_consultation_dayAdd {
+  font-size: 20px;
+  text-align: right;
+}
+
+.admin_hospital-index-link {
+  font-size: 20px;
+}
+
+.admin_hospital_image {
+  padding: 10px 20px 10px 0;
+}
+
+.admin_hospital_name {
+  padding-right: 90px;
+}
+
+.admin_hospital_postcode {
+  padding-right: 20px;
+}
+
+.admin_hospital_address {
+  padding-right: 60px;
+}

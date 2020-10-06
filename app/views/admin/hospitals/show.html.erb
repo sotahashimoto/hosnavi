@@ -1,16 +1,119 @@
-<table>
-<tr>
-<td><%= attachment_image_tag @hospital, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
-<td><%= @hospital.name %></td>
-<td><%= @hospital.postcode %></td>
-<td><%= @hospital.address %></td>
-<td><%= @hospital.phone_number %></td>
-<td><%= @hospital.feature %></td>
-<td><%= @hospital.short_message %></td>
-<td><%= link_to "編集する", edit_admin_hospital_path(@hospital) %></td>
-</tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= attachment_image_tag @hospital, :image, format: 'jpeg', size: "550x400", fallback: "no_image.jpg" %>
+    </div>
+    <div class="col-md-6">
+      <h1><%= @hospital.name %></h1>
+      <h3><%= @hospital.short_message %></h3>
+      <p><%= @hospital.feature %></p>
+    </div>
+  </div>
 
-<% @medical_departments.each do |md| %>
-<%= md.name %>
-<% end %>
+  <div class="row hospital-s-row-map">
+    <div class="col-md-6">
+      <p class ="hospital-s-address">
+        <i class="fas fa-map-marked-alt"></i>
+        <%= @hospital.postcode %>
+        <%= @hospital.address %><br>
+      </p>
+
+      <p class ="hospital-s-phone_number">
+        <i class="fas fa-phone"></i>
+        <%= @hospital.phone_number %><br>
+      </p>
+
+      <p class ="hospital-s-medical_department-name">
+        <i class="fas fa-file-medical"></i>
+        <% @hospital.medical_departments.each do |medical_department| %>
+          <%= medical_department.name %><span>/</span>
+        <% end %><br>
+      </p>
+
+      <div class="hospital-i-index-notices">
+        <p class="hospital-i-index-notices-font">特記事項</p>
+        <%= @hospital.notices %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <script type="text/javascript">
+        function initMap() {
+
+          var test ={lat: <%= @hospital.latitude %>, lng: <%= @hospital.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: test
+                    });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+
+          var contentString = '住所：<%= @hospital.address %>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                      });
+
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        }
+      </script>
+
+      <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+      </script>
+
+      <style type="text/css">
+        #map { height: 440px;
+              width: 100%;}
+      </style>
+
+      <div id="map"></div>
+    </div>
+  </div>
+
+<div class="row">
+<div class="col-md-12">
+<table class="table table-bordered hospital-s-table-consultation">
+  <tr>
+    <th></th>
+    <th class="hospital-i-th-consultation_day">月</th>
+    <th class="hospital-i-th-consultation_day">火</th>
+    <th class="hospital-i-th-consultation_day">水</th>
+    <th class="hospital-i-th-consultation_day">木</th>
+    <th class="hospital-i-th-consultation_day">金</th>
+    <th class="hospital-i-th-consultation_saturday">土</th>
+    <th class="hospital-i-th-consultation_sunday">日</th>
+  </tr>
+
+  <% @consultation_times.each do |consultation_time| %>
+    <tr>
+      <td class="hospital-i-td-consultation_time">
+      <%= consultation_time.start_hour %>：
+      <% if consultation_time.start_minute.to_s.length == 1 %>
+        <%= consultation_time.start_minute %>0〜
+      <% else %>
+        <%= consultation_time.start_minute %>〜
+      <% end %>
+      <%= consultation_time.finish_hour %>：
+      <% if consultation_time.finish_minute.to_s.length == 1 %>
+        <%= consultation_time.finish_minute %>0
+      <% else %>
+        <%= consultation_time.finish_minute %>
+      <% end %>
+      </td>
+
+      <% ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].each do |weekday| %>
+        <td class="hospital-i-td-consultation_day"><%= human_active_weekday(consultation_time.consultation_day.send("is_#{weekday}")) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div></div>

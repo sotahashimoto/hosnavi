@@ -42,8 +42,8 @@
         <span class=<%= "like-" + @hospital.id.to_s %>>
           <%= render partial: "favorite", locals: { hospital: @hospital } %>
         </span>
-
       </div>
+
       <div class="hospital-i-index-notices">
         <p class="hospital-i-index-notices-font">特記事項</p>
         <%= @hospital.notices %>

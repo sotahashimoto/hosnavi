@@ -11,7 +11,8 @@ class Admin::HospitalsController < ApplicationController
 
   def show
     @hospital = Hospital.find(params[:id])
-    @medical_departments = @hospital.medical_departments
+    @medical_departments = @hospital.medical_departments.sort
+    @consultation_times = @hospital.consultation_times
   end
 
   def edit
