@@ -9,9 +9,9 @@
       <%= flash[:danger] %>
       <% if member_signed_in? %>
         <%# コメント投稿機能 非同期 %>
-        <span class=<%= "commentform-" + @hospital.id.to_s %>>
-          <%= render partial: "commentform", locals: { hospital: @hospital, comment: @comment } %>
-        </span>
+        <div class="commentform" >
+          <%= render partial: "commentform", locals: {hospital: @hospital, comment: @comment} %>
+        </div>
       <% else %>
         口コミを投稿する場合ログインしてください
       <% end %>
@@ -19,9 +19,9 @@
 
     <div class="col-md-9">
       <%# コメント表示機能 非同期 %>
-      <span class=<%= "comments-" + @hospital.id.to_s %>>
-        <%= render partial: "comments", locals: { comments: @comments } %>
-      </span>
+      <div class="comments" >
+        <%= render partial: "comments", locals: {comments: @comments} %>
+      </div>
     </div>
   </div>
 </div>
