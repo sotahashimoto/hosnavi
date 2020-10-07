@@ -1,1 +1,3 @@
-alert('JavaScriptのアラート');
+$('#comments').val()
+$(".commentform").html("<%= j(render partial: 'comments/commentform', locals: { hospial: @hospial, comment: @comment}) %>");
+$(".comments").html("<%= j(render partial: 'comments/comments', locals: { comments: @comments}) %>");
