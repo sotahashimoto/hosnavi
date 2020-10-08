@@ -1,3 +1,6 @@
 $('#comments').val()
 $(".commentform").html("<%= j(render partial: 'comments/commentform', locals: { hospial: @hospial, comment: @comment}) %>");
 $(".comments").html("<%= j(render partial: 'comments/comments', locals: { comments: @comments}) %>");
+
+<%# コメント数カウント機能 非同期 %>
+$(".commentcounts").html("<%= j(render partial: 'comments/commentcounts', locals: {comments: @comments}) %>");
