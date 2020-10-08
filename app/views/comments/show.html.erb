@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col-md-3">
       <p>口コミ | <%= @hospital.name %></p>
-      <div>
-        <i class="far fa-comment-dots"></i>口コミ<%= @comments.count %>件
+      <%# コメント投稿機能 非同期 %>
+      <div class="commentcounts" >
+        <%= render partial: "commentcounts", locals: {comments: @comments} %>
       </div>
 
       <%= flash[:danger] %>
