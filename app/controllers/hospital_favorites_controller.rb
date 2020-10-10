@@ -1,7 +1,6 @@
 class HospitalFavoritesController < ApplicationController
   def index
     @hospitals = current_member.hospitals
-    @hospitals = current_member.hospitals
     @medical_departments = MedicalDepartment.all
   end
 
