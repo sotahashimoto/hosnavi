@@ -4,7 +4,7 @@ ja:
       event: イベント
     attributes:
       event:
-        title: イベント名
-        start_time: 受診日
+        title: タイトル
+        start_time: 日付
       member:
         nicknama: ユーザー名
