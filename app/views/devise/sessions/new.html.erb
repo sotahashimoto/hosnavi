@@ -33,6 +33,16 @@
         <div class="actions">
           <%= f.submit "ログイン", class: "login-submit btn btn-primary" %>
         </div>
+
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+              <div class="g_icon_login">
+                <span class="g_icon"></span>Google アカウントでログインする
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
 
       <div class="col-md-4">
