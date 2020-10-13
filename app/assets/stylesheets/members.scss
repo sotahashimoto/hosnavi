@@ -104,3 +104,25 @@
 .notice {
   color: #9cd0f0;
 }
+
+.g_icon_login {
+  font-size: 20px;
+  height: 25px;
+  margin: 20px 0px;
+  text-align: center;
+  color: black;
+}
+
+.g_icon {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-image: image-url("g_icon.png");
+}
+
+.g_icon:hover {
+  color: black;
+  text-decoration: none;
+}
