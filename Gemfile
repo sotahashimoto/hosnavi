@@ -91,6 +91,8 @@ gem "dotenv-rails"
 
 gem 'pry-byebug'
 
+gem 'omniauth-google-oauth2'
+
 gem 'jquery-rails'
 
 gem 'dotenv-rails'

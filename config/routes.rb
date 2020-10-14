@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :members
+  # devise_for :members
 
   devise_scope :member do
     post 'members/guest_sign_in', to: 'members/sessions#new_guest'
   end
+
+  devise_for :members, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   post '/homes/guest_sign_in', to: 'home#new_guest'
 
