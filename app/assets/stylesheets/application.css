@@ -133,3 +133,7 @@ footer {
 .login {
   text-align: center;
 }
+
+.fa-twitter:hover {
+  text-decoration: none;
+}
