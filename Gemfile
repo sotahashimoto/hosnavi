@@ -92,6 +92,7 @@ gem "dotenv-rails"
 gem 'pry-byebug'
 
 gem 'omniauth-google-oauth2'
+gem 'twitter'
 
 gem 'jquery-rails'
 
