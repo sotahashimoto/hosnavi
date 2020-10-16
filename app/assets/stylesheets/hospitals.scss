@@ -24,6 +24,7 @@
 .hospital-i-index-hospital_name::before {
   left: 60px;
 }
+
 .hospital-i-index-hospital_name::after {
   right: 60px;
 }
@@ -32,6 +33,7 @@
   margin: 20px 0 0 20px;
   font-size: 20px;
 }
+
 .hospital-i-index-phone_number {
   margin: 5px 0 0 20px;
   font-size: 20px;
@@ -62,7 +64,7 @@
 }
 
 .hospital-i-index-favorite {
-  margin-left: 220px;
+  margin-left: 60px;
 }
 
 .hospital-i-index-notices {
@@ -120,6 +122,7 @@
   margin: 20px 0 0 20px;
   font-size: 20px;
 }
+
 .hospital-s-phone_number {
   margin: 5px 0 0 20px;
   font-size: 20px;
@@ -136,4 +139,32 @@
 
 .hospital-i-form {
   margin: 0 0 30px 200px;
+}
+
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+}
+
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+
+.star-rating-back {
+  color: #ccc;
+}
+
+.average-score {
+  display: inline-flex;
+}
+
+.average-score-display {
+  margin: 5px 0 0 5px;
+  font-size: 20px;
 }
