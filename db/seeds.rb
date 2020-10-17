@@ -11,7 +11,7 @@ Member.create!(
     {
       image: File.open("./app/assets/images/member1.jpg"),
       name: '田中聡太',
-      nickname: 'ペンギン',
+      nickname: 'わんちゃん',
       email: '1@1.com',
       password: 'aaaaaa',
       password_confirmation: 'aaaaaa',
@@ -22,7 +22,7 @@ Member.create!(
     {
       image: File.open("./app/assets/images/member2.jpg"),
       name: '橋本秀行',
-      nickname: 'ライオン',
+      nickname: 'リス',
       email: '2@2.com',
       password: 'aaaaaa',
       password_confirmation: 'aaaaaa',
