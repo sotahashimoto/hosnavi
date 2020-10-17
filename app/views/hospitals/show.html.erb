@@ -36,7 +36,16 @@
             <i class="fas fa-comment"></i> 口コミ
             <%= @hospital.comments.count %>件
           <% end %>
-        </span>
+          <span class="average-score">
+              <span class="star-rating">
+                <span class="star-rating-front" style="width: <%= @hospital.review_score_percentage %>%">★★★★★</span>
+                <span class="star-rating-back">★★★★★</span>
+              </span>
+              <span class="average-score-display">
+                <%= @hospital.avg_score %>点
+              </span>
+            </span>
+          </span>
 
         <%# いいね機能 非同期 %>
         <span class=<%= "like-" + @hospital.id.to_s %>>
