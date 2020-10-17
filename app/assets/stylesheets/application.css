@@ -74,6 +74,10 @@ a.link_to_color_blue:hover {
   padding: 20px;
 }
 
+.hnav-image {
+  display: inline-block;
+}
+
 .hnav-search {
   /* padding-right: 80px; */
 }
