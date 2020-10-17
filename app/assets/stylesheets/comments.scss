@@ -20,3 +20,17 @@
 .comment_created_at_strftime {
   margin: 0 10px 0 10px;
 }
+
+.rating-box .ratings .fa {
+  font-size: 18px;
+  color: #ffcc00;
+  cursor: pointer;
+}
+
+.main-rating {
+  display: flex;
+}
+
+.rating-value-display {
+  font-size: 15px;
+}

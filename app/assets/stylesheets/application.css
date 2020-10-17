@@ -74,6 +74,10 @@ a.link_to_color_blue:hover {
   padding: 20px;
 }
 
+.hnav-image {
+  display: inline-block;
+}
+
 .hnav-search {
   /* padding-right: 80px; */
 }
@@ -110,18 +114,8 @@ a.link_to_color_blue:hover {
 /* ---------- */
 
 footer {
-  height: 100px;
+  height: 50px;
   text-align: center;
-}
-
-.footer-font {
-  padding-top: 20px;
-}
-
-.footer-fontawesome {
-  color: #ff6666;
-  font-size: 30px;
-  padding: 0 15px 10px 15px;
 }
 
 .login-submit,
@@ -132,4 +126,10 @@ footer {
 .signup,
 .login {
   text-align: center;
+}
+
+.header_member-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }

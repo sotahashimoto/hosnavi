@@ -10,6 +10,20 @@
         </span>
       </td>
       <td>
+      <%# /////////////////////////////////////////////////////////////////? %>
+          <div class="caverage-score">
+          <div class="cstar-rating">
+            <div class="cstar-rating-front" style="width: <%= comment.score %>%">★★★★★</div>
+            <div class="cstar-rating-back">★★★★★</div>
+          </div>
+          <div class="cscore-display">
+            <%= comment.score %>点
+          </div>
+        </div>
+        </div>
+      <%# /////////////////////////////////////////////////////////////////? %>
+      </td>
+      <td>
         <span class="comment_created_at_strftime">
           <%= comment.created_at.strftime("%Y年%m月投稿") %>
         </span>
