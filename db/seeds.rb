@@ -65,29 +65,6 @@ Event.create!(
   ]
 )
 
-Comment.create!(
-  [
-    {
-      member_id: '1',
-      hospital_id: '1',
-      score: '5',
-      content: '発熱で受診しました。スムーズに対応してくださり、先生もとても優しく安心して治療を受けることができました。',
-    },
-    {
-      member_id: '1',
-      hospital_id: '2',
-      score: '3',
-      content: '整形外科を定期的に受診しています',
-    },
-    {
-      member_id: '2',
-      hospital_id: '1',
-      score: '4',
-      content: '良い先生がいます。医療器具も整っていると思います　人気がありいつも一杯です',
-    }
-  ]
-)
-
 Hospital.create!(
   [
     {
@@ -169,6 +146,29 @@ Hospital.create!(
       phone_number: '06-6774-5111',
       short_message: '鶴橋駅から徒歩5分の病院さんです',
       notices: '8:30～11:30　原則紹介制、一部診療科予約制　科により異なる'
+    }
+  ]
+)
+
+Comment.create!(
+  [
+    {
+      member_id: '1',
+      hospital_id: '1',
+      score: '5',
+      content: '発熱で受診しました。スムーズに対応してくださり、先生もとても優しく安心して治療を受けることができました。',
+    },
+    {
+      member_id: '1',
+      hospital_id: '2',
+      score: '3',
+      content: '整形外科を定期的に受診しています',
+    },
+    {
+      member_id: '2',
+      hospital_id: '1',
+      score: '4',
+      content: '良い先生がいます。医療器具も整っていると思います　人気がありいつも一杯です',
     }
   ]
 )
