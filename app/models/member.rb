@@ -3,6 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   validates :name, presence: true
+  validates :name, length: { maximum: 15 }
   validates :nickname, presence: true
   validates :nickname, length: { maximum: 15 }
 
