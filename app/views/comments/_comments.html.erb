@@ -10,20 +10,20 @@
         </span>
       </td>
       <td>
-      <%# /////////////////////////////////////////////////////////////////? %>
-          <div class="caverage-score">
-          <div class="cstar-rating">
-            <div class="cstar-rating-front" style="width: <%= comment.score %>%">★★★★★</div>
-            <div class="cstar-rating-back">★★★★★</div>
-          </div>
-          <div class="cscore-display">
-            <%= comment.score %>点
-          </div>
-        </div>
-        </div>
-      <%# /////////////////////////////////////////////////////////////////? %>
+        <% if comment.score == 1 %>
+          <span class="star-rating-front1" style="width: <%= comment.score %>%">★</span><span class="star-rating-back">★★★★</span>
+        <% elsif comment.score == 2 %>
+          <span class="star-rating-front2" style="width: <%= comment.score %>%">★★</span><span class="star-rating-back">★★★</span>
+        <% elsif comment.score == 3 %>
+          <span class="star-rating-front3" style="width: <%= comment.score %>%">★★★</span><span class="star-rating-back">★★</span>
+        <% elsif comment.score == 4 %>
+          <span class="star-rating-front4" style="width: <%= comment.score %>%">★★★★</span><span class="star-rating-back">★</span>
+        <% else comment.score == 5 %>
+          <span class="star-rating-front5" style="width: <%= comment.score %>%">★★★★★</span>
+        <% end %>
+        <%= comment.score %>点
       </td>
-      <td>
+      <td class="td_comment_created_at_strftime">
         <span class="comment_created_at_strftime">
           <%= comment.created_at.strftime("%Y年%m月投稿") %>
         </span>

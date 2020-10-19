@@ -10,7 +10,6 @@
 
 .comment-s-word_of_mouth {
   color: rgb(197, 194, 194);
-  margin-right: 20px;
 }
 
 .comment-s-nickname-word_of_mouth {
@@ -19,6 +18,10 @@
 
 .comment_created_at_strftime {
   margin: 0 10px 0 10px;
+}
+
+.td_comment_created_at_strftime {
+  width: 130px;
 }
 
 .rating-box .ratings .fa {
@@ -33,4 +36,16 @@
 
 .rating-value-display {
   font-size: 15px;
+}
+
+.star-rating-front1,
+.star-rating-front2,
+.star-rating-front3,
+.star-rating-front4,
+.star-rating-front5 {
+  color: #ffcc33;
+}
+
+.star-rating-back {
+  color: #ccc;
 }
