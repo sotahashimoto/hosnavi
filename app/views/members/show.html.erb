@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <th>email</th>
-          <td><%= current_member.email %></td>
+          <td><%= current_member.email.truncate(40) %></td>
         </tr>
       </table>
 
