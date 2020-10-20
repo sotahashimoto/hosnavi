@@ -133,3 +133,8 @@ footer {
   width: 60px;
   border-radius: 50%;
 }
+
+.image-button button {
+  border-style: none;
+  background-color: white;
+}
