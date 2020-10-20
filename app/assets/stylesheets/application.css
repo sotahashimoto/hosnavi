@@ -138,3 +138,7 @@ footer {
   border-style: none;
   background-color: white;
 }
+
+#text {
+  display: none
+}
