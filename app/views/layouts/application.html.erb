@@ -35,15 +35,16 @@
                   </li>
                   <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
                   <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
-                  <button id="image">
-                    <li class="hnav-image">
-                      <%= attachment_image_tag current_member, :image, format: 'jpeg', size: "150x150", fallback: "noprofile_image.jpg", class: 'header_member-image' %>
-                    </li>
-                  </button>
+                  <span class="image-button">
+                    <button id="image">
+                      <li class="hnav-image">
+                        <%= attachment_image_tag current_member, :image, format: 'jpeg', size: "150x150", fallback: "noprofile_image.jpg", class: 'header_member-image' %>
+                      </li>
+                    </button>
+                  </span>
                   <p id="text">
                     <%= link_to "マイページ", member_path(current_member) %>
-                    <%= link_to "ログアウト", destroy_member_session_path %>
+                    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
                   </p>
                   <script>
                   $('#image').on('click', function () {
