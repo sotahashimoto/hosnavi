@@ -56,7 +56,7 @@ a.link_to_color_blue:hover {
 
 /*----------header----------*/
 .logo {
-  margin-left: 100px;
+  /* margin-left: 100px; */
   padding: 20px;
   margin-top: 20px;
   font-size: 30px;
@@ -132,4 +132,17 @@ footer {
   height: 60px;
   width: 60px;
   border-radius: 50%;
+}
+
+.image-button button {
+  border-style: none;
+  background-color: white;
+}
+
+#text {
+  display: none
+}
+
+.sbox4 {
+  width: 400px;
 }
