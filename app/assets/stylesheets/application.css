@@ -146,3 +146,11 @@ footer {
 .sbox4 {
   width: 400px;
 }
+
+.facebook {
+  position: absolute;
+}
+
+.fb-root {
+  position: relative;
+}
