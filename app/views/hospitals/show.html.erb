@@ -32,7 +32,7 @@
 
       <div class="hospital-i-index-comment-favorite">
         <span class ="hospital-i-index-comment">
-          <%= link_to hospital_comment_path(@hospital, @hospital.comments), {class: "link_to_color_black"} do %>
+          <%= link_to hospital_comment_path(@hospital), {class: "link_to_color_black"} do %>
             <i class="fas fa-comment"></i> 口コミ
             <%= @hospital.comments.count %>件
           <% end %>

@@ -33,7 +33,7 @@
                       <%= f.submit '検索' %>
                     <% end %>
                   </li>
-                  <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-item hnav-item-about"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
                   <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
                   <span class="image-button">
                     <button id="image">
@@ -63,14 +63,17 @@
         <% elsif admin_signed_in? %>
           <div class="row">
             <div class="col-md-3">
-              <div class="logo"><%= link_to "管理者", root_path, {class: "hnav-link"} %></div>
+              <div class="logo"><%= link_to "管理者", admin_hospitals_path, {class: "hnav-link"} %></div>
             </div>
             <div class="col-md-9">
               <nav class="hnav">
                 <ul class="hnav-list">
-                  <li class="hnav-item"><%= link_to "診療科目一覧", admin_medical_departments_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "病院一覧", admin_hospitals_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "ログアウト", destroy_admin_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "病院追加", new_admin_hospital_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "会員側病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "診療日追加", admin_consultation_days_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "診療科目一覧", admin_medical_departments_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "病院一覧", admin_hospitals_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-admin-item"><%= link_to "ログアウト", destroy_admin_session_path, {method: :delete, class: "hnav-link-logout"} %></li>
                 </ul>
               </nav>
             </div>
