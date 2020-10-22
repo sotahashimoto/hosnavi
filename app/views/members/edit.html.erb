@@ -5,21 +5,21 @@
     <div class="col-md-4 member-e-form">
       <%= attachment_image_tag @member, :image, fallback: "no_image.jpg", size:"200x160", class: 'member-s-image' %>
       <%= form_with model: @member, local: true do |f| %>
-      <% if @member.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @member.errors.count %>件のエラーが発生しました。</h2>
-      <ul>
-      <% @member.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <% if @member.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @member.errors.count %>件のエラーが発生しました。</h2>
+            <ul>
+              <% @member.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-            <div class="member-e-form-member-name form-group">
-              ユーザー名<%= f.text_field :nickname ,class: "form-control" %>
-            </div>
-            <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
+        <div class="member-e-form-member-name form-group">
+          ユーザー名<%= f.text_field :nickname ,class: "form-control" %>
+        </div>
+        <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
 
         <script>
           $(function(){
