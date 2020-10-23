@@ -22,7 +22,7 @@ class Admin::HospitalsController < ApplicationController
   def update
     hospital = Hospital.find(params[:id])
     if hospital.update(hospital_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to admin_hospitals_path
     else
       render "edit"
     end
@@ -30,8 +30,17 @@ class Admin::HospitalsController < ApplicationController
 
   def create
     hospital = Hospital.new(hospital_params)
-    hospital.save
-  	redirect_to admin_hospitals_path
+    if hospital.save
+      redirect_to admin_hospitals_path
+    else
+      render "new"
+    end
+  end
+
+  def destroy
+    hospital = Hospital.find(params[:id])
+    hospital.destroy
+    redirect_back(fallback_location: admin_hospitals_path)
   end
 
   private

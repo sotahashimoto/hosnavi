@@ -9,6 +9,7 @@
           <td class="admin_hospital_address"><%= hospital.address %></td>
           <td class="admin_hospital_phone_number"><%= hospital.phone_number %></td>
           <td><%= link_to "編集する", edit_admin_hospital_path(hospital) %></td>
+          <td><%= link_to "削除する", admin_hospital_path(hospital), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
         </tr>
       <% end %>
     </table>
