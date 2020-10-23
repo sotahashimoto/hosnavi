@@ -7,6 +7,21 @@ class Hospital < ApplicationRecord
   has_many :consultation_times
   has_many :consultation_days, through: :consultation_times
 
+  validates :name, presence: true
+  validates :name, length: {maximum: 25}
+  validates :postcode, presence: true
+  validates :postcode, length: {maximum: 25}
+  validates :address, presence: true
+  validates :address, length: {maximum: 25}
+  validates :feature, presence: true
+  validates :feature, length: {maximum: 25}
+  validates :short_message, presence: true
+  validates :short_message, length: {maximum: 25}
+  validates :notices, presence: true
+  validates :notices, length: {maximum: 25}
+  validates :phone_number, presence: true
+  validates :phone_number, length: {maximum: 25}
+
   attachment :image
 
   accepts_nested_attributes_for :medicals
