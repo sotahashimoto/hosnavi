@@ -1,18 +1,5 @@
 <div class="container">
   <div class="row">
-    <div class="admin_hospital_consultation_dayAdd">
-      <span class="admin_hospitalAdd">
-        <i class="fas fa-hospital-alt"></i>
-        <%= link_to "病院追加", new_admin_hospital_path, {class: "admin_hospital-index-link"} %>
-        <i class="fas fa-hospital-user"></i>
-        <%= link_to "会員側病院一覧", hospitals_path %>
-      </span>
-      <span class="admin_consultation_dayAdd">
-        <i class="far fa-calendar-alt"></i>
-        <%= link_to "診療日追加", admin_consultation_days_path, {class: "admin_hospital-index-link"}  %>
-      </span>
-    </div>
-
     <table>
       <% @hospitals.each do |hospital| %>
         <tr>
@@ -20,7 +7,9 @@
           <td class="admin_hospital_name"><%= link_to hospital.name, admin_hospital_path(hospital) %></td>
           <td class="admin_hospital_postcode"><%= hospital.postcode %></td>
           <td class="admin_hospital_address"><%= hospital.address %></td>
-          <td><%= hospital.phone_number %></td>
+          <td class="admin_hospital_phone_number"><%= hospital.phone_number %></td>
+          <td><%= link_to "編集する", edit_admin_hospital_path(hospital) %></td>
+          <td><%= link_to "削除する", admin_hospital_path(hospital), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
         </tr>
       <% end %>
     </table>
