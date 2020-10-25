@@ -37,8 +37,7 @@ class Member < ApplicationRecord
                           provider: auth.provider,
                           uid:      auth.uid,
                           token:    auth.credentials.token,
-                          password: Devise.friendly_token[0, 20],
-                          meta:     "")
+                          password: Devise.friendly_token[0, 20])
     end
     member
   end
