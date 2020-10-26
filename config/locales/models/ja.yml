@@ -2,9 +2,13 @@ ja:
   activerecord:
     models:
       event: イベント
+      cooment: コメント
     attributes:
       event:
         title: タイトル
         start_time: 日付
+      comment:
+        content: 口コミ
+        score: 評価
       member:
         nicknama: ユーザー名

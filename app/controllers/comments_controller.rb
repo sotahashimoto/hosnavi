@@ -7,13 +7,12 @@ class CommentsController < ApplicationController
 
   def create
     @hospital = Hospital.find(params[:hospital_id])
+    @comments = @hospital.comments
     @comment = current_member.comments.new(comment_params)
     @comment.hospital_id = @hospital.id
     if @comment.save
       @comment = Comment.new
-      @comments = @hospital.comments
     else
-      flash[:danger] = '空白で投稿はできません'
     end
   end
 
