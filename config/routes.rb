@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   root to: 'home#top'
   get 'about', to: 'home#about'
-
   get "search" => "hospitals#search"
 
   namespace :admin do

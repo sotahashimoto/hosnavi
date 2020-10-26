@@ -10,7 +10,7 @@ class Hospital < ApplicationRecord
   validates :name, presence: true
   validates :name, length: {maximum: 25}
   validates :postcode, presence: true
-  validates :postcode, length: {maximum: 25}
+  validates :postcode, length: {maximum: 7}
   validates :address, presence: true
   validates :address, length: {maximum: 25}
   validates :feature, presence: true
