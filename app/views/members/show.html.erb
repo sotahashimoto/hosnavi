@@ -23,16 +23,7 @@
       </table>
 
       <%= form_with model: @event, url: member_events_path(current_member),local:true do |f| %>
-        <% if @event.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= @event.errors.count %>件のエラーが発生しました。</h2>
-            <ul>
-              <% @event.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <%= render 'layouts/error_messages', model: f.object %>
 
         <div class="row">
           <div class="col-xs-6">
