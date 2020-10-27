@@ -59,6 +59,7 @@ a.link_to_color_blue:hover {
   padding: 20px;
   margin-top: 20px;
   font-size: 30px;
+  font-family: 'Chalkduster','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
 }
 
 .hnav-list {
