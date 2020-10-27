@@ -33,11 +33,17 @@
           <%= f.submit "ログイン", class: "login-submit btn btn-primary" %>
         </div>
 
+        <div class="guest_login">
+          <%= link_to homes_guest_sign_in_path, { method: :post, class: "hnav-link"} do %>
+            <i class="fas fa-walking"></i>ゲストログインする
+          <% end %>
+        </div>
+
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
             <%= link_to omniauth_authorize_path(resource_name, provider) do %>
               <div class="g_icon_login">
-                <span class="g_icon"></span>Google アカウントでログインする
+                <span class="g_icon"></span><span class="g_icon_text">Google アカウントでログインする</span>
               </div>
             <% end %>
           <% end %>
