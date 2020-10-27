@@ -43,13 +43,24 @@
                     </button>
                   </span>
                   <p id="text">
-                    <%= link_to "マイページ", member_path(current_member) %>
-                    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+                    <%# <%= current_member.name %>
+                    <%= link_to "マイページ", member_path(current_member), {class: "hnav-mypage-link"} %>
+                    <%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "hnav-logout-link"} %>
                   </p>
                   <script>
                   $('#image').on('click', function () {
                     if ($("#text").css("display") == "none") {
                       $("#text").fadeIn("slow");
+
+                      var scrollend = $("#text").offset().top + 1; //ページ上部からプラス1pxした距離を取得
+                        var distance = 2;
+                        $(document).scroll(function(){
+                          distance = $(this).scrollTop(); //スクロールした距離を取得
+                          if (scrollend <= distance) {
+                            $("#text").fadeOut();
+                          }
+                        });
+
                     } else {
                       $("#text").fadeOut("slow");
                     }
@@ -97,11 +108,10 @@
                       <%= f.submit '検索' %>
                     <% end %>
                   </li>
-                  <li class="hnav-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
-                  <li class="hnav-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link-login"} %></li>
-                  <li class="hnav-item"><%= link_to 'ゲストログイン', homes_guest_sign_in_path, { method: :post, class: "hnav-link"} %></li>
+                  <li class="hnav-nologin-item"><%= link_to "about", about_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-nologin-item"><%= link_to "病院一覧", hospitals_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-nologin-item"><%= link_to "新規登録", new_member_registration_path, {class: "hnav-link"} %></li>
+                  <li class="hnav-nologin-item"><%= link_to "ログイン", new_member_session_path, {class: "hnav-link-login"} %></li>
                 </ul>
               </nav>
             </div>
