@@ -72,6 +72,12 @@ a.link_to_color_blue:hover {
   padding: 20px;
 }
 
+.hnav-nologin-item {
+display: inline-block;
+font-size: 20px;
+margin-top: 20px;
+padding: 10px;
+}
 .hnav-admin-item {
   display: inline-block;
   font-size: 20px;
@@ -140,7 +146,47 @@ footer {
 }
 
 #text {
-  display: none
+  display: none;
+  position: fixed; /* 要素の固定 */
+  z-index: 2;
+  right: 135px;
+  width: 200px;
+  height: 250px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  color: black;
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hnav-iconname-link {
+  display: inline-block;
+}
+
+.hnav-logout-link {
+  width: 100px;
+  color: black;
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+
+.hnav-mypage-link {
+  width: 100px;
+  color: black;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.hnav-logout-link:hover,
+.hnav-mypage-link:hover {
+  color: black;
+  text-decoration: none;
 }
 
 .sbox4 {
@@ -153,4 +199,8 @@ footer {
 
 .fb-root {
   position: relative;
+}
+
+.fa-walking {
+  transform: scale(-1, 1);
 }
