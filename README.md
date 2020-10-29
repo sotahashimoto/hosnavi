@@ -26,16 +26,16 @@ https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=shari
 
 ### 機能一覧
 
-ER 図
-UI Flow
-アプリケーション詳細設計
-https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit#gid=0
-テーブル定義書
-https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
-チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4On0/edit?usp=sharing
-AWS 設計図
-https://drive.google.com/file/d/10xPIVvjXtohbK9_ImK_HcoB99YLvWO06/view?usp=sharing
+- ER 図
+- UI Flow
+- アプリケーション詳細設計
+  https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit#gid=0
+- テーブル定義書
+  https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
+- チャレンジ要素一覧
+  https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4On0/edit?usp=sharing
+- AWS 設計図
+  https://drive.google.com/file/d/10xPIVvjXtohbK9_ImK_HcoB99YLvWO06/view?usp=sharing
 
 ## 開発環境
 
