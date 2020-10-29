@@ -22,10 +22,10 @@ class Hospital < ApplicationRecord
   validates :phone_number, presence: true
   validates :phone_number, length: {maximum: 25}
 
-  attachment :image
-
   accepts_nested_attributes_for :medicals
   accepts_nested_attributes_for :consultation_times
+
+  attachment :image
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -54,7 +54,7 @@ class Hospital < ApplicationRecord
       medicals = Medical.where(medical_department_id: medical_departments)
       result = result.where(id: medicals.pluck(:hospital_id))
     end
-    return result #別にいらない
+    return result
   end
 
   def avg_score

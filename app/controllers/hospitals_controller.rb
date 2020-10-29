@@ -1,4 +1,6 @@
 class HospitalsController < ApplicationController
+  before_action :today_events
+
   def index
     @hospitals = Hospital.all.page(params[:page]).per(5)
     @medical_departments = MedicalDepartment.all

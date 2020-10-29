@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :today_events
+
   def show
     @hospital = Hospital.find(params[:hospital_id])
     @comment = Comment.new

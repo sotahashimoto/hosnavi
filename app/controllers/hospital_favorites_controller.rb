@@ -1,4 +1,6 @@
 class HospitalFavoritesController < ApplicationController
+  before_action :today_events
+
   def index
     @hospitals = current_member.hospitals
     @medical_departments = MedicalDepartment.all

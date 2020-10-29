@@ -22,12 +22,6 @@ RSpec.describe Comment, type: :model do
         comment.valid?
         expect(comment.errors[:score]).to include("を入力してください")
       end
-
-      it "数値が5以下であること" do
-        comment = build(:comment, score: 6)
-        comment.valid?
-        expect(comment.errors[:score]).to include("は5以下の値にしてください")
-      end
     end
   end
 end
