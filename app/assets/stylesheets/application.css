@@ -152,7 +152,7 @@ footer {
   z-index: 2;
   right: 135px;
   width: 200px;
-  height: 250px;
+  height: 180px;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
@@ -167,21 +167,21 @@ footer {
 }
 
 .hnav-logout-link {
-  width: 100px;
-  color: black;
-  font-size: 20px;
   display: inline-block;
-  margin-right: 45px;
+  width: 100px;
   margin-top: 10px;
+  margin-right: 45px;
+  font-size: 20px;
+  color: black;
 }
 
 .hnav-mypage-link {
-  width: 100px;
-  color: black;
-  font-size: 20px;
   display: inline-block;
-  margin-top: 10px;
+  width: 100px;
+  margin-top: 30px;
   margin-right: 50px;
+  font-size: 20px;
+  color: black;
 }
 
 .hnav-logout-link:hover,
@@ -204,4 +204,18 @@ footer {
 
 .fa-walking {
   transform: scale(-1, 1);
+}
+
+.hnav_current_member_nickname {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.today_events {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
 }
