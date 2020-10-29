@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :today_events
+
   def top
     @medical_departments = MedicalDepartment.all
   end
@@ -9,7 +11,6 @@ class HomeController < ApplicationController
   def new_guest
     member = Member.find_or_create_by!(name: 'ゲスト太郎', nickname: 'ゲスト', email: 'guest@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
-      # member.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in member
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'

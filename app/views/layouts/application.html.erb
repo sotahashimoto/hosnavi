@@ -43,7 +43,8 @@
                     </button>
                   </span>
                   <p id="text">
-                    <%# <%= current_member.name %>
+                    <span class="hnav_current_member_nickname"><%= current_member.nickname %></span>
+                    <span class="today_events"><%= Date.today.strftime("%m月%d日") %>の予約<%= @today_events.count %>件</span>
                     <%= link_to "マイページ", member_path(current_member), {class: "hnav-mypage-link"} %>
                     <%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "hnav-logout-link"} %>
                   </p>
