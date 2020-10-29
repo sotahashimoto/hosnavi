@@ -13,11 +13,18 @@ RSpec.describe Hospital, type: :model do
   end
 
   context 'searchメソッド' do
-    it "検索機能が正しいか" do
-      hospital1 = create(:hospital, name: "若草第一病院")
-      hospital2 = create(:hospital, name: "石切生喜病院")
-      let(:query) { '若' }
-      expect(hospital.search).to eq "若草第一病院"
+    it "住所検索機能が正しいか" do
+      hospital1 = create(:hospital, address: "大阪府東大阪市若草町1-6")
+      hospital2 = create(:hospital, address: "大阪府東大阪市弥生町18-28")
+      expect(Hospital.search({search_address: "若草" }).ids).to include hospital1.id
+      # expect(Hospital.search({search_address: hospital1.address }).ids).to include hospital1.id
+    end
+
+    it "病院名&住所検索機能が正しいか" do
+      hospital1 = create(:hospital, name: "若草第一病院", address: "大阪府東大阪市若草町1-6")
+      hospital2 = create(:hospital, name: "石切生喜病院", address: "大阪府東大阪市弥生町18-28")
+      expect(Hospital.search({search_name_address: "第一" }).ids).to include hospital1.id
+      expect(Hospital.search({search_name_address: "若草町" }).ids).to include hospital1.id
     end
   end
 end

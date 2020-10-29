@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  # devise_for :members
-
   devise_scope :member do
     post 'members/guest_sign_in', to: 'members/sessions#new_guest'
   end
 
   devise_for :members, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-
-  post '/homes/guest_sign_in', to: 'home#new_guest'
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -17,7 +13,12 @@ Rails.application.routes.draw do
 
   root to: 'home#top'
   get 'about', to: 'home#about'
-  get "search" => "hospitals#search"
+  get "search", to: 'hospitals#search'
+  post '/homes/guest_sign_in', to: 'home#new_guest'
+
+  resources :members, only: [:show, :edit, :update] do
+    resources :events, only: [:edit, :index, :create, :update, :destroy]
+  end
 
   namespace :admin do
     resources :hospitals, only: [:index, :new, :create, :show, :edit, :update, :destroy]
@@ -25,14 +26,12 @@ Rails.application.routes.draw do
     resources :consultation_days, only: [:index, :create, :update, :destroy]
   end
 
-  resources :medical_departments, only: [:show, :index]
-  resources :members, only: [:show, :edit, :update] do
-    resources :events, only: [:edit, :index, :create, :update, :destroy]
-  end
   resources :hospitals, only: [:show, :index] do
     resources :hospital_favorites, only: [:index, :create, :destroy]
     resources :comments, only: [:show, :create] do
       resource :favorites, only: [:create, :destroy]
     end
   end
+
+  resources :medical_departments, only: [:show, :index]
 end
