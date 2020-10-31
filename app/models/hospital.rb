@@ -22,13 +22,13 @@ class Hospital < ApplicationRecord
   validates :phone_number, presence: true
   validates :phone_number, length: {maximum: 25}
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   accepts_nested_attributes_for :medicals
   accepts_nested_attributes_for :consultation_times
 
   attachment :image
-
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
 
   def self.search(search_params)
     hospitals = Hospital.all
