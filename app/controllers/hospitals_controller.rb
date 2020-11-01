@@ -2,7 +2,10 @@ class HospitalsController < ApplicationController
   before_action :today_events
 
   def index
-    @hospitals = Hospital.all.page(params[:page]).per(5)
+    @hospitals = Hospital.left_joins(:comments, :medical_departments, :consultation_days, :hospital_favorites).all.page(params[:page]).per(5)
+    #@hospitals_for_consultation = Hospital.left_joins(:consultation_days, :consultation_times).all.page(params[:page]).per(5)
+    #@hospitals_for_comments = Hospital.left_joins(Comments.count().groupby(:hospital_id)).all.page(params[:page]).per(5)
+    #@hospitals_for_fav = 
     @medical_departments = MedicalDepartment.all
   end
 
