@@ -22,12 +22,12 @@
 
 ### 設計書
 
-- ER 図
+- ER 図<br>
   https://drive.google.com/file/d/1ZGPnai60k-Ln-LQ7YFtVz2HpQPa_H2D-/view?usp=sharing
-- UI Flow
+- UI Flow<br>
   https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
 - アプリケーション詳細設計<br>
-  https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit#gid=0
+  https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit?usp=sharing
 - テーブル定義書<br>
   https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
 - チャレンジ要素一覧<br>
