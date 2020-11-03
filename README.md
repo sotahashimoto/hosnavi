@@ -20,14 +20,12 @@
 
 急病、受診科目が分からない、近くの病院が分からない
 
-## 設計書
-
-https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
-
-### 機能一覧
+### 設計書
 
 - ER 図
+  https://drive.google.com/file/d/1ZGPnai60k-Ln-LQ7YFtVz2HpQPa_H2D-/view?usp=sharing
 - UI Flow
+  https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
 - アプリケーション詳細設計<br>
   https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit#gid=0
 - テーブル定義書<br>
