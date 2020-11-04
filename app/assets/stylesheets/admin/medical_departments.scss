@@ -1,3 +1,16 @@
 // Place all the styles related to the admin::medical_departments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.link_to_admin_md_name {
+  font-size: 20px;
+}
+
+.admin_md_name {
+  border: 1px solid;
+  margin: 5px;
+}
+
+.form_with_admin_md_name {
+  margin: 5px;
+}

@@ -10,17 +10,17 @@ class Hospital < ApplicationRecord
   validates :name, presence: true
   validates :name, length: {maximum: 25}
   validates :postcode, presence: true
-  validates :postcode, length: {maximum: 7}
+  validates :postcode, length: {maximum: 8}
   validates :address, presence: true
   validates :address, length: {maximum: 25}
   validates :feature, presence: true
-  validates :feature, length: {maximum: 25}
+  validates :feature, length: {maximum: 300}
   validates :short_message, presence: true
   validates :short_message, length: {maximum: 25}
   validates :notices, presence: true
-  validates :notices, length: {maximum: 25}
+  validates :notices, length: {maximum: 240}
   validates :phone_number, presence: true
-  validates :phone_number, length: {maximum: 25}
+  validates :phone_number, length: {maximum: 12}
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

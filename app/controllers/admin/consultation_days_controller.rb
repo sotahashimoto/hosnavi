@@ -7,7 +7,13 @@ class Admin::ConsultationDaysController < ApplicationController
   def create
     consultation_day = ConsultationDay.new(consultation_day_params)
     consultation_day.save
-  	redirect_to admin_consultation_days_path
+    redirect_to admin_consultation_days_path
+  end
+
+  def destroy
+    consultation_day = ConsultationDay.find(params[:id])
+    consultation_day.destroy
+    redirect_back(fallback_location: admin_hospitals_path)
   end
 
   private

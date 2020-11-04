@@ -3,3 +3,9 @@
     <%= link_to_add_association '診療科目を追加', f, :medicals, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%= f.fields_for :consultation_times do |m| %>
+  <div class="links">
+    <%= link_to_add_association '診療日時を追加', f, :consultation_times, class: 'btn btn-primary' %>
+  </div>
+<% end %>
