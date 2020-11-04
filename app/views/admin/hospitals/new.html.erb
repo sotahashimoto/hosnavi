@@ -26,17 +26,9 @@
           <%= f.text_area :notices, placeholder: "特記事項", class: "form-control" %>
         </div>
         <%= f.attachment_field :image, placeholder: "画像" %>
-        <%= render 'form_content', f: f %>
 
-        <%= f.fields_for :consultation_times do |m| %>
-          <%= f.label :診療時間 %>
-          <%= m.select :start_hour, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12]] %>
-          <%= m.select :start_minute, [["00", 0], ["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]] %>
-          <%= m.select :finish_hour, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9]] %>
-          <%= m.select :finish_minute, [["00", 0], ["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]] %><br>
-          <%= f.label :診療日 %>
-          <%= m.collection_select :consultation_day_id, ConsultationDay.all, :id, :id %><br>
-        <% end %>
+        <%# 診療科目、診療日時 部分テンプレート %>
+        <%= render 'form_content', f: f %>
 
         <%= f.submit "投稿", class: "login-admin-submit btn btn-primary" %>
       <% end %>
