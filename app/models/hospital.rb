@@ -2,9 +2,9 @@ class Hospital < ApplicationRecord
   has_many :comments
   has_many :hospital_favorites
   has_many :members, through: :hospital_favorites
-  has_many :medicals
+  has_many :medicals, inverse_of: :hospital
   has_many :medical_departments, through: :medicals
-  has_many :consultation_times
+  has_many :consultation_times, inverse_of: :hospital
   has_many :consultation_days, through: :consultation_times
 
   validates :name, presence: true
@@ -20,7 +20,7 @@ class Hospital < ApplicationRecord
   validates :notices, presence: true
   validates :notices, length: {maximum: 240}
   validates :phone_number, presence: true
-  validates :phone_number, length: {maximum: 12}
+  validates :phone_number, length: {maximum: 14}
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
