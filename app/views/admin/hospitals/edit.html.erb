@@ -37,6 +37,11 @@
           </tr>
 
           <tr>
+            <th><%= f.label :特記事項 %></th>
+            <td><%= f.text_area :notices, placeholder: "特記事項240文字以下", class: "form-control" %></td>
+          </tr>
+
+          <tr>
             <th><%= f.label :イメージ画像 %></th>
             <td><%= f.attachment_field :image, placeholder: "画像" %></td>
           </tr>
