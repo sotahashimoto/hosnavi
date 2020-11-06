@@ -31,27 +31,18 @@ https://hosnavi.work/
 ## 機能一覧
 
 - 検索機能 （病院の都道府県、診療科検索）
-- マップ表示 （Google MapAPI で取得した住所から表示）
+- マップ表示 （Google MapAPIで取得した住所から表示）
 - カレンダー表示(診察日を自分で登録し表示)
 
 詳細は下記よりご確認ください。
 
 https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4On0/edit?usp=sharing
 
-## 設計書
-
-- UI Flow<br>
-  https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
-- アプリケーション詳細設計<br>
-  https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit?usp=sharing
-- テーブル定義書<br>
-  https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
-
 ## 環境・使用技術
 
 ### フロントエンド
 
-- Bootstrap 4.5.0
+- Bootstrap 3.3.6
 - SCSS (BEM)
 - JavaScript、jQuery、Ajax
 
@@ -69,7 +60,7 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 - AWS (EC2、RDS for MySQL、Route53、CloudWatch、S3)
 - MySQL2
-- Nginx、 Puma
+- Nginx、Puma
 
 ### インフラ構成図
 
@@ -80,13 +71,22 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 ### その他使用技術
 
 - 非同期通信 (コメント投稿)
-- 外部 API(Google MapAPI、Google SNSAPI)
-- HTTPS 接続 (Certbot)
+- 外部API(Google MapAPI、Google SNSAPI)
+- HTTPS接続 (Certbot)
 
 ## ER 図
 
-<img width="997" alt="README_ER図" src="https://user-images.githubusercontent.com/67676627/98329202-0856d600-203b-11eb-90ff-1da079fe7a3a.png">
+<img width="863" alt="README_ER図" src="https://user-images.githubusercontent.com/67676627/98329463-9a5ede80-203b-11eb-822e-ad4435c2dfac.png">
+
+## 設計書
+
+- UI Flow<br>
+  https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
+- アプリケーション詳細設計<br>
+  https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit?usp=sharing
+- テーブル定義書<br>
+  https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
 
 ## About me
 
-新卒で 3 年間事務職として病院に勤務しておりました。その後土木資材の営業を経験し、2020 年 7 月から Web エンジニアを目指して勉強中です。
+新卒で3年間事務職として病院に勤務しておりました。その後土木資材の営業を経験し、2020年7月からWebエンジニアを目指して勉強中です。
