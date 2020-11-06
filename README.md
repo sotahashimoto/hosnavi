@@ -64,6 +64,8 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ### インフラ構成図
 
+<img width="436" alt="スクリーンショット 2020-11-06 17 30 00" src="https://user-images.githubusercontent.com/67676627/98343827-be2f1e00-2055-11eb-8392-520b0786fb81.png">
+
 ### テスト
 
 - Rspec (単体） 計 18
@@ -80,7 +82,7 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ## 設計書
 
-- UI Flow<br>
+- UI Flow
   https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
 - アプリケーション詳細設計<br>
   https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit?usp=sharing
