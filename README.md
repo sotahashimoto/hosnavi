@@ -24,9 +24,9 @@ https://hosnavi.work/
 
 ## 主な利用シーン
 
-・病気、怪我等で病院を受診したいがかかりつけの病院がない
-・かかりつけの病院はあるが他の病院で受診したい
-・現在は病気、怪我等ないが急病の際に受診する病院を見つけておきたい
+- 病気、怪我等で病院を受診したいがかかりつけの病院がない
+- かかりつけの病院はあるが他の病院で受診したい
+- 現在は病気、怪我等ないが急病の際に受診する病院を見つけておきたい
 
 ## 機能一覧
 
@@ -40,16 +40,12 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ## 設計書
 
-- ER 図<br>
-  https://drive.google.com/file/d/1ZGPnai60k-Ln-LQ7YFtVz2HpQPa_H2D-/view?usp=sharing
 - UI Flow<br>
   https://drive.google.com/file/d/1bZBA1N_rz8LGjQBGGqMqIuDYQKuH5KlV/view?usp=sharing
 - アプリケーション詳細設計<br>
   https://docs.google.com/spreadsheets/d/1a6Px673CT4Dj0kzc1MkPhpSbEyDPl6-txgh_fHpXZF4/edit?usp=sharing
 - テーブル定義書<br>
   https://drive.google.com/file/d/1zBMW0soUEJEFN1EB4Ra11cSJQa7gsMLU/view?usp=sharing
-- AWS 設計図<br>
-  https://drive.google.com/file/d/10xPIVvjXtohbK9_ImK_HcoB99YLvWO06/view?usp=sharing
 
 ## 環境・使用技術
 
@@ -88,6 +84,8 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 - HTTPS 接続 (Certbot)
 
 ## ER 図
+
+<img width="997" alt="README_ER図" src="https://user-images.githubusercontent.com/67676627/98329202-0856d600-203b-11eb-90ff-1da079fe7a3a.png">
 
 ## About me
 
