@@ -66,13 +66,13 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ### テスト
 
-- Rspec (単体／結合） 計 10
+- Rspec (単体） 計 18
 
 ### その他使用技術
 
 - 非同期通信 (コメント投稿)
 - 外部API(Google MapAPI、Google SNSAPI)
-- HTTPS接続 (Certbot)
+- HTTPS接続 (AWS Certificate Manager)
 
 ## ER 図
 
