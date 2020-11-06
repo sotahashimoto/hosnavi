@@ -58,7 +58,7 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ### 本番環境
 
-- AWS (EC2、RDS for MySQL、Route53、CloudWatch、S3)
+- AWS (EC2、RDS for MySQL、Route53、CloudWatch、S3、ALB)
 - MySQL2
 - Nginx、Puma
 
