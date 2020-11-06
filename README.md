@@ -54,7 +54,7 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 ### 開発環境
 
 - Vagrant 2.2.4
-- MySQL2
+- SQLite3
 
 ### 本番環境
 

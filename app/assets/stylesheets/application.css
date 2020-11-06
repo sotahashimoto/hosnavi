@@ -219,3 +219,9 @@ footer {
   margin-top: 10px;
   font-size: 11px;
 }
+
+@media screen and (max-width: 1200px){
+  .home-top-font1 {display:none}
+  .home-top-font2 {display:none}
+  .hnav-search {display:none}
+  }
