@@ -75,19 +75,6 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
               </div>
               <div class="menu">
-              <%# ----------------------6666666666666666666666666----------------- %>
-                <div class="hospitfsddsal-i-form">
-                  <%= form_with(url: search_path, method: :get, local: true) do |f| %>
-                    <% ['内科', '消化器科', '循環器科', '呼吸器科', '小児科','外科' ,'整形外科', '形成外科', '脳神経外科','婦人科', '産婦人科', '皮膚科', '泌尿器科', '眼科', '耳鼻咽喉科','リハビリテーション科', '放射線科', '精神科', '麻酔科'].each do |medical_department| %>
-                      <%= f.check_box :search_medical_department, {multiple: true, include_hidden: false}, "#{medical_department}",nil %>
-                      <%= f.label :"#{medical_department}" %>
-                    <% end %>
-                    <%= f.hidden_field :search_address,:value=> params[:search_address] %>
-                    <%= f.hidden_field :search_name_address,:value=> params[:search_name_address] %>
-                    <%= f.submit '検索' %>
-                  <% end %>
-                </div>
-                <%# -----------------------66666666666666666666666666666666---------------- %>
                 <%= form_with(url: search_path, method: :get, local: true) do |f| %>
                   <%= f.hidden_field :search_address,:value=> params[:search_address]%>
                   <% params[:search_medical_department]&.each do |v| %>

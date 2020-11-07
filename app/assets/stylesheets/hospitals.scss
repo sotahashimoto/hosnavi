@@ -168,3 +168,37 @@
   margin: 5px 0 0 5px;
   font-size: 20px;
 }
+
+@media (max-width: 767px){
+  .hospital-i-form{display:none}
+  .hospital-i-index-img{
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+  }
+  .hospital-i-index-img_Responsive {
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+  }
+  .hospital-i-index-hospital_name {
+    font-size: 200%;
+  }
+  .hospital-i-index-address {
+    font-size: 100%;
+  }
+  .hospital-i-index-phone_number {
+    font-size: 100%;
+  }
+  .hospital-i-index-medical_department-name {
+    font-size: 100%;
+  }
+  .hospital-i-index-short_message {
+    display:none
+  }
+  .hospital-i-index-consultation {
+    margin: 20px auto;
+    font-size: 100%;;
+    text-align: center;
+  }
+}
