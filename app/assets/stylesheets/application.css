@@ -221,11 +221,11 @@ footer {
   font-size: 11px;
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1201px){
   .menu-btn, .menu{display:none}
 }
 
-@media screen and (max-width: 1200px){
+@media (max-width: 767px){
   .hnav-search {display:none}
   .hnav-nologin-item {display:none}
   .hnav {display:none}
