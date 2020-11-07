@@ -140,3 +140,12 @@
   color: black;
   text-decoration: none;
 }
+
+@media (max-width: 395px){
+  .member-s-link-favorite {
+    font-size: 15px;
+  }
+  .member-s-link-event-user {
+    font-size: 15px;
+  }
+}
