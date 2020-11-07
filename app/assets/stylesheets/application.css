@@ -262,13 +262,23 @@ footer {
     background: #555;
   }
 
-  .menu__item{
+  .menu_item{
     width: 100%;
     height: auto;
     padding: .5em 1em;
     text-align: center;
     color: #fff;
     box-sizing: border-box;
+  }
+
+  .menu_item:hover {
+    width: 100%;
+    height: auto;
+    padding: .5em 1em;
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+    text-decoration: none;
   }
 
   /* アニメーション部分 */
