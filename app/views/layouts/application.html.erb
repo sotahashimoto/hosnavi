@@ -78,7 +78,7 @@
                 <div class="menu__item"><%= link_to "about", about_path %></div>
                 <div class="menu__item"><%= link_to "病院一覧", hospitals_path %></div>
                 <div class="menu__item"><%= link_to "マイページ", member_path(current_member) %></div>
-                <div class="menu__item"><%= link_to "ログアウト", destroy_member_session_path %></div>
+                <div class="menu__item"><%= link_to "ログアウト", destroy_member_session_path, {method: :delete} %></div>
               </div>
 
                             <script
