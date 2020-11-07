@@ -221,7 +221,7 @@ footer {
   font-size: 11px;
 }
 
-@media screen and (min-width: 1201px){
+@media screen and (min-width: 768px){
   .menu-btn, .menu{display:none}
 }
 
