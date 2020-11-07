@@ -170,7 +170,7 @@
   padding: 0px 100px 0px 550px;
 }
 
-@media screen and (max-width: 1200px){
+@media (max-width: 767px){
   .home-top {height: 200px;}
   .home-top-font1 {
     padding: 40px 0 0 170px;
@@ -184,7 +184,7 @@
   .area-img {display:none}
   .home-md-font {height: 0px;}
   .home-titele {font-size: 12px;}
-  .home-md-link {font-size: 2px;}
+  .home-md-link {font-size: 100%;}
   .home-md-th {padding: 0 10px 0 0;}
   .home-md-td {
     padding: 0;
