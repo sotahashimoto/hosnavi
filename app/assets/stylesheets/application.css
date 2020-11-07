@@ -230,7 +230,7 @@ footer {
   .hnav-nologin-item {display:none}
   .hnav {display:none}
   .hnav-list {display:none}
-  .facebook, .line-it-button, .twitter-share-button{display:none}
+  .facebook, .line-it-button, .twitter-share-button, .hosnabi_share{display:none}
 
   /* メニュー開閉ボタン */
   .menu-btn{
