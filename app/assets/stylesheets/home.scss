@@ -204,3 +204,10 @@
   }
   .home-area-td{padding: 0;}
 }
+
+@media (max-width: 395px){
+  .home-md-all_link{
+    margin: 0 0 0 180px;
+  }
+  .home-area {margin: 50px 0 0 0;}
+}
