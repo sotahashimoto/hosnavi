@@ -181,6 +181,11 @@
     max-width: 100%;
     height: auto;
   }
+  .hospital-show-img_Responsive {
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+  }
   .hospital-i-index-hospital_name {
     font-size: 200%;
   }
@@ -217,5 +222,8 @@
   }
   .hospital-i-index-favorite {
     margin-left: 10px;
+  }
+  .hospital-i-index-font {
+    height: auto;
   }
 }
