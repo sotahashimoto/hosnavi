@@ -80,6 +80,23 @@
                 <div class="menu__item"><%= link_to "マイページ", member_path(current_member) %></div>
                 <div class="menu__item"><%= link_to "ログアウト", destroy_member_session_path %></div>
               </div>
+
+                            <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous">
+              </script>
+
+              <script>
+              $(function(){
+                $('.menu-btn').on('click', function(){
+                  $('.menu').toggleClass('is-active');
+                });
+              }());
+              </script>
+              <%# ハンバーガーメニューここまで %>
+
+
             </div>
           </div>
 
