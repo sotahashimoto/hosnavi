@@ -9,7 +9,6 @@
 Member.create!(
   [
     {
-      image: File.open("./app/assets/images/member1.jpg"),
       name: '田中聡太',
       nickname: 'わんちゃん',
       email: '1@1.com',
@@ -20,7 +19,6 @@ Member.create!(
       admin_flg: false,
     },
     {
-      image: File.open("./app/assets/images/member2.jpg"),
       name: '橋本秀行',
       nickname: 'リス',
       email: '2@2.com',
@@ -31,7 +29,6 @@ Member.create!(
       admin_flg: false,
     },
     {
-      image: File.open("./app/assets/images/member3.jpg"),
       name: '田中太郎',
       nickname: 'テストユーザー',
       email: 'test@user.com',
@@ -68,7 +65,6 @@ Event.create!(
 Hospital.create!(
   [
     {
-      image: File.open("./app/assets/images/wakakusa.jpg"),
       name: '若草第一病院',
       address: '大阪府東大阪市若草町1-6',
       postcode: '579-8056',
@@ -78,7 +74,6 @@ Hospital.create!(
       notices: '当院は病診連携のもと、紹介予約を基本としております。急患につきましてはお電話にてお問い合わせください。外来診療担当表は都合により変更する場合がございますので必ずご確認のうえご来院ください。'
     },
     {
-      image: File.open("./app/assets/images/yaotoku.jpg"),
       name: '八尾徳洲会総合病院',
       address: '大阪府八尾市若草町1-17',
       postcode: '581-0011',
@@ -88,7 +83,6 @@ Hospital.create!(
       notices: '9:00～12:00 17:00～20:00 土曜AMのみ　一部診療科予約・紹介制　受付8:00～12:00(一部科は11:30) 16:30～19:30　科により異なる'
     },
     {
-      image: File.open("./app/assets/images/isikiri.jpg"),
       name: '石切生喜病院',
       address: '大阪府東大阪市弥生町18-28',
       postcode: '579-8026',
@@ -98,7 +92,6 @@ Hospital.create!(
       notices: '休診日:土曜午後、日曜、祝日、年末年始'
     },
     {
-      image: File.open("./app/assets/images/toukyou.jpg"),
       name: '東京病院',
       address: '東京都清瀬市竹丘3-1-1',
       postcode: '204-8585',
@@ -108,7 +101,6 @@ Hospital.create!(
       notices: '再来の方：午前の診療8時00分～11時00分、午後の診療12時30分～14時00分紹介状をお持ちでない方は【初診時選定療養費　5,500円（税込）】を頂いております。紹介状をお持ちの方につきましては、特定療養費はいただいておりません'
     },
     {
-      image: File.open("./app/assets/images/oomorisekizyuusi.jpg"),
       name: '大森赤十字病院',
       address: '東京都大田区中央4-30-1',
       postcode: '143-8527',
@@ -118,7 +110,6 @@ Hospital.create!(
       notices: '8:30～11:00　原則紹介制、一部診療科予約制　診療は9:00開始　科により異なる　創立記念日(5/1)休診 臨時休診あり'
     },
     {
-      image: File.open("./app/assets/images/tane.jpg"),
       name: '多根総合病院',
       address: '大阪府大阪市西区九条南1丁目12-21',
       postcode: '550-0025',
@@ -128,7 +119,6 @@ Hospital.create!(
       notices: '9:00～11:00 14:00～15:30 土曜AMのみ　原則紹介制、全診療科予約制　科により異なる　臨時休診あり　予約センター受付時間/平日8:30～17:00 土曜8:30～12:30(当日予約不可)'
     },
     {
-      image: File.open("./app/assets/images/kyuuseiki.jpg"),
       name: '大阪急性期・総合医療センター',
       address: '大阪市住吉区万代東3-1-56',
       postcode: '558-8558',
@@ -138,7 +128,6 @@ Hospital.create!(
       notices: '診療科目によって診療時間が異なりますが、基本的に月曜日から金曜日の8時30分から11時まで受付をしており、診療開始は9時となります。原則として紹介制となっており、診療科目によっては予約が必要です。'
     },
     {
-      image: File.open("./app/assets/images/sekizyuuzi.jpg"),
       name: '大阪赤十字病院',
       address: '大阪府大阪市天王寺区筆ケ崎町5-30',
       postcode: '543-8555',
