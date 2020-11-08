@@ -16,8 +16,10 @@
 
     <%= f.hidden_field :hospital_id, value: @hospital.id %>
     <%= f.hidden_field :score, id: "rating-value" %>
-    <%= f.text_area :content, placeholder: "口コミをここに" %>
-    <%= f.submit "投稿" %>
+    <%= f.text_area :content, placeholder: "口コミをここに", class: "comment_content_responsive" %>
+    <div class="comment_submit_responsive">
+      <%= f.submit "投稿" %>
+    </div>
   <% end %>
 </div>
 

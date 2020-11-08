@@ -47,7 +47,7 @@
     <span class="comment-s-nickname-word_of_mouth_responsive">
       <%= comment.member.nickname %><span class="comment-s-word_of_mouth_responsive">さんの口コミ</span>
     </span>
-    <div>
+    <div class="comment_score_responsive">
       <% if comment.score == 1 %>
         <span class="star-rating-front1" style="width: <%= comment.score %>%">★</span><span class="star-rating-back">★★★★</span>
       <% elsif comment.score == 2 %>
@@ -59,8 +59,12 @@
       <% else comment.score == 5 %>
         <span class="star-rating-front5" style="width: <%= comment.score %>%">★★★★★</span>
       <% end %>
-      <%= comment.score %>点</div>
-
+      <%= comment.score %>点
+    </div>
+    <div>
+      <%= comment.content %>
+    </div>
+    <div class="comment_strftime_favorite_responsive">
       <span class="comment_created_at_strftime">
         <%= comment.created_at.strftime("%Y年%m月投稿") %>
       </span>
@@ -68,8 +72,6 @@
       <span class=<%= "like-" + comment.id.to_s %>>
         <%= render partial: "favorite", locals: { comment: comment } %>
       </span>
-    <div>
-      <%= comment.content %>
     </div>
   <% end %>
 </span>
