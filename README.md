@@ -33,6 +33,9 @@ https://hosnavi.work/
 - 検索機能 （病院の都道府県、診療科検索）
 - マップ表示 （Google MapAPIで取得した住所から表示）
 - カレンダー表示(診察日を自分で登録し表示)
+- レスポンシブデザイン
+<img width="930" alt="スクリーンショット 2020-11-08 10 52 59" src="https://user-images.githubusercontent.com/67676627/98455186-a3bd8780-21b0-11eb-82a1-08e2ee4ded8a.png">
+
 
 詳細は下記よりご確認ください。
 
