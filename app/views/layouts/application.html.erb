@@ -83,7 +83,6 @@
                   <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
                   <%= f.submit '検索' %>
                 <% end %>
-                <div class="menu_item"><%= link_to "about", about_path, {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "病院一覧", hospitals_path, {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "マイページ", member_path(current_member), {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "ログアウト", destroy_member_session_path, {method: :delete, class: "menu_item"} %></div>
@@ -162,7 +161,6 @@
                   <%= f.text_field :search_name_address, {placeholder: "エリア・病院名"} %>
                   <%= f.submit '検索' %>
                 <% end %>
-                <div class="menu_item"><%= link_to "about", about_path, {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "病院一覧", hospitals_path, {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "新規登録", new_member_registration_path, {class: "menu_item"} %></div>
                 <div class="menu_item"><%= link_to "ログイン", new_member_session_path, {class: "menu_item"} %></div>
