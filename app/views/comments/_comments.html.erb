@@ -40,3 +40,36 @@
     </tr>
   <% end %>
 </table>
+
+<span class="comment-s-form_responsive">
+  <% @comments.each do |comment| %>
+    <%= attachment_image_tag comment.member, :image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg", class: "comment-s-image" %>
+    <span class="comment-s-nickname-word_of_mouth_responsive">
+      <%= comment.member.nickname %><span class="comment-s-word_of_mouth_responsive">さんの口コミ</span>
+    </span>
+    <div>
+      <% if comment.score == 1 %>
+        <span class="star-rating-front1" style="width: <%= comment.score %>%">★</span><span class="star-rating-back">★★★★</span>
+      <% elsif comment.score == 2 %>
+        <span class="star-rating-front2" style="width: <%= comment.score %>%">★★</span><span class="star-rating-back">★★★</span>
+      <% elsif comment.score == 3 %>
+        <span class="star-rating-front3" style="width: <%= comment.score %>%">★★★</span><span class="star-rating-back">★★</span>
+      <% elsif comment.score == 4 %>
+        <span class="star-rating-front4" style="width: <%= comment.score %>%">★★★★</span><span class="star-rating-back">★</span>
+      <% else comment.score == 5 %>
+        <span class="star-rating-front5" style="width: <%= comment.score %>%">★★★★★</span>
+      <% end %>
+      <%= comment.score %>点</div>
+
+      <span class="comment_created_at_strftime">
+        <%= comment.created_at.strftime("%Y年%m月投稿") %>
+      </span>
+      <%# いいね機能 非同期 %>
+      <span class=<%= "like-" + comment.id.to_s %>>
+        <%= render partial: "favorite", locals: { comment: comment } %>
+      </span>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
+</span>
