@@ -40,6 +40,53 @@ RSpec.describe "Members", type: :request do
         expect(response).to redirect_to root_path
       end
     end
+
+    context '存在しないユーザでログインすると' do
+      let (:member) { unauthenticated_member }
+
+      it '失敗すること' do
+        post member_session_path, params: req_params
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
+  describe "ユーザーの編集を更新(PUT #update)" do
+    let(:member_params) { { nickname: "編集後ユーザー名" } }
+
+    # context "未ログインの場合" do
+    #   it "ログインページへリダイレクトすること" do
+    #     put member_path member.id, member: member_params
+    #     expect(response).to redirect_to new_member_session_path
+    #   end
+    # end
+
+    context "ログインしている場合" do
+      before do
+        sign_in member
+      end
+
+      it "リクエストが成功すること" do
+        put member_path member.id, member: member_params
+        expect(response.status).to eq 302
+      end
+      it "更新が成功すること" do
+        put member_path member.id, member: member_params
+        expect(member.reload.nickname).to eq "編集後ユーザー名"
+      end
+      it "ユーザー編集ページへリダイレクトすること" do
+        put member_path member.id, member: member_params
+        expect(response).to redirect_to member_path member.id
+      end
+    end
+
+    # context "他のユーザーの場合" do
+      # it "ログイン前トップページへリダイレクトすること" do
+      #   sign_in other_member
+      #   patch member_path member.id, member: member_params
+      #   expect(response).to redirect_to root_path
+      # end
+    # end
   end
 
   describe "新規登録ページ(GET /sign_up)が" do

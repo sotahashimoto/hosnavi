@@ -20,7 +20,7 @@ class Hospital < ApplicationRecord
   validates :notices, presence: true
   validates :notices, length: {maximum: 240}
   validates :phone_number, presence: true
-  validates :phone_number, length: {maximum: 14}
+  validates :phone_number, length: {maximum: 13}
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
