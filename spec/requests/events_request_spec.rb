@@ -13,12 +13,11 @@ RSpec.describe "Events", type: :request do
 
     context "ログインしている場合" do
       before do
-        @member = create(:member, name: 'test', email: "taro@example.com" )
-          sign_in @member
+        sign_in member
       end
 
       it "リクエストが成功すること" do
-        get member_events_path
+        get member_events_path member.id
         expect(response).to have_http_status "200"
       end
     end
