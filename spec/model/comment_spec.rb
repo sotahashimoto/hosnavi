@@ -30,8 +30,24 @@ RSpec.describe Comment, type: :model do
       described_class.reflect_on_association(target)
     end
 
-    context 'Memberモデル(visitor)との関係' do
+    context 'Favoriteモデルとの関係' do
+      let(:target) { :favorites }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+
+    context 'Memberモデルとの関係' do
       let(:target) { :member }
+
+      it 'N:1となっている' do
+        expect(association.macro).to eq :belongs_to
+      end
+    end
+
+    context 'Hospitalモデルとの関係' do
+      let(:target) { :hospital }
 
       it 'N:1となっている' do
         expect(association.macro).to eq :belongs_to
