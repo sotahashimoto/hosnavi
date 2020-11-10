@@ -59,4 +59,50 @@ RSpec.describe Member, type: :model do
       end
     end
   end
+
+  describe 'アソシエーションのテスト' do
+    let(:association) do
+      described_class.reflect_on_association(target)
+    end
+
+    context 'Commentモデルとの関係' do
+      let(:target) { :comments }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+
+    context 'Favoriteモデルとの関係' do
+      let(:target) { :favorites }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+
+    context 'HospitalFavoriteモデルとの関係' do
+      let(:target) { :hospital_favorites }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+
+    context 'Hospitalモデルとの関係' do
+      let(:target) { :hospitals }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+
+    context 'Eventモデルとの関係' do
+      let(:target) { :events }
+
+      it '1:Nとなっている' do
+        expect(association.macro).to eq :has_many
+      end
+    end
+  end
 end
