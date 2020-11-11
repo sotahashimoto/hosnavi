@@ -104,6 +104,7 @@ RSpec.describe "Members", type: :request do
         post member_registration_path, params: req_params
         expect(response).to have_http_status(302)
       end
+
       it 'トップページにリダイレクトされること' do
         post member_registration_path, params: req_params
         expect(response).to redirect_to root_path

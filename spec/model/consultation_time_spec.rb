@@ -13,5 +13,13 @@ RSpec.describe ConsultationTime, type: :model do
         expect(association.macro).to eq :belongs_to
       end
     end
+
+    context 'ConsultationDayモデルとの関係' do
+      let(:target) { :consultation_day }
+
+      it 'N:1となっている' do
+        expect(association.macro).to eq :belongs_to
+      end
+    end
   end
 end
