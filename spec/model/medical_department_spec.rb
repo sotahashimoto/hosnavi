@@ -1,6 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe MedicalDepartment, type: :model do
+  describe 'バリデーションのテスト' do
+    context 'nameカラム' do
+      it "空欄でないこと" do
+        medical_department = build(:medical_department, name: nil)
+        medical_department.valid?
+        expect(medical_department.errors[:name]).to include("を入力してください")
+      end
+
+      it "10文字以下であること" do
+        medical_department = build(:medical_department, name: "a" * 11)
+        medical_department.valid?
+        expect(medical_department.errors[:name]).to include("は10文字以内で入力してください")
+      end
+    end
+  end
+
+
   describe 'アソシエーションのテスト' do
     let(:association) do
       described_class.reflect_on_association(target)
@@ -14,7 +31,7 @@ RSpec.describe MedicalDepartment, type: :model do
       end
     end
 
-    context 'Hospitalモデルとの関係' do
+    context 'Hospitalsモデルとの関係' do
       let(:target) { :hospitals }
 
       it '1:Nとなっている' do

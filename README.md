@@ -71,7 +71,7 @@ https://docs.google.com/spreadsheets/d/1w9vrc2jQwdv3cAKtUbLvfEFbs9W44MguYfEb9gL4
 
 ### テスト
 
-- Rspec (単体／結合） 計 76
+- Rspec (単体／結合） 計 77
 
 ### その他使用技術
 
