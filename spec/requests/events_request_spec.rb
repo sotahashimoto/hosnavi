@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Events", type: :request do
   let!(:member) { create(:member) }
 
-  describe "トップページを表示(GET #index)" do
+  describe "ページを表示(GET #index)" do
     context "未ログインの場合" do
       it "ログインページへリダイレクトすること" do
         get member_events_path member.id

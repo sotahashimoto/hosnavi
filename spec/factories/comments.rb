@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
     content {"abcdefg"}
-    score   {""}
+    score   {"2"}
   end
 end
