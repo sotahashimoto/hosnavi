@@ -34,7 +34,7 @@ RSpec.describe Member, type: :model do
       it "空欄でないこと" do
         member = build(:member, email: nil)
         member.valid?
-        expect(member.errors[:email]).to include("が入力されていません。")
+        expect(member.errors[:email]).to include("は有効でありません。")
       end
 
       it "重複していたら登録できないこと" do
@@ -42,6 +42,12 @@ RSpec.describe Member, type: :model do
         member2 = build(:member, name: "ziro", email: member1.email)
         member2.valid?
         expect(member2.errors[:email]).to include("は既に使用されています。")
+      end
+
+      it "メールアドレスが指定の表記でないと登録できない" do
+        member = build(:member, email: "test.test")
+        member.valid?
+        expect(member.errors[:email]).to include("は不正な値です。")
       end
     end
 
