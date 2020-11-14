@@ -43,6 +43,12 @@ RSpec.describe Member, type: :model do
         member2.valid?
         expect(member2.errors[:email]).to include("は既に使用されています。")
       end
+
+      it "メールアドレスが指定の表記でないと登録できない" do
+        member = build(:member, email: "test.test")
+        member.valid?
+        expect(member.errors[:email]).to include("は有効でありません。")
+      end
     end
 
     context 'passwordカラム' do
