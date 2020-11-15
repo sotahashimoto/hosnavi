@@ -2,25 +2,25 @@ class Hospital < ApplicationRecord
   has_many :comments
   has_many :hospital_favorites
   has_many :members, through: :hospital_favorites
-  has_many :medicals
+  has_many :medicals, inverse_of: :hospital
   has_many :medical_departments, through: :medicals
-  has_many :consultation_times
+  has_many :consultation_times, inverse_of: :hospital
   has_many :consultation_days, through: :consultation_times
 
   validates :name, presence: true
   validates :name, length: {maximum: 25}
   validates :postcode, presence: true
-  validates :postcode, length: {maximum: 7}
+  validates :postcode, length: {maximum: 8}
   validates :address, presence: true
   validates :address, length: {maximum: 25}
   validates :feature, presence: true
-  validates :feature, length: {maximum: 25}
+  validates :feature, length: {maximum: 300}
   validates :short_message, presence: true
   validates :short_message, length: {maximum: 25}
   validates :notices, presence: true
-  validates :notices, length: {maximum: 25}
+  validates :notices, length: {maximum: 240}
   validates :phone_number, presence: true
-  validates :phone_number, length: {maximum: 25}
+  validates :phone_number, length: {maximum: 13}
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

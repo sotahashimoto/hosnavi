@@ -1,11 +1,14 @@
 <% @consultation_days.each do |consultation_day| %>
-  <%= consultation_day.is_sunday %>
-  <%= consultation_day.is_monday %>
-  <%= consultation_day.is_tuesday %>
-  <%= consultation_day.is_wednesday %>
-  <%= consultation_day.is_thursday %>
-  <%= consultation_day.is_friday %>
-  <%= consultation_day.is_saturday %><br>
+  日=<%= admin_human_active_weekday(consultation_day.is_sunday) %>
+  月=<%= admin_human_active_weekday(consultation_day.is_monday) %>
+  火=<%= admin_human_active_weekday(consultation_day.is_tuesday) %>
+  水=<%= admin_human_active_weekday(consultation_day.is_wednesday) %>
+  木=<%= admin_human_active_weekday(consultation_day.is_thursday) %>
+  金=<%= admin_human_active_weekday(consultation_day.is_friday) %>
+  土=<%= admin_human_active_weekday(consultation_day.is_saturday) %>
+  <%= link_to admin_consultation_day_path(consultation_day), method: :delete do %>
+    <i class="far fa-trash-alt"></i>
+  <% end %><br>
 <% end %>
 
 <%= form_with(model: @consultation_day, url: admin_consultation_days_path, local: true) do |f| %>

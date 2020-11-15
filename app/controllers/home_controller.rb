@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def new_guest
-    member = Member.find_or_create_by!(name: 'ゲスト太郎', nickname: 'ゲスト', email: 'guest@example.com') do |member|
+    member = Member.find_or_create_by!(name: 'ゲスト太郎', nickname: 'ゲスト', email: 'guesttest@example.com') do |member|
       member.password = SecureRandom.urlsafe_base64
     end
     sign_in member

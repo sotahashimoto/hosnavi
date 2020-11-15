@@ -5,38 +5,30 @@
     <div class="col-md-6">
       <%= form_with model: @hospital, url: admin_hospitals_path, local: true do |f| %>
         <div class="form-group">
-          <%= f.text_field :name, placeholder: "病院名", class: "form-control" %>
+          <%= f.text_field :name, placeholder: "病院名25文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :postcode, placeholder: "郵便番号", class: "form-control" %>
+          <%= f.text_field :postcode, placeholder: "郵便番号8文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :address, placeholder: "住所", class: "form-control" %>
+          <%= f.text_field :address, placeholder: "住所25文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.telephone_field :phone_number, placeholder: "電話番号", class: "form-control" %>
+          <%= f.telephone_field :phone_number, placeholder: "電話番号8文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :feature, placeholder: "特徴", class: "form-control" %>
+          <%= f.text_area :feature, placeholder: "特徴300文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :short_message, placeholder: "一言メッセージ", class: "form-control" %>
+          <%= f.text_area :short_message, placeholder: "一言メッセージ25文字以下", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :notices, placeholder: "特記事項", class: "form-control" %>
+          <%= f.text_area :notices, placeholder: "特記事項240文字以下", class: "form-control" %>
         </div>
-        <%= f.attachment_field :image, placeholder: "画像" %>
-        <%= render 'form_content', f: f %>
+        <%= f.attachment_field :image, placeholder: "画像" %></td>
 
-        <%= f.fields_for :consultation_times do |m| %>
-          <%= f.label :診療時間 %>
-          <%= m.select :start_hour, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9], ["10", 10], ["11", 11], ["12", 12]] %>
-          <%= m.select :start_minute, [["00", 0], ["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]] %>
-          <%= m.select :finish_hour, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8], ["9", 9]] %>
-          <%= m.select :finish_minute, [["00", 0], ["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50]] %><br>
-          <%= f.label :診療日 %>
-          <%= m.collection_select :consultation_day_id, ConsultationDay.all, :id, :id %><br>
-        <% end %>
+        <%# 診療科目、診療日時 部分テンプレート %>
+        <%= render 'form_content', f: f %>
 
         <%= f.submit "投稿", class: "login-admin-submit btn btn-primary" %>
       <% end %>

@@ -1,11 +1,44 @@
-<div class="container">
+<div class="container comment">
+  <div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+      <span class="hospital_name_comment_review"><%= @hospital.name %>の口コミ・評判</span>
+      <%# コメント数カウント機能 非同期 %>
+      <span class="commentcounts">
+        <%= render partial: "commentcounts", locals: {comments: @comments} %>
+      </span>
+      <%# コメント表示機能 非同期 %>
+      <div class="comments">
+        <%= render partial: "comments", locals: {comments: @comments} %>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <%= flash[:danger] %>
+    <% if member_signed_in? %>
+      <%# コメント投稿機能 非同期 %>
+      <div class="commentform">
+        <%= render partial: "commentform", locals: {hospital: @hospital, comment: @comment} %>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="container comment_responsive">
   <div class="row">
     <div class="col-md-3">
-      <p>口コミ | <%= @hospital.name %></p>
+      <span class="hospital_name_comment_review"><%= @hospital.name %>の口コミ・評判</span>
       <%# コメント数カウント機能 非同期 %>
-      <div class="commentcounts">
+      <span class="commentcounts">
         <%= render partial: "commentcounts", locals: {comments: @comments} %>
-      </div>
+      </span>
 
       <%= flash[:danger] %>
       <% if member_signed_in? %>
@@ -13,8 +46,6 @@
         <div class="commentform">
           <%= render partial: "commentform", locals: {hospital: @hospital, comment: @comment} %>
         </div>
-      <% else %>
-        口コミを投稿する場合ログインしてください
       <% end %>
     </div>
 

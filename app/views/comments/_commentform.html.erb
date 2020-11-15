@@ -4,6 +4,7 @@
     <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="main-rating">
+      <span class="satisfaction_level">総合満足度</span>
       <div class="ratings mb-3">
         <span class="fa fa-star-o" id="star"></span>
         <span class="fa fa-star-o" id="star"></span>
@@ -16,8 +17,12 @@
 
     <%= f.hidden_field :hospital_id, value: @hospital.id %>
     <%= f.hidden_field :score, id: "rating-value" %>
-    <%= f.text_area :content, placeholder: "口コミをここに" %>
-    <%= f.submit "投稿" %>
+    <div class="form-group">
+      <%= f.text_area :content, placeholder: "口コミをここに", class: "comment_content_responsive form-control" %>
+    </div>
+    <div class="comment_submit_responsive">
+      <%= f.submit "投稿",class: "comment_submit btn btn-success" %>
+    </div>
   <% end %>
 </div>
 
