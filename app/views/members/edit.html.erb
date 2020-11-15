@@ -12,18 +12,6 @@
           ユーザー名<%= f.text_field :nickname ,class: "form-control" %>
         </div>
         <%= f.attachment_field :image, placeholder: "画像", class: "member-e-form-attachment-f" %>
-
-        <script>
-          $(function(){
-            $("#member_image").on("change", function (e) {
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                $(".image").attr("src", e.target.result);
-              }
-              reader.readAsDataURL(e.target.files[0]);
-            });
-          });
-        </script>
         <%= f.submit "登録情報変更",class: "member-edit-submit btn btn-success" %>
       <% end %>
     </div>

@@ -25,7 +25,7 @@
 }
 
 .rating-box .ratings .fa {
-  font-size: 18px;
+  font-size: 30px;
   color: #ffcc00;
   cursor: pointer;
 }
@@ -35,7 +35,7 @@
 }
 
 .rating-value-display {
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .star-rating-front1,
@@ -48,6 +48,24 @@
 
 .star-rating-back {
   color: #ccc;
+}
+
+.hospital_name_comment_review {
+  font-size: 25px;
+}
+
+.comments_count {
+  font-size: 25px;
+}
+
+.satisfaction_level {
+  font-size: 25px;
+  margin: 0 0 0 200px;
+}
+
+.comment_submit {
+  width: 300px;
+margin: 0 0 0 230px;
 }
 
 @media (min-width: 768px){
