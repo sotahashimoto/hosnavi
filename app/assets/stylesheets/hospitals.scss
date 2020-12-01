@@ -169,6 +169,11 @@
   font-size: 20px;
 }
 
+#map {
+  height: 440px;
+  width: 100%;
+}
+
 @media (max-width: 767px){
   .hospital-i-form{display:none}
   .hospital-i-index-img{
